@@ -14,7 +14,7 @@ router.post('/cadex', cadexController.post);
 
 router.route('/user')
     /**
-     * GET /api/cadex
+     * GET /api/users
      * @summary To get informations about users
      * @return {cadex} 200 - success response
      * @return {error} 400 - input data invalid

@@ -13,7 +13,7 @@ const { promise } = require('bcrypt/promises');
 faker.locale = 'fr';
 const NB_USERS = 50
 
-// ---------- user fake seeding ----------
+// ---------- creation users faker ----------
 
 const users = []
 
@@ -29,7 +29,7 @@ for(i=0;i<NB_USERS;i++) {
     user.pseudo = user.first_name + faker.datatype.number(95)
     user.date_of_birth = faker.date.past(65);
     user.password = "test";
-    user.phone_number = faker.phone.phoneNumber('06.##.##.##.##');
+    user.phone_number = faker.phone.phoneNumber('06########');
     user.address = faker.address.streetAddress();
     user.state = faker.address.state();
     user.city = faker.address.city();
@@ -37,7 +37,7 @@ for(i=0;i<NB_USERS;i++) {
     users.push(user);
 }
 
-// ---------- photo - user fake seeding ----------
+// ---------- creation photo -> user faker ----------
 
 const photos = [];
 let randomNumbers = []
@@ -65,14 +65,17 @@ for(i=0;i<NB_USERS;i++){
 
     await client.connect();
 
-    debug('Clean Table')
+    /* debug('Clean Table') */
 
    /*  await client.query('TRUNCATE TABLE "user", "photo" RESTART IDENTITY'); */
 
     const queries = [];
 
+    let count = 0
+
     users.forEach((user) => {
-        debug('Processing user:', user.first_name + ' ' + user.last_name);
+        count += 1
+        debug('insert' , user.first_name , user.last_name + ' on queries array :' + ' ' +  ' / ' + 'request n°' + count );
         const query = client.query(
             `
             INSERT INTO "user"
@@ -86,8 +89,11 @@ for(i=0;i<NB_USERS;i++){
             queries.push(query);
         });  
 
+        count = 0
+
     photos.forEach((photo) => {
-        debug('Processing user:',photo.user_id);
+        count += 1;
+        debug('insert avatar on queries array, user:',photo.user_id + ' / ' + 'request n°' + count );
         const query = client.query(
             `
             INSERT INTO "photo"
