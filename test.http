@@ -16,7 +16,7 @@ POST http://localhost:3000/api/user
 Content-Type:application/json
 
 {
-    "id":5
+    "id":45
 }
 
 ### Test de la route pour vérifier si un user existe ou si il match avec un mdp
