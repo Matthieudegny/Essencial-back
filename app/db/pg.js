@@ -18,7 +18,7 @@
  
  const pool = new Pool({
     conectionString: process.env.DATABASE_URL,
-    ssl : { rejectUnauthorized: false }  
+    ssl : false  
  });
   
  let queryCount = 0;
