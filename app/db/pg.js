@@ -12,11 +12,13 @@
  * sont lu soit directement à partir de l'env soit donnée en paramêtre
  */
  const debug = require('debug')('SQL:log');
+ require('dotenv').config();
+
  const { Pool } = require('pg');
  
  const pool = new Pool({
     conectionString: process.env.DATABASE_URL,
-    ssl : { rejectUnauthorized: false }, 
+/*     ssl : { rejectUnauthorized: false },  */
  });
   
  let queryCount = 0;
