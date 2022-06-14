@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "npx nodemon",
+    "start": "node .",
     "resetDB": "sqitch revert -y; sqitch deploy; DEBUG=* node ./app/db/import-data.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
