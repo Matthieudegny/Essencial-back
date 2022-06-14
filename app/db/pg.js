@@ -14,8 +14,11 @@
  const debug = require('debug')('SQL:log');
  const { Pool } = require('pg');
  
- const pool = new Pool(process.env.DATABASE_URL);
- 
+ const pool = new Pool({
+    conectionString: process.env.DATABASE_URL,
+    ssl : { rejectUnauthorized: false },
+ });
+  
  let queryCount = 0;
  
  module.exports = {
