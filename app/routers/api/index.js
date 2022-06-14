@@ -6,11 +6,6 @@ const apiErrorController = require('../../controllers/api/error');
 const validator = require('../../validation/validator');
 const userGetSchema = require('../../validation/schemas/userGet.schema');
 /* const userPostSchema = require('../../validation/schemas/cadexPost.schema'); */
-/*
-router.get('/cadex', cadexController.get);
-router.post('/cadex', cadexController.post);
-*/
-// equivalent à
 
 router.route('/users')
     /**
@@ -24,7 +19,7 @@ router.route('/users')
 
 router.route('/user') 
     /**
-     * GET /api/user
+     * POST /api/user
      * @summary To get one user with his photo
      * @return {object} 200 - success response
      * @return {error} 400 - input data invalid
@@ -51,7 +46,7 @@ router.route('/user/create')
 
 router.route('/user/delete')
     /**
-     * POST /api/user/delete
+     * DELETE /api/user/delete
      * @summary To delete one user
      * @return {object} 200 - success response
      * @return {error} 400 - input data invalid
