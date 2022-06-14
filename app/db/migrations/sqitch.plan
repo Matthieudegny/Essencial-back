@@ -1,0 +1,4 @@
+%syntax-version=1.0.0
+%project=apotest
+
+init 2022-06-09T20:52:04Z Arthur Lebas <arthurlebas@gmail.com> # création des tables user et photo
