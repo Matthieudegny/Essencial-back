@@ -20,12 +20,14 @@ const userController = {
     async getAllWithPhotos(req,res){
         try {
             const users = await userDatamapper.findAllWithPhoto()
-
+            console.log("users ->",users);
             if(!users){
+                console.log("on passe dans le if");
                 throw new Error({error: "There is no user on BDD"})
             }    
             return res.json(users)
         } catch (error) {
+            console.trace(error)
             res.status(400).json({error: error})
         }
 

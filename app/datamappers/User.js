@@ -1,3 +1,4 @@
+
 const client = require('../db/pg');
 const CoreDatamapper = require('./coreDatamapper');
 
