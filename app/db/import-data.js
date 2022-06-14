@@ -59,8 +59,8 @@ for(i=0;i<NB_USERS;i++){
 
 (async () => {
     const client = new Client({
-        connectionString: process.env.DATABASE_URL,
-        /* ssl: { rejectUnauthorized: false}, */
+        connectionString: process.env.HEROKU_PG_URI,
+        ssl: { rejectUnauthorized: false}, 
     });
 
     await client.connect();

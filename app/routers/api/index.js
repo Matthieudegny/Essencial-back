@@ -1,10 +1,10 @@
 const express = require('express');
-
 const router = express.Router();
 const userController = require('../../controllers/api/user');
 const apiErrorController = require('../../controllers/api/error');
 const validator = require('../../validation/validator');
 const userGetSchema = require('../../validation/schemas/userGet.schema');
+const checkAuth = require('../../middlewares/checkAuth')
 /* const userPostSchema = require('../../validation/schemas/cadexPost.schema'); */
 
 router.route('/users')
@@ -21,6 +21,7 @@ router.route('/user')
     /**
      * POST /api/user
      * @summary To get one user with his photo
+     * @param  {number} 
      * @return {object} 200 - success response
      * @return {object} 400 - input data invalid
     */
