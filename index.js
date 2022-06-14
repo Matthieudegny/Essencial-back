@@ -18,5 +18,5 @@ app.use(express.urlencoded({ extended: true }));
 app.use(router);
 
 app.listen(port, () => {
-    logger.log(`http://localhost:${port}`);
+    console.log(`http://localhost:${port}`);
 });

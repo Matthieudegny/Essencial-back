@@ -19,13 +19,13 @@ const users = []
 
 for(i=0;i<NB_USERS;i++) {
     const user = {}
-    user.email = faker.internet.email(user.first_name, user.last_name);
     if ( i % 2 === 0 ){
         user.first_name = faker.name.firstName('male')
     }else{
         user.first_name = faker.name.firstName('female')
     }
     user.last_name = faker.name.lastName();
+    user.email = faker.internet.email(user.first_name, user.last_name);
     user.pseudo = user.first_name + faker.datatype.number(95)
     user.date_of_birth = faker.date.past(65);
     user.password = "test";

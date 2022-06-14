@@ -129,7 +129,18 @@ class CoreDatamapper {
     }
 
     async delete(id) {
-        await this.constructor.client.query(`DELETE FROM "${this.constructor.tableName}" WHERE id = $1`, [id]);
+
+        const preparedQuery = {
+            text: `DELETE FROM "${this.constructor.tableName}" WHERE id = $1`,
+            values: [id]
+        };
+
+        const result = await this.constructor.client.query(preparedQuery)
+        const row = result.rows[0];
+        console.log("delete result ", row);
+
+        return row;
+
     }
 }
 

@@ -1,0 +1,51 @@
+################################################################################
+# Fichier de test des routes HTTP de l'API
+# Nécessite l'extension REST Client pour VSCode
+# https://marketplace.visualstudio.com/items?itemName=humao.rest-client
+################################################################################
+
+### Test d'une route introuvable
+GET http://localhost:3000/api/ujnlkcsdcs
+
+
+### Test de la route pour récupérer tous les utilisateurs (avec leurs photos)
+GET http://localhost:3000/api/users
+
+### Test de la route pour récupérer un utilisateur et sa photo avec son id 
+POST http://localhost:3000/api/user
+Content-Type:application/json
+
+{
+    "id":5
+}
+
+### Test de la route pour vérifier si un user existe ou si il match avec un mdp
+## régler la gestion des erreurs (faire en sorte que les messages s'affiche)
+POST http://localhost:3000/api/user/connexion
+Content-Type:application/json
+
+{
+    "email": "Josselin_Carre@yahoo.fr",
+    "password": "test"
+}
+
+### Test de la route pour ajouter un nouvel utilisateur
+POST http://localhost:3000/api/user/create
+Content-Type:application/json
+
+{
+    "email": "test@gmail.com",
+    "first_name": "test",
+    "last_name": "test",
+    "pseudo": "test77",
+    "date_of_birth": "2021-10-29T02:58:12.923Z",
+    "password": "test",
+    "phone_number": "0677777777",
+    "address": "77 rue du test",
+    "state": "ile de france",
+    "zip_code": "77777",
+    "city": "test"
+}
+
+### Test de la route pour supprimer un utilisateur
+DELETE http://localhost:3000/api/user/delete/?id=54
