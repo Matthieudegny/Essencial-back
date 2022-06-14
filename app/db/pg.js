@@ -17,8 +17,8 @@
  const { Pool } = require('pg');
  
  const pool = new Pool({
-    conectionString: process.env.DATABASE_URL,
-    ssl : { rejectUnauthorized: false },  
+    conectionString: process.env.DATABASE_URL
+    /* ssl : { rejectUnauthorized: false }, */  
  });
   
  let queryCount = 0;

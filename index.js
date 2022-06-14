@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const expressJSDocSwagger = require('express-jsdoc-swagger')
 const router = require('./app/routers');
+const cors = require('cors');
 
 const port = process.env.PORT || 3000;
 
@@ -29,6 +30,8 @@ expressJSDocSwagger(app)(options);
 app.use(express.json());
 // On peut si on veut le permettre, ajouter l'interpretation de données sous forme urlencoded
 app.use(express.urlencoded({ extended: true }));
+
+app.use(cors(process.env.CORS_DOMAINS ?? '*'));
 
 app.use(router);
 
