@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "npx nodemon",
     "start": "node .",
-    "resetDB": "sqitch revert -y; sqitch deploy; DEBUG=* node ./app/db/import-data.js",
+    "resetDB": "sqitch revert -y; sqitch deploy; DEBUG=* node ./app/db/import-data.js"
   },
   "repository": {
     "type": "git",
