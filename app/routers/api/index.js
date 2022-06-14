@@ -12,7 +12,7 @@ router.route('/users')
      * GET /api/users
      * @summary To get all users with their photos
      * @return {object} 200 - success response
-     * @return {error} 400 - input data invalid
+     * @return {object} 400 - input data invalid
      */
 /*     .get(validator('query', userGetSchema), userController.getAll) */
        .get(userController.getAllWithPhotos)
@@ -22,7 +22,7 @@ router.route('/user')
      * POST /api/user
      * @summary To get one user with his photo
      * @return {object} 200 - success response
-     * @return {error} 400 - input data invalid
+     * @return {object} 400 - input data invalid
     */
     .post(userController.getOneWithPhoto) 
 
@@ -31,7 +31,7 @@ router.route('/user/connexion')
      * POST /api/user/connexion
      * @summary To verified if email match with password
      * @return {object} 200 - success response
-     * @return {error} 400 - input data invalid
+     * @return {object} 400 - input data invalid
     */
     .post(userController.verifyAuthentification) 
     
@@ -40,7 +40,7 @@ router.route('/user/create')
      * POST /api/user/create
      * @summary To create one user
      * @return {object} 200 - success response
-     * @return {error} 400 - input data invalid
+     * @return {object} 400 - input data invalid
     */
    .post(userController.createOne)
 
@@ -49,7 +49,7 @@ router.route('/user/delete')
      * DELETE /api/user/delete
      * @summary To delete one user
      * @return {object} 200 - success response
-     * @return {error} 400 - input data invalid
+     * @return {object} 400 - input data invalid
     */
    .delete(userController.deleteOne)
 
