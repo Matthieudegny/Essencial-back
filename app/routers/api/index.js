@@ -53,7 +53,7 @@ router.route('/user/:id(\\d+)')
     */
     .get(userController.getOneWithPhoto) 
     /**
-    * GET /api/user/{id}
+    * DELETE /api/user/{id}
     * @summary To delete one user with his photo
     * @tags User
     * @param {number} id.path.required - user identifier
