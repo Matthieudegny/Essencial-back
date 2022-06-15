@@ -76,6 +76,13 @@ const userController = {
         }
     },
 
+    /**
+     * User controller to verify Authentification
+     * ExpressMiddleware signature
+     * @param {object} req Express request object
+     * @param {object} res Express response object
+     * @return Route API JSON response
+     */
     async verifyAuthentification(req,res){
         const user = req.body
         try {
@@ -142,7 +149,7 @@ const userController = {
             if(!userToDelete){
                 throw Error("The id does not exist")
             }
-            
+
             const result = await userDatamapper.delete(userId)
             console.log(result);
             return res.json({

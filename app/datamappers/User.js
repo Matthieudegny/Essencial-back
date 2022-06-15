@@ -3,6 +3,26 @@ const client = require('../db/pg');
 const CoreDatamapper = require('./coreDatamapper');
 const photoDatamapper = require('./Photo');
 
+/**
+ * @typedef {Object} User
+ * @property {int} id - Identifier unique primary key of the table
+ * @property {string} email - Email unique 
+ * @property {string} first_name - First name
+ * @property {string} last_name - Last name
+ * @property {string} pseudo - Pseudo
+ * @property {timestamptz} date_of_birth - Date of birth
+ * @property {string} password - Password
+ * @property {string} rights - user's right
+ * @property {string} phone_number - Phone number
+ * @property {string} address - Address
+ * @property {string} state - region
+ * @property {string} zip_code - postal code
+ * @property {string} city - city
+ * @property {timestamptz} created_at - Date of creation
+ * @property {timestamptz} updated_at - Date of updated
+ * @property {string} path - Path of the profile picture
+ */
+
 class User extends CoreDatamapper {
     tableName = 'user'
 
