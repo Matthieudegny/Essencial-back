@@ -76,6 +76,7 @@ class CoreDatamapper {
         let indexPlaceholder = 1;
 
         Object.entries(inputData).forEach(([prop, value]) => {
+            
             fields.push(`"${prop}"`);
             placeholders.push(`$${indexPlaceholder}`);
             indexPlaceholder += 1;

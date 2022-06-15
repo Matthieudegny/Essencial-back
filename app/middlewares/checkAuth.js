@@ -13,8 +13,8 @@ function checkLog(req,res,next) {
         if (err) {
             return res.status(403).send('fordbiden');
         }
-/*         console.log(response);
- */        next()
+        
+        next()
     })
 
 }

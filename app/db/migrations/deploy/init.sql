@@ -48,7 +48,7 @@ CREATE TABLE "user" (
     "rights" TEXT NOT NULL DEFAULT 'user',
     "phone_number" phone_number_format,
     "address" TEXT,
-    "state" TEXT,
+    "state" TEXT NOT NULL,
     "zip_code" text NOT NULL,
     "city" TEXT NOT NULL,
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT now(),

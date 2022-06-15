@@ -17,43 +17,47 @@ router.route('/users')
 /*     .get(validator('query', userGetSchema), userController.getAll) */
        .get(userController.getAllWithPhotos)
 
-router.route('/user') 
-    /**
-     * POST /api/user
-     * @summary To get one user with his photo
-     * @param {number} id.query.required - user object with only id
-     * @return {object} 200 - success response
-     * @return {object} 400 - input data invalid
-    */
-    .post(userController.getOneWithPhoto) 
-
+       
 router.route('/user/connexion')
-    /**
-     * POST /api/user/connexion
-     * @summary To verified if email match with password
-     * @param  {object} request.body.required - user object with only email and password
-     * @return {object} 200 - success response
-     * @return {object} 400 - input data invalid
-    */
-    .post(userController.verifyAuthentification) 
-    
+/**
+* POST /api/user/connexion
+* @summary To verified if email match with password
+* @param  {object} request.body.required - user object with only email and password
+* @return {object} 200 - success response
+* @return {object} 400 - input data invalid
+*/
+.post(userController.verifyAuthentification) 
+
+       
+
 router.route('/user/create')
-    /**
-     * POST /api/user/create
-     * @summary To create one user
-     * @return {object} 200 - success response
-     * @return {object} 400 - input data invalid
-    */
-   .post(userController.createOne)
+/**
+ * POST /api/user/create
+ * @summary To create one user
+ * @return {object} 200 - success response
+ * @return {object} 400 - input data invalid
+ */
+.post(userController.createOne)
 
 router.route('/user/delete')
+/**
+ * DELETE /api/user/delete
+ * @summary To delete one user
+ * @return {object} 200 - success response
+ * @return {object} 400 - input data invalid
+ */
+.delete(userController.deleteOne)
+
+router.route('/user/:id') 
     /**
-     * DELETE /api/user/delete
-     * @summary To delete one user
-     * @return {object} 200 - success response
-     * @return {object} 400 - input data invalid
+    * GET /api/user
+    * @summary To get one user with his photo
+    * @param {number} request.query.required - user id
+    * @return {object} 200 - success response
+    * @return {object} 400 - input data invalid
     */
-   .delete(userController.deleteOne)
+    .get(userController.getOneWithPhoto) 
+
 
 router.use(apiErrorController.error404);
 

@@ -20,8 +20,8 @@ const userController = {
     async getAllWithPhotos(req,res){
         try {
             const users = await userDatamapper.findAllWithPhoto()
-/*             console.log("users ->",users);
- */            if(!users){
+            /* console.log("users ->",users); */
+            if(!users){
                 console.log("on passe dans le if");
                 throw new Error({error: "There is no user on BDD"})
             }    
@@ -55,14 +55,14 @@ const userController = {
     },
 
     async getOneWithPhoto(req,res){
-        const user = req.body
+        const userId = req.params.id
         try {
-            if(!user.id){
+            if(!userId){
                 console.log("je passe dans le if no id");
                 throw new Error("You must specify an id")
             }
 
-            const result = await userDatamapper.findOneWithPhoto(user.id)
+            const result = await userDatamapper.findOneWithPhoto(userId)
             console.log(result);
             if(!result){
                 console.log("je passe dans le if no result");
@@ -84,16 +84,18 @@ const userController = {
                 throw Error("you must send user.email & user.password")
             }
             const result = await userDatamapper.findByEmail(user);
-    
+            console.log(result);
             if (!result){
                 throw Error(`There is no match for email and password`)
             }
 
             const accessToken = jwt.sign(result, process.env.ACCESS_TOKEN_SECRET, {expiresIn: 1800})
             console.log("jwt -->",accessToken);
+            console.log("result -->", result);
             return res.json({
-                    message: "Authentification complete",
-                    jwt: accessToken
+                    logged: true,
+                    pseudo: result.pseudo,
+                    token: accessToken
                     })
             
         } catch(error) {
