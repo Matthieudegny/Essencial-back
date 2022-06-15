@@ -57,7 +57,7 @@ router.route('/user/:id(\\d+)')
     * GET /api/user/{id}
     * @summary To get one user with his photo
     * @tags User
-    * @param {number} request.param.required - user id
+    * @param {number} request.path.required - user id
     * @return {object} 200 - success response
     * @return {object} 400 - input data invalid
     */
