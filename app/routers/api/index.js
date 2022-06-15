@@ -15,7 +15,7 @@ router.route('/users')
      * @return {object} 400 - input data invalid
      */
 /*     .get(validator('query', userGetSchema), userController.getAll) */
-       .get(checkAuth , userController.getAllWithPhotos)
+       .get(userController.getAllWithPhotos)
 
 router.route('/user') 
     /**
