@@ -21,7 +21,7 @@ router.route('/user')
     /**
      * POST /api/user
      * @summary To get one user with his photo
-     * @parameters  {object} request.body.required - user object with only id
+     * @arg {object} request.body.required - user object with only id
      * @return {object} 200 - success response
      * @return {object} 400 - input data invalid
     */
