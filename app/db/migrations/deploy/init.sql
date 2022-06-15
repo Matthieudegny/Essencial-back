@@ -97,7 +97,8 @@ CREATE TABLE "category" (
 CREATE TABLE "photo" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "path" TEXT NOT NULL,
-    "user_id" INT REFERENCES "user"("id"),
+    "user_id" INT REFERENCES "ufser"("id")
+              ON DELETE CASCADE,
     "ev_id" INT REFERENCES "ecovil"("id"),
     "post_id" INT REFERENCES "post"("id"),
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT now(),
