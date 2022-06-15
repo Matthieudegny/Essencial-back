@@ -132,7 +132,7 @@ const userController = {
     },
 
     async deleteOne(req,res){
-        const userId = req.param.id
+        const userId = req.params.id
         console.log(userId);
         try {
             if(!userId){
