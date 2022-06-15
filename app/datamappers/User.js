@@ -10,7 +10,7 @@ class User extends CoreDatamapper {
         let preparedQuery = {}
         // Si on fournis un mdp à l'objet user on l'ajoute à la requête
         // Sinon on ne cherche que par rapport à l'adresse mail
-        if(user.password){
+/*         if(user.password){ */
                 preparedQuery = {
                 text: `
                 SELECT * 
@@ -19,7 +19,7 @@ class User extends CoreDatamapper {
                 AND "password" = $2`,
                 values: [user.email, user.password]
             };
-        } else {
+ /*        } else {
                 preparedQuery = {
                 text: `
                 SELECT * 
@@ -27,11 +27,11 @@ class User extends CoreDatamapper {
                 WHERE "email" = $1`,
                 values: [user.email]
             };
-        }   
+        }    */
         console.log(preparedQuery.text);
         const result = await this.client.query(preparedQuery);
 
-        if (!result.rows[0]) {
+/*         if (!result.rows[0]) {
             // Si il n'y à pas de résultat je lève une erreur en fonction de ce qui à été
             // fournis dans l'objet user
             if (!user.email){
@@ -41,7 +41,7 @@ class User extends CoreDatamapper {
             } else {
                 throw new Error(`the email ${user.email} does not match with password ${user.password} (on table ${table})`);
             }
-        }
+        } */
         if (!result.rows[0]) {
             return null;
         }

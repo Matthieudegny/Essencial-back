@@ -6,26 +6,23 @@ const { verifyAuthentification } = require('../controllers/api/user')
  */
 
 function checkLog(req,res,next) {
-    const user = req.body;
-    const userVerified = verifyAuthentification(user)
 
-    if(userVerified){
-        const jwtContent = { userId: userVerified.id };
-        const jwtOptions = { 
-            algorithm: 'HS256', 
-            expiresIn: '3h' 
-        }
-        console.log('<< 200', userVerified.first_name, userVerified.last_name);
-        res.json({
-            logged: true,
-            pseudo: userVerified.pseudo,
-            token: jsonwebtoken.sign(jwtContent, process.env.ACCESS_TOKEN_SECRET, jwtOptions)
-        })
-        next();
-    } else {
-        console.log('<< 401 UNHAUTHORIZED');
-        res.sendStatus(401);
+    const authHeader = req.headers['authorization']
+    const token = authHeader && authHeader.split(' ')[1]
+
+    if(token == null){
+        return res.sendStatus(401)
     }
+
+    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err,res) => {
+        console.log(err);
+        if (err) {
+            return res.sendStatus(403)
+        }
+        req.user = user
+        next()
+    })
+
 }
 
 module.exports = checkLog;

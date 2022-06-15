@@ -31,7 +31,7 @@ router.route('/user/connexion')
     /**
      * POST /api/user/connexion
      * @summary To verified if email match with password
-     * @param  {string} request.body.required - user object with only email and password
+     * @param  {object} request.body.required - user object with only email and password
      * @return {object} 200 - success response
      * @return {object} 400 - input data invalid
     */
