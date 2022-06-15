@@ -47,4 +47,4 @@ Content-Type:application/json
 }
 
 ### Test de la route pour supprimer un utilisateur
-DELETE http://localhost:3000/api/user/delete/?id=54
+DELETE http://localhost:3000/api/user/54

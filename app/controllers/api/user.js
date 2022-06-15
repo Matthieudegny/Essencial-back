@@ -142,6 +142,7 @@ const userController = {
             if(!userToDelete){
                 throw Error("The id does not exist")
             }
+            
             const result = await userDatamapper.delete(userId)
             console.log(result);
             return res.json({
