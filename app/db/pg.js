@@ -20,15 +20,16 @@
      const pool = new Pool({
         connectionString: process.env.DATABASE_URL,
     });
- } else {
+ } 
+
+ if(process.env.NODE_ENV === 'production') {
     const pool = new Pool({
-        connectionString: process.env.DATABASE_URL,
-        ssl: {
-           rejectUnauthorized: false
-         } 
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+        rejectUnauthorized: false
+        } 
     });
  }
-
 
  let queryCount = 0;
  
