@@ -52,7 +52,7 @@ router.route('/user/delete')
  */
 .delete(userController.deleteOne)
 
-router.route('/user/:id(\\d+)') 
+router.route('/user/:id') 
     /**
     * GET /api/user/id
     * @summary To get one user with his photo
