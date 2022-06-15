@@ -1,6 +1,5 @@
 const jwt = require('jsonwebtoken')
 require('dotenv').config();
-const { verifyAuthentification } = require('../controllers/api/user')
 
 /* const authorizationMiddleware = jwt({ secret: process.env.ACCESS_TOKEN_SECRET, algorithms: ['HS256'] });
  */
