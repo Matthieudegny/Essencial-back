@@ -1,24 +1,20 @@
 const jwt = require('jsonwebtoken')
 require('dotenv').config();
 
-/* const authorizationMiddleware = jwt({ secret: process.env.ACCESS_TOKEN_SECRET, algorithms: ['HS256'] });
- */
 
 function checkLog(req,res,next) {
-
-    const authHeader = req.headers['authorization']
-    const token = authHeader && authHeader.split(' ')[1]
-
+    let token = req.headers['authorization'];
+    token = token.slice(4,token.length);
     if(token == null){
-        return res.sendStatus(401)
+        return res.status(401).send("unauthorized");
     }
 
-    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err,res) => {
-        console.log(err);
+    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err,response) => {
         if (err) {
-            return res.sendStatus(403)
+            return res.status(403).send('fordbiden');
         }
-        req.user = user
+        console.log(response);
+        return
         next()
     })
 

@@ -10,6 +10,8 @@ GET http://localhost:3000/api/ujnlkcsdcs
 
 ### Test de la route pour récupérer tous les utilisateurs (avec leurs photos)
 GET http://localhost:3000/api/users
+Content-Type:application/json
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsImVtYWlsIjoiSm9zc2VsaW5fQ2FycmVAeWFob28uZnIiLCJmaXJzdF9uYW1lIjoiSm9zc2VsaW4iLCJsYXN0X25hbWUiOiJDYXJyZSIsInBzZXVkbyI6Ikpvc3NlbGluMjQiLCJkYXRlX29mX2JpcnRoIjoiMjAyMS0xMC0yOVQwMjo1ODoxMi45MjNaIiwicGFzc3dvcmQiOiJ0ZXN0IiwicmlnaHRzIjoidXNlciIsInBob25lX251bWJlciI6IjA2NTc3Nzk2NDUiLCJhZGRyZXNzIjoiMCBRdWFpIGRlcyBHcmFuZHMgQXVndXN0aW5zIiwic3RhdGUiOiJBcXVpdGFpbmUiLCJ6aXBfY29kZSI6IjkzMzU4IiwiY2l0eSI6IlZhbGVuY2UiLCJjcmVhdGVkX2F0IjoiMjAyMi0wNi0xM1QxMjo1NzozMC43MjRaIiwidXBkYXRlZF9hdCI6bnVsbCwiaWF0IjoxNjU1Mjg3MTk2LCJleHAiOjE2NTUyODg5OTZ9.DtojpyiBXCOkYBlH24aKVgCbwqidPH6ljf3rYPrfWv4
 
 ### Test de la route pour récupérer un utilisateur et sa photo avec son id 
 POST http://localhost:3000/api/user
@@ -34,7 +36,7 @@ POST http://localhost:3000/api/user/create
 Content-Type:application/json
 
 {
-    "email": "tes5t@gmail.com",
+    "email": "tes7t@gmail.com",
     "first_name": "test",
     "last_name": "test",
     "pseudo": "test77",

@@ -20,8 +20,8 @@ const userController = {
     async getAllWithPhotos(req,res){
         try {
             const users = await userDatamapper.findAllWithPhoto()
-            console.log("users ->",users);
-            if(!users){
+/*             console.log("users ->",users);
+ */            if(!users){
                 console.log("on passe dans le if");
                 throw new Error({error: "There is no user on BDD"})
             }    
@@ -89,7 +89,7 @@ const userController = {
                 throw Error(`There is no match for email and password`)
             }
 
-            const accessToken = jwt.sign(result, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '1800s'})
+            const accessToken = jwt.sign(result, process.env.ACCESS_TOKEN_SECRET, {expiresIn: 1800})
             console.log("jwt -->",accessToken);
             return res.json({
                     message: "Authentification complete",
