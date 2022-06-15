@@ -54,7 +54,7 @@ router.route('/user/delete')
 
 router.route('/user/:id(\\d+)') 
     /**
-    * GET /api/user/{id}
+    * GET /api/user/id
     * @summary To get one user with his photo
     * @tags User
     * @param {number} request.path.required - user id
