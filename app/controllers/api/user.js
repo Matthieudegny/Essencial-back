@@ -90,8 +90,7 @@ const userController = {
             }
 
             const accessToken = jwt.sign(result, process.env.ACCESS_TOKEN_SECRET, {expiresIn: 1800})
-            console.log("jwt -->",accessToken);
-            console.log("result -->", result);
+
             return res.json({
                     logged: true,
                     pseudo: result.pseudo,
@@ -110,6 +109,22 @@ const userController = {
                 throw Error("you must send a user")
             }
             const result = await userDatamapper.create(user)
+            return res.json(result)
+        } catch (error) {
+            return res.status(400).json({error: error.message})
+        }
+    },
+
+    async createOneWithPhoto(req,res){
+        const user = req.body
+        try {
+            if(!user){
+                throw Error("you must send a user")
+            }
+            if(!user.path){
+                throw Error("you must send a photo")
+            }
+            const result = await userDatamapper.createWithPhoto(user)
             return res.json(result)
         } catch (error) {
             return res.status(400).json({error: error.message})

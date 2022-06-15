@@ -65,6 +65,37 @@ class User extends CoreDatamapper {
         return result.rows[0];
     }
 
+    async createWithPhoto(user){
+
+        // création d'un user sans la propriété path pour pouvoir l'insérer
+        // dans la création d'un user
+        const userWithoutPath = JSON.parse(JSON.stringify(user)) ;
+        Reflect.deleteProperty(userWithoutPath, 'path')
+ 
+        // insertion d'un user
+        const userInsert = await this.create(userWithoutPath);
+
+        if(!userInsert){
+            return null;
+        }
+
+        const photoInput = {
+            user_id : userInsert.id,
+            path: user.path
+        }
+
+        // insertion d'une photo
+        const photoInsert = await photoDatamapper.create(photoInput)
+
+        if(!photoInsert){
+            return null;
+        }
+
+        return {
+            user: userInsert,
+            photo: photoInsert
+        }
+     }
 }
 
 module.exports = new User(client);

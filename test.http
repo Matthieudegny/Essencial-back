@@ -32,7 +32,7 @@ POST http://localhost:3000/api/user/create
 Content-Type:application/json
 
 {
-    "email": "tes7t@gmail.com",
+    "email": "userWithPhoto9@gmail.com",
     "first_name": "test",
     "last_name": "test",
     "pseudo": "test77",
@@ -42,7 +42,8 @@ Content-Type:application/json
     "address": "77 rue du test",
     "state": "ile de france",
     "zip_code": "77777",
-    "city": "test"
+    "city": "test",
+    "path": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/823.jpg"
 }
 
 ### Test de la route pour supprimer un utilisateur

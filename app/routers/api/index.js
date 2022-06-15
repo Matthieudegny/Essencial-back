@@ -8,14 +8,14 @@ const checkAuth = require('../../middlewares/checkAuth')
 /* const userPostSchema = require('../../validation/schemas/cadexPost.schema'); */
 
 router.route('/users')
-    /**
-     * GET /api/users
-     * @summary To get all users with their photos
-     * @return {object} 200 - success response
-     * @return {object} 400 - input data invalid
-     */
-/*     .get(validator('query', userGetSchema), userController.getAll) */
-       .get(userController.getAllWithPhotos)
+/**
+ * GET /api/users
+ * @summary To get all users with their photos
+ * @return {object} 200 - success response
+ * @return {object} 400 - input data invalid
+ */
+/*.get(validator('query', userGetSchema), userController.getAll) */
+.get(userController.getAllWithPhotos)
 
        
 router.route('/user/connexion')
@@ -37,7 +37,7 @@ router.route('/user/create')
  * @return {object} 200 - success response
  * @return {object} 400 - input data invalid
  */
-.post(userController.createOne)
+.post(userController.createOneWithPhoto)
 
 router.route('/user/delete')
 /**
