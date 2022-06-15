@@ -132,11 +132,15 @@ const userController = {
     },
 
     async deleteOne(req,res){
-        const userId = req.query.id
+        const userId = req.param.id
         console.log(userId);
         try {
             if(!userId){
-                throw Error("you must send user.id")
+                throw Error("you must send the identifier")
+            }
+            const userToDelete = await userDatamapper.findByPk(userId)
+            if(!userToDelete){
+                throw Error("The id does not exist")
             }
             const result = await userDatamapper.delete(userId)
             console.log(result);

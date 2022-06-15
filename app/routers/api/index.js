@@ -42,16 +42,6 @@ router.route('/user/create')
  */
 .post(userController.createOneWithPhoto)
 
-router.route('/user/delete')
-/**
- * DELETE /api/user/delete
- * @summary To delete one user
- * @tags User
- * @return {object} 200 - success response
- * @return {object} 400 - input data invalid
- */
-.delete(userController.deleteOne)
-
 router.route('/user/:id(\\d+)') 
     /**
     * GET /api/user/{id}
@@ -62,6 +52,15 @@ router.route('/user/:id(\\d+)')
     * @return {object} 400 - input data invalid
     */
     .get(userController.getOneWithPhoto) 
+    /**
+    * GET /api/user/{id}
+    * @summary To delete one user with his photo
+    * @tags User
+    * @param {number} id.path.required - user identifier
+    * @return {object} 200 - success response
+    * @return {object} 400 - input data invalid
+    */
+    .delete(userController.deleteOne)
 
 
 router.use(apiErrorController.error404);
