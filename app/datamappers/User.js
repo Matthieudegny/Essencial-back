@@ -123,7 +123,7 @@ class User extends CoreDatamapper {
             text: `
             SELECT * FROM "user"
             JOIN "photo" ON "user".id = "photo"."user_id"
-            WHERE "id" IN (
+            WHERE "user"."id" IN (
                 SELECT friend_id 
                     FROM friendship
                     WHERE "user_id" = $1 
@@ -135,7 +135,7 @@ class User extends CoreDatamapper {
             text:`
             SELECT * FROM "user" 
             JOIN "photo" ON "user".id = "photo"."user_id"
-            WHERE "id" IN (
+            WHERE "user"."id" IN (
                 SELECT user_id 
                     FROM friendship
                     WHERE "friend_id" = $1 
@@ -144,6 +144,7 @@ class User extends CoreDatamapper {
         }
 
         let resultUserId = await this.client.query(preparedQueryUserId)
+        console.log("result friends req ----->" , resultUserId);
         let resultFriendId = await this.client.query(preparedQueryFriendId)
         if(resultUserId.rowCount > 1){
             resultUserId = resultUserId.rows
