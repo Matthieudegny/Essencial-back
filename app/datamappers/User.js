@@ -5,7 +5,7 @@ const photoDatamapper = require('./Photo');
 
 /**
  * @typedef {Object} User
- * @property {int} id - Identifier unique primary key of the table
+ * @property {number} id - Identifier unique primary key of the table
  * @property {string} email - Email unique 
  * @property {string} first_name - First name
  * @property {string} last_name - Last name
@@ -15,7 +15,7 @@ const photoDatamapper = require('./Photo');
  * @property {string} rights - user's right
  * @property {string} phone_number - Phone number
  * @property {string} address - Address
- * @property {string} state - region
+ * @property {string} region - region
  * @property {string} zip_code - postal code
  * @property {string} city - city
  * @property {timestamptz} created_at - Date of creation
@@ -115,7 +115,45 @@ class User extends CoreDatamapper {
             user: userInsert,
             photo: photoInsert
         }
-     }
+    }
+
+    async findAllFriends(userId) {
+        
+        const preparedQueryUserId = {
+            text: `
+            SELECT * FROM "user" WHERE "id" IN (
+                SELECT friend_id 
+                    FROM friendship
+                    WHERE "user_id" = $1 
+                )`,
+            values: [userId]
+        }
+
+        const preparedQueryFriendId = {
+            text:`
+            SELECT * FROM "user" WHERE "id" IN (
+                SELECT user_id 
+                    FROM friendship
+                    WHERE "friend_id" = $1 
+                )`,
+            values: [userId]
+        }
+
+        let resultUserId = await this.client.query(preparedQueryUserId)
+        let resultFriendId = await this.client.query(preparedQueryFriendId)
+        if(resultUserId.rowCount > 1){
+            resultUserId = resultUserId.rows
+        }else{
+            resultUserId = resultUserId.rows[0]
+        }
+        if(resultFriendId.rowCount > 1){
+            resultFriendId = resultFriendId.rows
+        }else{
+            resultFriendId = resultFriendId.rows[0]
+        }
+        const result = Object.assign({}, resultUserId, resultFriendId);
+        return result
+    }
 }
 
 module.exports = new User(client);

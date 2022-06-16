@@ -29,9 +29,7 @@ router.route('/user/connexion')
 * @return {object} 400 - input data invalid
 */
 .post(userController.verifyAuthentification) 
-
        
-
 router.route('/user/create')
 /**
  * POST /api/user/create
@@ -44,24 +42,35 @@ router.route('/user/create')
 .post(userController.createOneWithPhoto)
 
 router.route('/user/:id(\\d+)') 
-    /**
-    * GET /api/user/{id}
-    * @summary To get one user with his photo
-    * @tags User
-    * @param {number} id.path.required - user identifier
-    * @return {object} 200 - success response
-    * @return {object} 400 - input data invalid
-    */
-    .get(userController.getOneWithPhoto) 
-    /**
-    * DELETE /api/user/{id}
-    * @summary To delete one user with his photo
-    * @tags User
-    * @param {number} id.path.required - user identifier
-    * @return {object} 200 - success response
-    * @return {object} 400 - input data invalid
-    */
-    .delete(userController.deleteOne)
+/**
+* GET /api/user/{id}
+* @summary To get one user with his photo
+* @tags User
+* @param {number} id.path.required - user identifier
+* @return {object} 200 - success response
+* @return {object} 400 - input data invalid
+*/
+.get(userController.getOneWithPhoto) 
+/**
+* DELETE /api/user/{id}
+* @summary To delete one user with his photo
+* @tags User
+* @param {number} id.path.required - user identifier
+* @return {object} 200 - success response
+* @return {object} 400 - input data invalid
+*/
+.delete(userController.deleteOne)
+
+router.route('/user/friends/:id(\\d+)') 
+/**
+* GET /api/user/friends/{id}
+* @summary To get all user's friends
+* @tags User
+* @param {number} id.path.required - user identifier
+* @return {object} 200 - success response
+* @return {object} 400 - input data invalid
+*/
+.get(userController.getAllFriends) 
 
 
 router.use(apiErrorController.error404);

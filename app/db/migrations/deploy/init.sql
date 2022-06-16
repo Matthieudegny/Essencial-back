@@ -48,7 +48,7 @@ CREATE TABLE "user" (
     "rights" TEXT NOT NULL DEFAULT 'user',
     "phone_number" phone_number_format,
     "address" TEXT,
-    "state" TEXT NOT NULL,
+    "region" TEXT NOT NULL,
     "zip_code" text NOT NULL,
     "city" TEXT NOT NULL,
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT now(),
@@ -97,7 +97,7 @@ CREATE TABLE "category" (
 CREATE TABLE "photo" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "path" TEXT NOT NULL,
-    "user_id" INT REFERENCES "ufser"("id")
+    "user_id" INT REFERENCES "user"("id")
               ON DELETE CASCADE,
     "ev_id" INT REFERENCES "ecovil"("id"),
     "post_id" INT REFERENCES "post"("id"),
@@ -116,8 +116,10 @@ OR (user_id IS NULL AND ev_id IS NULL AND post_id IS NOT NULL)); */
 
 CREATE TABLE "friendship" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    "user_id" INT NOT NULL REFERENCES "user"("id"),
-    "friend_id" INT NOT NULL REFERENCES "user"("id"),
+    "user_id" INT NOT NULL REFERENCES "user"("id")
+              ON DELETE CASCADE,
+    "friend_id" INT NOT NULL REFERENCES "user"("id")
+                ON DELETE CASCADE,
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT now(),
     "updated_at" TIMESTAMPTZ
 );

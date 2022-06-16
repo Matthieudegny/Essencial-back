@@ -159,6 +159,15 @@ const userController = {
         } catch (error) {
             return res.status(400).json({error: error.message})
         }
+    },
+
+    async getAllFriends(req, res) {
+
+        const userId = req.params.id
+        const friends = await userDatamapper.findAllFriends(userId)
+
+        return res.json(friends)
+
     }
 }
 

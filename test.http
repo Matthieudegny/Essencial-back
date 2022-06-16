@@ -23,7 +23,7 @@ POST http://localhost:3000/api/user/connexion
 Content-Type:application/json
 
 {
-    "email": "Josselin_Carre@yahoo.fr",
+    "email": "Ursule47@hotmail.fr",
     "password": "test"
 }
 
@@ -40,7 +40,7 @@ Content-Type:application/json
     "password": "test",
     "phone_number": "0677777777",
     "address": "77 rue du test",
-    "state": "ile de france",
+    "region": "ile de france",
     "zip_code": "77777",
     "city": "test",
     "path": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/823.jpg"
@@ -48,3 +48,6 @@ Content-Type:application/json
 
 ### Test de la route pour supprimer un utilisateur
 DELETE http://localhost:3000/api/user/54
+
+### Test de la route pour récupérer tout les amis d'un utilisateur
+GET http://localhost:3000/api/user/friends/24
