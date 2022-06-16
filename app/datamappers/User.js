@@ -121,7 +121,9 @@ class User extends CoreDatamapper {
         
         const preparedQueryUserId = {
             text: `
-            SELECT * FROM "user" WHERE "id" IN (
+            SELECT * FROM "user"
+            JOIN "photo" ON "user".id = "photo"."user_id"
+            WHERE "id" IN (
                 SELECT friend_id 
                     FROM friendship
                     WHERE "user_id" = $1 
@@ -131,7 +133,9 @@ class User extends CoreDatamapper {
 
         const preparedQueryFriendId = {
             text:`
-            SELECT * FROM "user" WHERE "id" IN (
+            SELECT * FROM "user" 
+            JOIN "photo" ON "user".id = "photo"."user_id"
+            WHERE "id" IN (
                 SELECT user_id 
                     FROM friendship
                     WHERE "friend_id" = $1 

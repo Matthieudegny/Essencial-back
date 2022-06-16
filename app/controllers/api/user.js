@@ -164,6 +164,11 @@ const userController = {
     async getAllFriends(req, res) {
 
         const userId = req.params.id
+
+        const checkUserExist = await userDatamapper.findByPk(userId)
+        if(!checkUserExist){
+            throw Error("User with id does not exist")
+        }
         const friends = await userDatamapper.findAllFriends(userId)
 
         return res.json(friends)
