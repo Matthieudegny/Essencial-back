@@ -10,8 +10,9 @@ const { promise } = require('bcrypt/promises');
 const debug = require('debug')('import:log');
 
 faker.locale = 'fr';
-const NB_USERS = 50
-const NB_FRIENDSHIP = 50
+const NB_USERS = 50;
+const NB_FRIENDSHIP = 500;
+const NB_POSTS = 1000;
 
 // ---------- creation users faker ----------
 
@@ -39,20 +40,20 @@ for(i=0;i<NB_USERS;i++) {
 
 // ---------- creation photo -> user faker ----------
 
-const photos = [];
-let randomNumbers = []
+const userPhotos = [];
+let userPhotoRandomNumbers = []
 
 for(i=0;i<NB_USERS;i++){
 
     const photo = {}
     photo.path = faker.image.avatar()
-    let randomNumber = faker.datatype.number({min: 1, max:50})
-    while(randomNumbers.includes(randomNumber)){
-        randomNumber = faker.datatype.number({min: 1, max:50})
+    let userPhotoRandomNumber = faker.datatype.number({min: 1, max:NB_USERS})
+    while(userPhotoRandomNumbers.includes(userPhotoRandomNumber)){
+        userPhotoRandomNumber = faker.datatype.number({min: 1, max:NB_USERS})
     }
-    randomNumbers.push(randomNumber)
-    photo.user_id = randomNumber;
-    photos.push(photo);
+    userPhotoRandomNumbers.push(userPhotoRandomNumber)
+    photo.user_id = userPhotoRandomNumber;
+    userPhotos.push(photo);
 }
 
 // ---------- creation friendship ----------
@@ -78,6 +79,43 @@ for(i=0;i<NB_FRIENDSHIP;i++){
     friendships.push(friendship)
 } 
 
+// ---------- creation post ---------
+
+const posts = [];
+
+for(i=0 ; i<NB_POSTS ; i++) {
+    const post = {}
+    post.user_id = faker.datatype.number({min: 1, max:50})
+    post.content =  faker.lorem.paragraphs(5)
+    if(i % 2 === 0){
+        post.title = faker.lorem.words(3)
+    } else {
+        post.title = faker.lorem.words(2)        
+    }
+
+    posts.push(post);
+}
+
+// ---------- creation photo -> post faker ----------
+
+const postPhotos = [];
+let postPhotoRandomNumbers = []
+
+for(i=0;i<NB_POSTS;i++){
+
+    const photo = {}
+    photo.path = faker.image.nature(1234, 2345, true)
+    let postPhotoRandomNumber = faker.datatype.number({min: 1, max:NB_POSTS})
+    while(postPhotoRandomNumbers.includes(postPhotoRandomNumber)){
+        postPhotoRandomNumber = faker.datatype.number({min: 1, max:NB_POSTS})
+    }
+    postPhotoRandomNumbers.push(postPhotoRandomNumber)
+    photo.post_id = postPhotoRandomNumber;
+    postPhotos.push(photo);
+}
+
+
+
 // ---------- SEEDING ---------- 
 
 (async () => {
@@ -93,7 +131,6 @@ for(i=0;i<NB_FRIENDSHIP;i++){
    /*  await client.query('TRUNCATE TABLE "user", "photo" RESTART IDENTITY'); */
 
     const queries = [];
-
     let count = 0
 
     users.forEach((user) => {
@@ -108,13 +145,11 @@ for(i=0;i<NB_FRIENDSHIP;i++){
             RETURNING *
             `,
             [user.email, user.first_name, user.last_name, user.pseudo, user.date_of_birth, user.password, user.phone_number, user.address, user.region, user.zip_code, user.city],
-            );
-            queries.push(query);
-        });  
-
-        count = 0
-
-    photos.forEach((photo) => {
+        );
+        queries.push(query);
+    });  
+    count = 0
+    userPhotos.forEach((photo) => {
         count += 1;
         debug('insert avatar on queries array, user:',photo.user_id + ' / ' + 'request n°' + count );
         const query = client.query(
@@ -126,10 +161,10 @@ for(i=0;i<NB_FRIENDSHIP;i++){
             RETURNING *
             `,
             [photo.path, photo.user_id],
-            );
-            queries.push(query);
+        );
+        queries.push(query);
     });  
-
+    count = 0
     friendships.forEach((friendship) => {
         count += 1;
         debug(`insert relation friendship for user ${friendship.user_id} and user ${friendship.friend_id} / request n°${count}` );
@@ -142,15 +177,47 @@ for(i=0;i<NB_FRIENDSHIP;i++){
             RETURNING *
             `,
             [friendship.user_id, friendship.friend_id],
-            );
-            queries.push(query);
-
+        );
+        queries.push(query);
     })
+    count = 0
+    posts.forEach((post) => {
+        count += 1;
+        debug(`insert post / request n°${count}` );
+        const query = client.query(
+            `
+            INSERT INTO "post"
+            ("user_id", "content", "title")
+            VALUES
+            ($1, $2, $3)
+            RETURNING *
+            `,
+            [post.user_id, post.content, post.title],
+        );
+        queries.push(query);
+    })
+    count = 0
+    postPhotos.forEach((photo) => {
+        count += 1;
+        debug('insert photo on post / ' + 'request n°' + count );
+        const query = client.query(
+            `
+            INSERT INTO "photo"
+            ("path", "post_id")
+            VALUES
+            ($1, $2)
+            RETURNING *
+            `,
+            [photo.path, photo.post_id],
+        );
+        queries.push(query);
+    });  
+    count = 0
 
-        await Promise.all(queries)
+    await Promise.all(queries)
 
-        debug('Done');
+    debug('Done');
 
-        client.end()
+    client.end()
 
 })()
