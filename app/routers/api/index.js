@@ -3,7 +3,7 @@ const router = express.Router();
 const userController = require('../../controllers/api/user');
 const apiErrorController = require('../../controllers/api/error');
 const validator = require('../../validation/validator');
-const userGetSchema = require('../../validation/schemas/userGet.schema');
+const userGetSchema = require('../../validation/schemas/user/userGet.schema');
 const checkAuth = require('../../middlewares/checkAuth')
 /* const userPostSchema = require('../../validation/schemas/cadexPost.schema'); */
 

@@ -124,6 +124,7 @@ const userController = {
 
     async createOneWithPhoto(req,res){
         const user = req.body
+        console.log("user ------>", user);
         try {
             if(!user){
                 throw Error("you must send a user")
