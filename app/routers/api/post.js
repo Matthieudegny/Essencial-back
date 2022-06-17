@@ -9,7 +9,7 @@ router.route('/create')
  * POST /api/post/create
  * @summary To create a new post
  * @tags Post
- * @param {string} request.body.required - post to create
+ * @param {object} request.body.required - post to create (content, title, path)
  * @return {object} 200 - success response
  * @return {ApiError} 400 - input data invalid
 */
