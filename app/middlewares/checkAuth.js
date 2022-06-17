@@ -16,7 +16,6 @@ function checkLog(req,res,next) {
         
         next()
     })
-
 }
 
 module.exports = checkLog;

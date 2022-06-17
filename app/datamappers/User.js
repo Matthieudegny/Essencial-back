@@ -89,7 +89,7 @@ class User extends CoreDatamapper {
 
         // création d'un user sans la propriété path pour pouvoir l'insérer
         // dans la création d'un user
-        const userWithoutPath = JSON.parse(JSON.stringify(user)) ;
+        const userWithoutPath = JSON.parse(JSON.stringify(user));
         Reflect.deleteProperty(userWithoutPath, 'path')
  
         // insertion d'un user
@@ -157,6 +157,24 @@ class User extends CoreDatamapper {
             resultFriendId = resultFriendId.rows[0]
         }
         const result = Object.assign({}, resultUserId, resultFriendId);
+        return result
+    }
+
+    async findAllPostsWithPhoto(userId) {
+        const preparedQuery = {
+            text:`
+            SELECT * FROM "post"
+            JOIN "photo" ON photo."user_id" = "post".user_id
+            WHERE "post"."user_id" = $1`,
+            values: [userId]
+        }
+
+        let result = await this.client.query(preparedQuery)
+        if(result.rowCount > 1){
+            result = result.rows
+        }else {
+            result = result.rows[0]
+        }
         return result
     }
 }

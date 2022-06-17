@@ -174,6 +174,19 @@ const userController = {
 
         return res.json(friends)
 
+    },
+
+    async getAllPostsWithPhoto(req, res) {
+
+        const userId = req.params.id
+
+        const checkUserExist = await userDatamapper.findByPk(userId)
+        if(!checkUserExist){
+            throw Error("User with id does not exist")
+        }
+        const posts = await userDatamapper.findAllPostsWithPhoto(userId)
+
+        return res.json(posts)
     }
 }
 
