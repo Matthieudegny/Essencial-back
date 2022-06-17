@@ -4,7 +4,7 @@ const CoreDatamapper = require('./coreDatamapper');
 const photoDatamapper = require('./Photo');
 
 /**
- * @typedef {Object} User
+ * @typedef {object} User
  * @property {number} id - Identifier unique primary key of the table
  * @property {string} email - Email unique 
  * @property {string} first_name - First name
