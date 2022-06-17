@@ -8,7 +8,7 @@ const userGetSchema = require('../../validation/schemas/user/userGet.schema');
 
 router.route('/')
 /**
- * GET /api/users
+ * GET /api/user
  * @summary To get all users with their photos
  * @tags User
  * @return {User} 200 - success response
