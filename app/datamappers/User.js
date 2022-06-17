@@ -194,8 +194,8 @@ class User extends CoreDatamapper {
         }
 
         const preparedQuery = {
-            text: `SELECT "post".* FROM "post"
-                    JOIN "photo" ON "photo"."user_id" = "post"."user_id"
+            text: `SELECT "post".*, photo.path FROM "post"
+                    JOIN "photo" ON "photo"."post_id" = "post"."id"
                     WHERE "post"."user_id" IN (${indexPlaceholders})`, values: friendsId
                 } 
                 
