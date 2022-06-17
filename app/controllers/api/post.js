@@ -5,6 +5,26 @@ require('dotenv').config();
 
 const postController = {
 
+    async getOneWithPhoto(req,res){
+        const postId = req.params.id
+        try {
+            if(!postId){
+                throw new Error("You must specify and id")
+            }
+
+            const result = await postDatamapper.findOneWithPhoto(postId)
+
+            if(!result){
+                throw new Error(`There is no post with id ${postId}`)
+            }
+
+            return res.json(result)
+
+        } catch (error) {
+            return res.status(400).json({error: error.message})
+        }
+    },
+
     async createOneWithPhoto(req,res){
         const post = req.body
         let token = req.headers['authorization']; 
@@ -21,8 +41,30 @@ const postController = {
                 throw Error("you must send a photo")
             }
             const result = await postDatamapper.createWithPhoto(post)
-            console.log("post --->" , post);
             return res.json(result)
+        } catch (error) {
+            return res.status(400).json({error: error.message})
+        }
+    },
+
+    async deleteOne(req, res){
+        const postId = req.params.id
+
+        try {
+            if(!postId){
+                throw Error("you must send the identifier")
+            }
+            const postToDelete = await postDatamapper.findByPk(postId)
+            if(!postToDelete) {
+                throw Error("The id does not exist")
+            }
+
+            const result = await postDatamapper.delete(postId)
+
+            return res.json({
+                message: "post deleted successfully"
+            })
+            
         } catch (error) {
             return res.status(400).json({error: error.message})
         }

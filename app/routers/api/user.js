@@ -45,7 +45,7 @@ router.route('/:id(\\d+)')
 * GET /api/user/{id}
 * @summary To get one user with his photo
 * @tags User
-* @param {number} id.path.required - user identifier
+* @param {number} id.path.required - user's id
 * @return {object} 200 - success response
 * @return {object} 400 - input data invalid
 */
@@ -54,7 +54,7 @@ router.route('/:id(\\d+)')
 * DELETE /api/user/{id}
 * @summary To delete one user with his photo
 * @tags User
-* @param {number} id.path.required - user identifier
+* @param {number} id.path.required - user's id
 * @return {object} 200 - success response
 * @return {object} 400 - input data invalid
 */
@@ -65,18 +65,29 @@ router.route('/friends/:id(\\d+)')
 * GET /api/user/friends/{id}
 * @summary To get all user's friends
 * @tags User
-* @param {number} id.path.required - user identifier
+* @param {number} id.path.required - user's id
 * @return {object} 200 - success response
 * @return {object} 400 - input data invalid
 */
 .get(userController.getAllFriends) 
+
+router.route('/friends/posts/:id(\\d+)') 
+/**
+* GET /api/user/friends/posts/{id}
+* @summary To get all posts from all user's friends
+* @tags User
+* @param {number} id.path.required - user's id
+* @return {object} 200 - success response
+* @return {object} 400 - input data invalid
+*/
+.get(userController.getAllFriendsPosts) 
 
 router.route('/posts/:id(\\d+)') 
 /**
 * GET /api/user/posts/{id}
 * @summary To get all user's posts
 * @tags User
-* @param {number} id.path.required - user identifier
+* @param {number} id.path.required - user's id
 * @return {object} 200 - success response
 * @return {ApiError} 400 - input data invalid
 */

@@ -10,7 +10,7 @@ const photoDatamapper = require('./Photo');
  * @property {string} first_name - First name
  * @property {string} last_name - Last name
  * @property {string} pseudo - Pseudo
- * @property {timestamptz} date_of_birth - Date of birth
+ * @property {string} date_of_birth - Date of birth
  * @property {string} password - Password
  * @property {string} rights - user's right
  * @property {string} phone_number - Phone number
@@ -18,8 +18,8 @@ const photoDatamapper = require('./Photo');
  * @property {string} region - region
  * @property {string} zip_code - postal code
  * @property {string} city - city
- * @property {timestamptz} created_at - Date of creation
- * @property {timestamptz} updated_at - Date of updated
+ * @property {string} created_at - Date of creation
+ * @property {string} updated_at - Date of updated
  * @property {string} path - Path of the profile picture
  */
 
@@ -163,7 +163,7 @@ class User extends CoreDatamapper {
     async findAllPostsWithPhoto(userId) {
         const preparedQuery = {
             text:`
-            SELECT * FROM "post"
+            SELECT post.id, post.user_id, post.title, post.content FROM "post"
             JOIN "photo" ON photo."user_id" = "post".user_id
             WHERE "post"."user_id" = $1`,
             values: [userId]
@@ -176,6 +176,18 @@ class User extends CoreDatamapper {
             result = result.rows[0]
         }
         return result
+    }
+
+    async findAllFriendsPostWithPhoto(friendsId) {
+
+        const filter = friendsId.join(' ');
+
+        const preparedQuery = `SELECT "post".* FROM "post"
+                                JOIN "photo" ON "photo"."user_id" = "post"."user_id"
+                                WHERE "post"."user_id" IN (${filter})`,
+                                
+
+                                      
     }
 }
 

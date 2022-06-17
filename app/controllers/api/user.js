@@ -58,15 +58,13 @@ const userController = {
         const userId = req.params.id
         try {
             if(!userId){
-                console.log("je passe dans le if no id");
                 throw new Error("You must specify an id")
             }
 
             const result = await userDatamapper.findOneWithPhoto(userId)
-            console.log(result);
+
             if(!result){
-                console.log("je passe dans le if no result");
-                throw new Error(`There is no user with id ${user.id}`)
+                throw new Error(`There is no user with id ${userId}`)
             }
 
             return res.json(result)
@@ -141,7 +139,7 @@ const userController = {
 
     async deleteOne(req,res){
         const userId = req.params.id
-        console.log(userId);
+
         try {
             if(!userId){
                 throw Error("you must send the identifier")
@@ -152,9 +150,7 @@ const userController = {
             }
 
             const result = await userDatamapper.delete(userId)
-            console.log(result);
             return res.json({
-                user: result,
                 message: "user deleted successfully"
             })
         } catch (error) {
@@ -187,6 +183,10 @@ const userController = {
         const posts = await userDatamapper.findAllPostsWithPhoto(userId)
 
         return res.json(posts)
+    },
+
+    async getAllFriendsPosts (req,res) {
+        
     }
 }
 

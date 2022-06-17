@@ -3,11 +3,12 @@ require('dotenv').config();
 
 
 function checkLog(req,res,next) {
+    console.log("je passe au dessus du slice token-------");
     let token = req.headers['authorization'];
-    token = token.slice(4,token.length);
     if(token == null){
         return res.status(401).send("unauthorized");
     }
+    token = token.slice(4,token.length);
 
     jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err,response) => {
         if (err) {

@@ -15,4 +15,25 @@ router.route('/create')
 */
 .post(checkAuth, postController.createOneWithPhoto)
 
+router.route('/:id(\\d+)')
+/**
+ * GET /api/post/{id}
+ * @summary To find a post with his photo
+ * @tags Post
+ * @param {number} id.path.required - post's id 
+ * @return {object} 200 - success response
+ * @return {ApiError} 400 - input data invalid
+*/
+.get(checkAuth, postController.getOneWithPhoto)
+/**
+ * DELETE /api/post/{id}
+ * @summary To delete a post
+ * @tags Post
+ * @param {number} id.path.required - post's id
+ * @return {object} 200 - success response
+ * @return {ApiError} 400 - input data invalid
+*/
+.delete(checkAuth, postController.deleteOne)
+
+
 module.exports = router

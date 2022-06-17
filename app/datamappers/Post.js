@@ -6,6 +6,26 @@ class Post extends CoreDatamapper {
 
     tableName = 'post';
 
+    async findOneWithPhoto(postId){
+
+        const preparedQuery = {
+            text: `
+            SELECT "post".*, "photo".path
+            FROM "${this.tableName}"
+            JOIN "photo" ON "post".user_id = "photo".user_id
+            WHERE post."user_id" = $1`,
+            values: [postId]
+        }
+
+        const result = await this.client.query(preparedQuery)
+
+        if(!result.rows[0]) {
+            return null
+        }
+
+        return result.rows[0]
+    }
+
     async createWithPhoto(post){
 
         // création d'un post sans la propriété path pour pouvoir l'insérer
@@ -35,7 +55,8 @@ class Post extends CoreDatamapper {
 
         return {
             post: postInsert,
-            photo: photoInsert
+            photo: photoInsert,
+            message: "post created successfully"
         }
     }
 }
