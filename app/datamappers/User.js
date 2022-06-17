@@ -170,6 +170,7 @@ class User extends CoreDatamapper {
         }
 
         let result = await this.client.query(preparedQuery)
+
         if(result.rowCount > 1){
             result = result.rows
         }else {
@@ -178,7 +179,7 @@ class User extends CoreDatamapper {
         return result
     }
 
-    async findAllFriendsPostWithPhoto(friendsId) {
+/*     async findAllFriendsPostWithPhoto(friendsId) {
 
         const filter = friendsId.join(' ');
 
@@ -188,7 +189,7 @@ class User extends CoreDatamapper {
                                 
 
                                       
-    }
+    } */
 }
 
 module.exports = new User(client);
