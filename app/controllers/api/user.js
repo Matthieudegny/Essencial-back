@@ -186,7 +186,22 @@ const userController = {
     },
 
     async getAllFriendsPosts (req,res) {
-        
+        const userId = req.params.id
+        const allFriends = await userDatamapper.findAllFriends(userId)
+
+        if(!allFriends){
+            throw Error(`User with id ${userId} don't have any friend`)
+        }
+
+        friendsId = []
+
+        Object.values(allFriends).forEach((friend) => {
+            friendsId.push(friend.id)
+        })
+
+        const result = await userDatamapper.findAllFriendsPostWithPhoto(friendsId)
+
+        return res.json(result)
     }
 }
 

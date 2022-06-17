@@ -3,7 +3,6 @@ require('dotenv').config();
 
 
 function checkLog(req,res,next) {
-    console.log("je passe au dessus du slice token-------");
     let token = req.headers['authorization'];
     if(token == null){
         return res.status(401).send("unauthorized");

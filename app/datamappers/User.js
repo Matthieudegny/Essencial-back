@@ -144,7 +144,6 @@ class User extends CoreDatamapper {
         }
 
         let resultUserId = await this.client.query(preparedQueryUserId)
-        console.log("result friends req ----->" , resultUserId);
         let resultFriendId = await this.client.query(preparedQueryFriendId)
         if(resultUserId.rowCount > 1){
             resultUserId = resultUserId.rows
@@ -179,17 +178,41 @@ class User extends CoreDatamapper {
         return result
     }
 
-/*     async findAllFriendsPostWithPhoto(friendsId) {
+    async findAllFriendsPostWithPhoto(friendsId) {
 
-        const filter = friendsId.join(' ');
+        const NB_PARAMETERS = friendsId.length
+        let indexPlaceholders = ""
 
-        const preparedQuery = `SELECT "post".* FROM "post"
-                                JOIN "photo" ON "photo"."user_id" = "post"."user_id"
-                                WHERE "post"."user_id" IN (${filter})`,
-                                
+        for(let i=0;i<NB_PARAMETERS; i++) {
+            let j
+            if(i === NB_PARAMETERS - 1) {
+                j = `$${i+1}`
+            }else {
+                j = `$${i+1} ,`
+            }
+            indexPlaceholders += j
+        }
 
-                                      
-    } */
+        const preparedQuery = {
+            text: `SELECT "post".* FROM "post"
+                    JOIN "photo" ON "photo"."user_id" = "post"."user_id"
+                    WHERE "post"."user_id" IN (${indexPlaceholders})`, values: friendsId
+                } 
+                
+        console.log("preparedQuery --->" , preparedQuery);
+
+        let result = await this.client.query(preparedQuery)
+
+
+        if(result.rowCount > 1){
+            result = result.rows
+        }else {
+            result = result.rows[0]
+        }
+
+        return result
+                                                                      
+    }
 }
 
 module.exports = new User(client);
