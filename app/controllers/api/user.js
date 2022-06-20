@@ -99,6 +99,7 @@ const userController = {
             return res.json({
                     logged: true,
                     pseudo: result.pseudo,
+                    type: "user",
                     token: accessToken
                     })
             

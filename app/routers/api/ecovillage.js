@@ -10,10 +10,21 @@ router.route('/')
  * GET /api/ecovillage
  * @summary To get all ecovillage with their photos
  * @tags Eco Village
- * @return {User} 200 - success response
+ * @return {Object} 200 - success response
  * @return {object} 400 - input data invalid
  */
 .get(ecovillageController.getAllWithPhotos)
+
+router.route('/connexion')
+/**
+* POST /api/ecovillage/connexion
+* @summary To verified if email match with password
+* @tags Eco Village
+* @param  {object} request.body.required - ecovillage's object with only email and password
+* @return {object} 200 - success response
+* @return {object} 400 - input data invalid
+*/
+.post(ecovillageController.verifyAuthentification) 
 
 router.route('/:id(\\d+)')
 /**
@@ -35,6 +46,16 @@ router.route('/:id(\\d+)')
 * @return {object} 400 - input data invalid
 */
 .delete(ecovillageController.deleteOne)
+
+/**
+* patch /api/ecovillage/{id}
+* @summary To update one ecovillage 
+* @tags Eco Village
+* @param {object} request.body.required - ecovillage's data to update
+* @return {object} 200 - success response
+* @return {object} 400 - input data invalid
+*/
+.patch(ecovillageController.updateWithPhotoOrNot) 
 
 router.route('/create')
 /**

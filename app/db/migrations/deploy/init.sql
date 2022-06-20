@@ -34,7 +34,7 @@ CREATE DOMAIN "email_format" AS text CHECK (
 -- il est possible que des séparateurs (espace / - / .) se balade dans le numéro
 
 CREATE DOMAIN "phone_number_format" AS text CHECK (
-    value ~ '^(0|\+33)[ .-]?[1-9]([ -]?[0-9]){8}$'
+    value ~ '^(0|\+33)[ .-]?[1-9]([ .-]?[0-9]){8}$'
 );
 
 CREATE TABLE "user" (
@@ -73,6 +73,7 @@ CREATE TABLE "ecovil" (
     "address" TEXT,
     "zip_code" text ,
     "city" TEXT,
+    "region" TEXT,
     "first_name_manager" TEXT NOT NULL,
     "last_name_manager" TEXT NOT NULL,
     "date_of_birth_manager" TIMESTAMPTZ,

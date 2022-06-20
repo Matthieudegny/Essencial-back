@@ -115,6 +115,18 @@ for(i=0;i<NB_POSTS;i++){
     postPhotos.push(photo);
 }
 
+// ---------- creation post_has_category ----------
+
+/* const pHasC = [];
+const postsId = [];
+
+for(i=0;i<NB_POSTS;i++) {
+    const relation = {}
+    relation.post_id = faker.datatype.number({min: 1, max:NB_POSTS})
+    relation.category = faker.datatype.number({min: 1, max:categories.length})
+}
+ */
+
 
 // ---------- SEEDING ---------- 
 

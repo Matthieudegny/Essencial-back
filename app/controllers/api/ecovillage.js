@@ -37,6 +37,32 @@ const ecovillageController = {
         }
     },
 
+    async verifyAuthentification(req,res){
+        const ecovil = req.body
+        try {
+            if(!ecovil.email || !ecovil.password){
+                throw Error("you must send ecovil.email & ecovil.password")
+            }
+            const result = await ecovillageDatamapper.findByEmail(ecovil);
+
+            if (!result){
+                throw Error(`There is no match for email and password`)
+            }
+
+            const accessToken = jwt.sign(result, process.env.ACCESS_TOKEN_SECRET, {expiresIn: 1800})
+
+            return res.json({
+                    logged: true,
+                    name: result.name,
+                    type: "ecovillage",
+                    token: accessToken
+                    })
+            
+        } catch(error) {
+            return res.status(400).json({error: error.message})
+        }
+    },
+
     async createOneWithPhoto(req,res) {
         const ecovil = req.body
         try {
@@ -69,6 +95,24 @@ const ecovillageController = {
             return res.json({
                 message: "ecovillage deleted successfully"
             })
+        } catch (error) {
+            return res.status(400).json({error: error.message})
+        }
+    },
+
+    async updateWithPhotoOrNot (req,res){
+        const ecovil = req.body
+        let token = req.headers['authorization']; 
+        token = token.slice(4,token.length);
+        
+        const ecovilId = jwt.decode(token).id
+
+        try {
+            if(!ecovil){
+                throw Error("you must send an ecovillage")
+            }
+            const result = await ecovillageDatamapper.updateWithPhotoOrNot(ecovilId,ecovil)
+            return res.json(result)
         } catch (error) {
             return res.status(400).json({error: error.message})
         }
