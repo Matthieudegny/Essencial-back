@@ -241,7 +241,7 @@ class User extends CoreDatamapper {
 
         const preparedQuery = {
             text:`INSERT INTO "friendship" ("user_id","friend_id")
-                  VALUES ($1,$2)`,
+                  VALUES ($1,$2) RETURNING *`,
             values: [userId, friendId]
         }
 
@@ -251,7 +251,7 @@ class User extends CoreDatamapper {
             return null
         }
 
-        return 
+        return newFriendship.rows[0]
     }
 }
 

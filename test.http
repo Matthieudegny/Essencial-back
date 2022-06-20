@@ -25,7 +25,7 @@ POST http://localhost:3000/api/user/connexion
 Content-Type:application/json
 
 {
-    "email": "Maugis84@gmail.com",
+    "email": "Grgoire.Nguyen89@gmail.com",
     "password": "test"
 }
 
@@ -57,6 +57,26 @@ GET http://localhost:3000/api/user/friends/24
 ### Test de la route pour récupérer tout les posts d'un utilisateur
 GET http://localhost:3000/api/user/posts/24
 
+### Test de la route pour afficher tout les posts de tout les amis d'un utilisateurs
+GET http://localhost:3000/api/user/friends/posts/34
+Content-Type:application/json
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjcsImVtYWlsIjoiSm9sMTNAZ21haWwuY29tIiwiZmlyc3RfbmFtZSI6Ikpvw6tsIiwibGFzdF9uYW1lIjoiRHVyYW5kIiwicHNldWRvIjoiSm_Dq2wxNyIsImRhdGVfb2ZfYmlydGgiOiIxOTU3LTEwLTMwVDIxOjEyOjU1LjMxOFoiLCJwYXNzd29yZCI6InRlc3QiLCJyaWdodHMiOiJ1c2VyIiwicGhvbmVfbnVtYmVyIjoiMDYyMzUxMTg2MyIsImFkZHJlc3MiOiI0IEFsbMOpZSBkJ0FyZ2VudGV1aWwiLCJyZWdpb24iOiJQb2l0b3UtQ2hhcmVudGVzIiwiemlwX2NvZGUiOiI4MDU4NyIsImNpdHkiOiJUb3Vsb3VzZSIsImNyZWF0ZWRfYXQiOiIyMDIyLTA2LTE2VDExOjM2OjI1Ljc5NloiLCJ1cGRhdGVkX2F0IjpudWxsLCJpYXQiOjE2NTU0NjgzNzIsImV4cCI6MTY1NTQ3MDE3Mn0.cAF15wMnOourO6g6-KufY5Sj5owbF_8UrlU2iNdKCOY
+
+### Test de la route pour update un utilisateur
+PATCH http://localhost:3000/api/user
+Content-Type:application/json
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJNYXVnaXM4NEBnbWFpbC5jb20iLCJmaXJzdF9uYW1lIjoiTWF1Z2lzIiwibGFzdF9uYW1lIjoiTWV1bmllciIsInBzZXVkbyI6Ik1hdWdpczEzIiwiZGF0ZV9vZl9iaXJ0aCI6IjIwMDMtMDQtMDVUMDE6MTU6NTAuMDYzWiIsInBhc3N3b3JkIjoidGVzdCIsInJpZ2h0cyI6InVzZXIiLCJwaG9uZV9udW1iZXIiOiIwNjgzMjE0NDE1IiwiYWRkcmVzcyI6IjAgVm9pZSBNb3VmZmV0YXJkIiwicmVnaW9uIjoiQ29yc2UiLCJ6aXBfY29kZSI6Ijg4Mjk2IiwiY2l0eSI6Ik5hbmN5IiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjBUMTE6MTY6MjIuOTIzWiIsInVwZGF0ZWRfYXQiOm51bGwsImlhdCI6MTY1NTczMDI4MSwiZXhwIjoxNjU1NzMyMDgxfQ.Xx4WnvIFt6MGpAG_meoFT5Cea_JGdzGJAGsaJe9X14M
+
+{
+    "last_name": "Robert"
+}
+
+### Test de la route pour ajouter un amis
+GET http://localhost:3000/api/user/friends/add/45
+Content-Type:application/json
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJHcmdvaXJlLk5ndXllbjg5QGdtYWlsLmNvbSIsImZpcnN0X25hbWUiOiJHcsOpZ29pcmUiLCJsYXN0X25hbWUiOiJOZ3V5ZW4iLCJwc2V1ZG8iOiJHcsOpZ29pcmU0OSIsImRhdGVfb2ZfYmlydGgiOiIxOTk4LTAzLTIxVDA4OjA2OjQ5LjgwNVoiLCJwYXNzd29yZCI6InRlc3QiLCJyaWdodHMiOiJ1c2VyIiwicGhvbmVfbnVtYmVyIjoiMDY3MTU4Mzc4OCIsImFkZHJlc3MiOiI3MiBQYXNzYWdlIGRlIGxhIEh1Y2hldHRlIiwicmVnaW9uIjoiUmjDtG5lLUFscGVzIiwiemlwX2NvZGUiOiI0NTc0OSIsImNpdHkiOiJWaWxsZWp1aWYiLCJjcmVhdGVkX2F0IjoiMjAyMi0wNi0yMFQxMzoyNDowMS4wMThaIiwidXBkYXRlZF9hdCI6bnVsbCwiaWF0IjoxNjU1NzMyNTAyLCJleHAiOjE2NTU3MzQzMDJ9.UCxE3sDEowQOnADiY658tA57WFVK1eRF7OdQuTkbFuc
+
+
 ////////////////////////////////////////////////
 ///////////////////// POST /////////////////////
 ///////////////////////////////////////////////
@@ -68,7 +88,7 @@ Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJN
 
 {
    "content": "bablablbalbalblablbabalba",
-   "title": "salutation !" ,
+   "title": "test !" ,
    "path": "https://www.geo.fr/voyage/danemark-a-quoi-ressemble-la-vie-dans-un-ecovillage-205874",
    "category_1": "Tuto"
 }
@@ -79,20 +99,8 @@ Content-Type:application/json
 Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjcsImVtYWlsIjoiSm9sMTNAZ21haWwuY29tIiwiZmlyc3RfbmFtZSI6Ikpvw6tsIiwibGFzdF9uYW1lIjoiRHVyYW5kIiwicHNldWRvIjoiSm_Dq2wxNyIsImRhdGVfb2ZfYmlydGgiOiIxOTU3LTEwLTMwVDIxOjEyOjU1LjMxOFoiLCJwYXNzd29yZCI6InRlc3QiLCJyaWdodHMiOiJ1c2VyIiwicGhvbmVfbnVtYmVyIjoiMDYyMzUxMTg2MyIsImFkZHJlc3MiOiI0IEFsbMOpZSBkJ0FyZ2VudGV1aWwiLCJyZWdpb24iOiJQb2l0b3UtQ2hhcmVudGVzIiwiemlwX2NvZGUiOiI4MDU4NyIsImNpdHkiOiJUb3Vsb3VzZSIsImNyZWF0ZWRfYXQiOiIyMDIyLTA2LTE2VDExOjM2OjI1Ljc5NloiLCJ1cGRhdGVkX2F0IjpudWxsLCJpYXQiOjE2NTU0NjgzNzIsImV4cCI6MTY1NTQ3MDE3Mn0.cAF15wMnOourO6g6-KufY5Sj5owbF_8UrlU2iNdKCOY
 
 ### Test de la route pour afficher un post
-GET http://localhost:3000/api/post/16
-
-### Test de la route pour afficher tout les posts de tout les amis d'un utilisateurs
-GET http://localhost:3000/api/user/friends/posts/34
+GET http://localhost:3000/api/post/20
 Content-Type:application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjcsImVtYWlsIjoiSm9sMTNAZ21haWwuY29tIiwiZmlyc3RfbmFtZSI6Ikpvw6tsIiwibGFzdF9uYW1lIjoiRHVyYW5kIiwicHNldWRvIjoiSm_Dq2wxNyIsImRhdGVfb2ZfYmlydGgiOiIxOTU3LTEwLTMwVDIxOjEyOjU1LjMxOFoiLCJwYXNzd29yZCI6InRlc3QiLCJyaWdodHMiOiJ1c2VyIiwicGhvbmVfbnVtYmVyIjoiMDYyMzUxMTg2MyIsImFkZHJlc3MiOiI0IEFsbMOpZSBkJ0FyZ2VudGV1aWwiLCJyZWdpb24iOiJQb2l0b3UtQ2hhcmVudGVzIiwiemlwX2NvZGUiOiI4MDU4NyIsImNpdHkiOiJUb3Vsb3VzZSIsImNyZWF0ZWRfYXQiOiIyMDIyLTA2LTE2VDExOjM2OjI1Ljc5NloiLCJ1cGRhdGVkX2F0IjpudWxsLCJpYXQiOjE2NTU0NjgzNzIsImV4cCI6MTY1NTQ3MDE3Mn0.cAF15wMnOourO6g6-KufY5Sj5owbF_8UrlU2iNdKCOY
-
-### Test de la route pour update un utilisateur
-PATCH http://localhost:3000/api/user
-Content-Type:application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJCYXJ0aGxlbXlfUmVuYXVsdEBob3RtYWlsLmZyIiwiZmlyc3RfbmFtZSI6InRlc3QiLCJsYXN0X25hbWUiOiJ0ZXN0IiwicHNldWRvIjoiQmFydGjDqWxlbXk4OSIsImRhdGVfb2ZfYmlydGgiOiIxOTc1LTA5LTE0VDExOjE5OjU1LjczN1oiLCJwYXNzd29yZCI6InRlc3QiLCJyaWdodHMiOiJ1c2VyIiwicGhvbmVfbnVtYmVyIjoiMDY2MzkxODkzNCIsImFkZHJlc3MiOiI0OTkwIFJ1ZSBQYXN0b3VyZWxsZSIsInJlZ2lvbiI6Ik5vcmQtUGFzLWRlLUNhbGFpcyIsInppcF9jb2RlIjoiNDM2NTAiLCJjaXR5IjoiQnJlc3QiLCJjcmVhdGVkX2F0IjoiMjAyMi0wNi0xN1QxMjoyODoxNi43NzFaIiwidXBkYXRlZF9hdCI6IjIwMjItMDYtMjBUMDk6MjI6MzUuMzI5WiIsImlhdCI6MTY1NTcxNzAxNiwiZXhwIjoxNjU1NzE4ODE2fQ.9DSRHuwn2T7mH-T9GH1cis3GfCKGiOc574EapHnQfpk
-
-{
-    "last_name": "Robert"
-}
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJNYXVnaXM4NEBnbWFpbC5jb20iLCJmaXJzdF9uYW1lIjoiTWF1Z2lzIiwibGFzdF9uYW1lIjoiTWV1bmllciIsInBzZXVkbyI6Ik1hdWdpczEzIiwiZGF0ZV9vZl9iaXJ0aCI6IjIwMDMtMDQtMDVUMDE6MTU6NTAuMDYzWiIsInBhc3N3b3JkIjoidGVzdCIsInJpZ2h0cyI6InVzZXIiLCJwaG9uZV9udW1iZXIiOiIwNjgzMjE0NDE1IiwiYWRkcmVzcyI6IjAgVm9pZSBNb3VmZmV0YXJkIiwicmVnaW9uIjoiQ29yc2UiLCJ6aXBfY29kZSI6Ijg4Mjk2IiwiY2l0eSI6Ik5hbmN5IiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjBUMTE6MTY6MjIuOTIzWiIsInVwZGF0ZWRfYXQiOm51bGwsImlhdCI6MTY1NTcyOTYzNSwiZXhwIjoxNjU1NzMxNDM1fQ.hzFUKeQlCJ1WKEo9-UBowC-tqjvFn7_cttTqqe15EHs
 
 

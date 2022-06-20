@@ -132,6 +132,9 @@ CREATE TABLE "friendship" (
 ALTER TABLE "friendship"
 ADD CONSTRAINT user_different_friend 
 CHECK ("user_id" != "friend_id");
+ALTER TABLE "friendship"
+ADD CONSTRAINT relation_unique 
+UNIQUE (user_id, friend_id);
 
 CREATE TABLE "post_has_category" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,

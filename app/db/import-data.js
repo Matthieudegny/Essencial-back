@@ -80,7 +80,6 @@ for(i=0;i<NB_FRIENDSHIP;i++){
 
     friendships.push(friendship)
 } 
-
 // ---------- creation post ---------
 
 const posts = [];
@@ -121,8 +120,8 @@ for(i=0;i<NB_POSTS;i++){
 
 (async () => {
     const client = new Client({
-        connectionString: process.env.DATABASE_URL,
-        /* ssl: { rejectUnauthorized: false}, */ 
+        connectionString: process.env.HEROKU_PG_URI,
+        ssl: { rejectUnauthorized: false},  
     });
 
     await client.connect();
@@ -166,7 +165,7 @@ for(i=0;i<NB_POSTS;i++){
         queries.push(query);
     });  
     count = 0
-    friendships.forEach((friendship) => {
+/*     friendships.forEach((friendship) => {
         count += 1;
         debug(`insert relation friendship for user ${friendship.user_id} and user ${friendship.friend_id} / request n°${count}` );
         const query = client.query(
@@ -181,7 +180,7 @@ for(i=0;i<NB_POSTS;i++){
         );
         queries.push(query);
     })
-    count = 0
+    count = 0 */
     posts.forEach((post) => {
         count += 1;
         debug(`insert post / request n°${count}` );

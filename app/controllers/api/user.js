@@ -1,6 +1,7 @@
 const userDatamapper = require('../../datamappers/User');
 require('dotenv').config();
-const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken');
+const { addFriend } = require('../../datamappers/User');
 
 const userController = {
 
@@ -219,7 +220,24 @@ const userController = {
         } catch (error) {
             return res.status(400).json({error: error.message})
         }
+    },
 
+    async addFriend (req,res){
+        const friendId = req.params.id
+        let token = req.headers['authorization']; 
+        token = token.slice(4,token.length);
+        
+        const userId = jwt.decode(token).id
+
+        try {
+            if(!friendId){
+                throw Error("you must send a friend")
+            }
+            const result = await userDatamapper.addFriend(userId,friendId)
+            return res.json({result, "message": "friend add successfully"})
+        } catch (error) {
+            return res.status(400).json({error: error.message})
+        }
     }
 }
 

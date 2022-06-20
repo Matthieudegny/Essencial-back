@@ -70,6 +70,17 @@ router.route('/:id(\\d+)')
 */
 .delete(userController.deleteOne)
 
+router.route('/friends/add/:id(\\d+)')
+/**
+ * GET /api/user/friends/add/{id}
+ * @summary To add new friend
+ * @tags User
+ * @param {number} id.path.required - friend's id to add
+ * @return {object} 200 - success response
+ * @return {object} 400 - input data invalid
+ */
+ .get(checkAuth, userController.addFriend)
+
 router.route('/friends/:id(\\d+)') 
 /**
 * GET /api/user/friends/{id}
