@@ -99,7 +99,7 @@ class CoreDatamapper {
         return row;
     }
 
-    async update({ id }, inputData) {
+    async update(id, inputData) {
         const fieldsAndPlaceholders = [];
         let indexPlaceholder = 1;
         const values = [];
@@ -114,16 +114,16 @@ class CoreDatamapper {
 
         const preparedQuery = {
             text: `
-                UPDATE "${this.constructor.tableName}" SET
+                UPDATE "${this.tableName}" SET
                 ${fieldsAndPlaceholders},
                 updated_at = now()
-                WHERE id = $${indexPlaceholder}
+                WHERE id = $2
                 RETURNING *
-            `,
-            values,
+                `,
+                values
+                /* WHERE id = $${indexPlaceholder} */
         };
-
-        const result = await this.constructor.client.query(preparedQuery);
+        const result = await this.client.query(preparedQuery);
         const row = result.rows[0];
 
         return row;

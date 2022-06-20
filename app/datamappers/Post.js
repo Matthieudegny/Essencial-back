@@ -32,7 +32,6 @@ class Post extends CoreDatamapper {
         // dans la création d'un user
         const postWithoutPath = JSON.parse(JSON.stringify(post));
         Reflect.deleteProperty(postWithoutPath, 'path');
-        console.log("postWithoutPath --->", postWithoutPath);
 
         // insertion d'un post
         const postInsert = await this.create(postWithoutPath);

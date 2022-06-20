@@ -85,11 +85,10 @@ const userController = {
         const user = req.body
         try {
             if(!user.email || !user.password){
-                console.log("je passe dans le if no email & password");
                 throw Error("you must send user.email & user.password")
             }
             const result = await userDatamapper.findByEmail(user);
-            console.log(result);
+
             if (!result){
                 throw Error(`There is no match for email and password`)
             }
@@ -202,6 +201,25 @@ const userController = {
         const result = await userDatamapper.findAllFriendsPostWithPhoto(friendsId)
 
         return res.json(result)
+    },
+
+    async updateWithPhotoOrNot (req,res){
+        const user = req.body
+        let token = req.headers['authorization']; 
+        token = token.slice(4,token.length);
+        
+        const userId = jwt.decode(token).id
+  
+        try {
+            if(!user){
+                throw Error("you must send a user")
+            }
+            const result = await userDatamapper.updateWithPhotoOrNot(userId,user)
+            return res.json(result)
+        } catch (error) {
+            return res.status(400).json({error: error.message})
+        }
+
     }
 }
 

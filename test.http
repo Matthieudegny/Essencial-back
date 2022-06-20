@@ -25,7 +25,7 @@ POST http://localhost:3000/api/user/connexion
 Content-Type:application/json
 
 {
-    "email": "Jol13@gmail.com",
+    "email": "Barthlemy_Renault@hotmail.fr",
     "password": "test"
 }
 
@@ -84,5 +84,14 @@ GET http://localhost:3000/api/post/16
 GET http://localhost:3000/api/user/friends/posts/34
 Content-Type:application/json
 Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjcsImVtYWlsIjoiSm9sMTNAZ21haWwuY29tIiwiZmlyc3RfbmFtZSI6Ikpvw6tsIiwibGFzdF9uYW1lIjoiRHVyYW5kIiwicHNldWRvIjoiSm_Dq2wxNyIsImRhdGVfb2ZfYmlydGgiOiIxOTU3LTEwLTMwVDIxOjEyOjU1LjMxOFoiLCJwYXNzd29yZCI6InRlc3QiLCJyaWdodHMiOiJ1c2VyIiwicGhvbmVfbnVtYmVyIjoiMDYyMzUxMTg2MyIsImFkZHJlc3MiOiI0IEFsbMOpZSBkJ0FyZ2VudGV1aWwiLCJyZWdpb24iOiJQb2l0b3UtQ2hhcmVudGVzIiwiemlwX2NvZGUiOiI4MDU4NyIsImNpdHkiOiJUb3Vsb3VzZSIsImNyZWF0ZWRfYXQiOiIyMDIyLTA2LTE2VDExOjM2OjI1Ljc5NloiLCJ1cGRhdGVkX2F0IjpudWxsLCJpYXQiOjE2NTU0NjgzNzIsImV4cCI6MTY1NTQ3MDE3Mn0.cAF15wMnOourO6g6-KufY5Sj5owbF_8UrlU2iNdKCOY
+
+### Test de la route pour update un utilisateur
+PATCH http://localhost:3000/api/user
+Content-Type:application/json
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJCYXJ0aGxlbXlfUmVuYXVsdEBob3RtYWlsLmZyIiwiZmlyc3RfbmFtZSI6InRlc3QiLCJsYXN0X25hbWUiOiJ0ZXN0IiwicHNldWRvIjoiQmFydGjDqWxlbXk4OSIsImRhdGVfb2ZfYmlydGgiOiIxOTc1LTA5LTE0VDExOjE5OjU1LjczN1oiLCJwYXNzd29yZCI6InRlc3QiLCJyaWdodHMiOiJ1c2VyIiwicGhvbmVfbnVtYmVyIjoiMDY2MzkxODkzNCIsImFkZHJlc3MiOiI0OTkwIFJ1ZSBQYXN0b3VyZWxsZSIsInJlZ2lvbiI6Ik5vcmQtUGFzLWRlLUNhbGFpcyIsInppcF9jb2RlIjoiNDM2NTAiLCJjaXR5IjoiQnJlc3QiLCJjcmVhdGVkX2F0IjoiMjAyMi0wNi0xN1QxMjoyODoxNi43NzFaIiwidXBkYXRlZF9hdCI6IjIwMjItMDYtMjBUMDk6MjI6MzUuMzI5WiIsImlhdCI6MTY1NTcxNzAxNiwiZXhwIjoxNjU1NzE4ODE2fQ.9DSRHuwn2T7mH-T9GH1cis3GfCKGiOc574EapHnQfpk
+
+{
+    "last_name": "Robert"
+}
 
 

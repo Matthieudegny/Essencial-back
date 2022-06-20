@@ -28,18 +28,16 @@ class User extends CoreDatamapper {
 
     async findByEmail(user) {
         // user -> {user.email && user.password}
-        let preparedQuery = {}
 
-                preparedQuery = {
+        const preparedQuery = {
                 text: `
                 SELECT * 
                 FROM "${this.tableName}"
-                WHERE "email" = $1
-                AND "password" = $2`,
+                WHERE "user"."email" = $1
+                AND "user"."password" = $2`,
                 values: [user.email, user.password]
             };
 
-        console.log(preparedQuery.text);
         const result = await this.client.query(preparedQuery);
 
         if (!result.rows[0]) {
@@ -118,8 +116,8 @@ class User extends CoreDatamapper {
     }
 
     async findAllFriends(userId) {
-        
-        const preparedQueryUserId = {
+
+        const preparedQuery = {
             text: `
             SELECT * FROM "user"
             JOIN "photo" ON "user".id = "photo"."user_id"
@@ -127,35 +125,26 @@ class User extends CoreDatamapper {
                 SELECT friend_id 
                     FROM friendship
                     WHERE "user_id" = $1 
-                )`,
-            values: [userId]
-        }
-
-        const preparedQueryFriendId = {
-            text:`
+                )
+            UNION
             SELECT * FROM "user" 
             JOIN "photo" ON "user".id = "photo"."user_id"
             WHERE "user"."id" IN (
-                SELECT user_id 
-                    FROM friendship
-                    WHERE "friend_id" = $1 
-                )`,
+            SELECT user_id 
+                FROM friendship
+                WHERE "friend_id" = $1 
+                )
+                `,
             values: [userId]
         }
 
-        let resultUserId = await this.client.query(preparedQueryUserId)
-        let resultFriendId = await this.client.query(preparedQueryFriendId)
-        if(resultUserId.rowCount > 1){
-            resultUserId = resultUserId.rows
+        let result = await client.query(preparedQuery)
+
+        if(result.rowCount > 1){
+            result = result.rows
         }else{
-            resultUserId = resultUserId.rows[0]
+            result = result.rows[0]
         }
-        if(resultFriendId.rowCount > 1){
-            resultFriendId = resultFriendId.rows
-        }else{
-            resultFriendId = resultFriendId.rows[0]
-        }
-        const result = Object.assign({}, resultUserId, resultFriendId);
         return result
     }
 
@@ -212,6 +201,57 @@ class User extends CoreDatamapper {
 
         return result
                                                                       
+    }
+
+    async updateWithPhotoOrNot(userId, inputData){
+
+        if(inputData.path){
+            const inputDataWithoutPath = JSON.parse(JSON.stringify(inputData));
+            Reflect.deleteProperty(inputDataWithoutPath, "path");
+            console.log("je passe au dessus de user result");
+            const userResult = await this.update(userId,inputDataWithoutPath);
+            console.log("je passe en dessous de userResult");
+            const preparedQuery = {
+                text: `UPDATE "photo" SET
+                path = $1,
+                updated_at = now()
+                WHERE "user_id" = $2
+                RETURNING *`,
+                values: [inputData.path, userId]
+            }
+            const photoResult = await this.client.query(preparedQuery);
+
+            const result = {
+                user: userResult,
+                photo: photoResult.rows[0]
+            }
+
+            return result
+
+        }else{
+
+            const result = await this.update(userId, inputData);
+            return result
+        }
+        
+
+    }
+
+    async addFriend (userId, friendId){
+
+        const preparedQuery = {
+            text:`INSERT INTO "friendship" ("user_id","friend_id")
+                  VALUES ($1,$2)`,
+            values: [userId, friendId]
+        }
+
+        const newFriendship = await this.client.query(preparedQuery)
+
+        if(!newFriendship){
+            return null
+        }
+
+        return 
     }
 }
 

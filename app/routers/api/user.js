@@ -17,7 +17,16 @@ router.route('/')
 /*.get(validator('query', userGetSchema), userController.getAll) */
 .get(userController.getAllWithPhotos)
 
-        
+/**
+* patch /api/user/
+* @summary To update one user 
+* @tags User
+* @param {object} request.body.required - user's data to update
+* @return {object} 200 - success response
+* @return {object} 400 - input data invalid
+*/
+.patch(userController.updateWithPhotoOrNot) 
+
 router.route('/connexion')
 /**
 * POST /api/user/connexion
@@ -50,6 +59,7 @@ router.route('/:id(\\d+)')
 * @return {object} 400 - input data invalid
 */
 .get(userController.getOneWithPhoto) 
+
 /**
 * DELETE /api/user/{id}
 * @summary To delete one user with his photo
