@@ -9,7 +9,7 @@ GET http://localhost:3000/api/ujnlkcsdcs
 
 
 ### Test de la route pour récupérer tous les utilisateurs (avec leurs photos)
-GET http://localhost:3000/api/users
+GET http://localhost:3000/api/user
 Content-Type:application/json
 Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjcsImVtYWlsIjoiSm9sMTNAZ21haWwuY29tIiwiZmlyc3RfbmFtZSI6Ikpvw6tsIiwibGFzdF9uYW1lIjoiRHVyYW5kIiwicHNldWRvIjoiSm_Dq2wxNyIsImRhdGVfb2ZfYmlydGgiOiIxOTU3LTEwLTMwVDIxOjEyOjU1LjMxOFoiLCJwYXNzd29yZCI6InRlc3QiLCJyaWdodHMiOiJ1c2VyIiwicGhvbmVfbnVtYmVyIjoiMDYyMzUxMTg2MyIsImFkZHJlc3MiOiI0IEFsbMOpZSBkJ0FyZ2VudGV1aWwiLCJyZWdpb24iOiJQb2l0b3UtQ2hhcmVudGVzIiwiemlwX2NvZGUiOiI4MDU4NyIsImNpdHkiOiJUb3Vsb3VzZSIsImNyZWF0ZWRfYXQiOiIyMDIyLTA2LTE2VDExOjM2OjI1Ljc5NloiLCJ1cGRhdGVkX2F0IjpudWxsLCJpYXQiOjE2NTU0NTg0MDgsImV4cCI6MTY1NTQ2MDIwOH0.POTBgiOwy1U9z4bVT77ob9dzi9v-1QBsx_rzx1NjFC4
 
@@ -25,7 +25,7 @@ POST http://localhost:3000/api/user/connexion
 Content-Type:application/json
 
 {
-    "email": "Grgoire.Nguyen89@gmail.com",
+    "email": "Arthme.Dupuy90@hotmail.fr",
     "password": "test"
 }
 
@@ -78,16 +78,16 @@ Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJH
 
 
 ////////////////////////////////////////////////
-///////////////////// POST /////////////////////
+///////////////////// POST ////////////////////
 ///////////////////////////////////////////////
 
 ### Test de la route pour créer un nouveau post
 POST http://localhost:3000/api/post/create
 Content-Type:application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJNYXVnaXM4NEBnbWFpbC5jb20iLCJmaXJzdF9uYW1lIjoiTWF1Z2lzIiwibGFzdF9uYW1lIjoiTWV1bmllciIsInBzZXVkbyI6Ik1hdWdpczEzIiwiZGF0ZV9vZl9iaXJ0aCI6IjIwMDMtMDQtMDVUMDE6MTU6NTAuMDYzWiIsInBhc3N3b3JkIjoidGVzdCIsInJpZ2h0cyI6InVzZXIiLCJwaG9uZV9udW1iZXIiOiIwNjgzMjE0NDE1IiwiYWRkcmVzcyI6IjAgVm9pZSBNb3VmZmV0YXJkIiwicmVnaW9uIjoiQ29yc2UiLCJ6aXBfY29kZSI6Ijg4Mjk2IiwiY2l0eSI6Ik5hbmN5IiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjBUMTE6MTY6MjIuOTIzWiIsInVwZGF0ZWRfYXQiOm51bGwsImlhdCI6MTY1NTcyNzI5OCwiZXhwIjoxNjU1NzI5MDk4fQ.9LT2lDIF-wVc8B4TpGGx-xAZeGXhy3PZ-pRhSU2NKbk
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDcsImVtYWlsIjoiQXJ0aG1lLkR1cHV5OTBAaG90bWFpbC5mciIsImZpcnN0X25hbWUiOiJBcnRow6htZSIsImxhc3RfbmFtZSI6IkR1cHV5IiwicHNldWRvIjoiQXJ0aMOobWUyOSIsImRhdGVfb2ZfYmlydGgiOiIxOTk1LTAzLTI5VDEyOjI0OjU0LjU0MVoiLCJwYXNzd29yZCI6InRlc3QiLCJyaWdodHMiOiJ1c2VyIiwicGhvbmVfbnVtYmVyIjoiMDY4MTE4MTQwNCIsImFkZHJlc3MiOiIxMjAgQm91bGV2YXJkIGRlIGxhIFZpY3RvaXJlIiwicmVnaW9uIjoiw45sZS1kZS1GcmFuY2UiLCJ6aXBfY29kZSI6IjU4MjczIiwiY2l0eSI6Ik1ldHoiLCJjcmVhdGVkX2F0IjoiMjAyMi0wNi0yMFQxOTo0MjowNC43MjNaIiwidXBkYXRlZF9hdCI6bnVsbCwiaWF0IjoxNjU1NzU1MTk4LCJleHAiOjE2NTU3NTY5OTh9.yScaP31IBR1n3PuxHGMoyMToqI94CfcT7fsJokTQRuE
 
 {
-   "content": "bablablbalbalblablbabalba",
+   "content": "et dix!! post tuto",
    "title": "test !" ,
    "path": "https://www.geo.fr/voyage/danemark-a-quoi-ressemble-la-vie-dans-un-ecovillage-205874",
    "category_1": "Tuto"
@@ -102,6 +102,9 @@ Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjcsImVtYWlsIjoi
 GET http://localhost:3000/api/post/20
 Content-Type:application/json
 Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJNYXVnaXM4NEBnbWFpbC5jb20iLCJmaXJzdF9uYW1lIjoiTWF1Z2lzIiwibGFzdF9uYW1lIjoiTWV1bmllciIsInBzZXVkbyI6Ik1hdWdpczEzIiwiZGF0ZV9vZl9iaXJ0aCI6IjIwMDMtMDQtMDVUMDE6MTU6NTAuMDYzWiIsInBhc3N3b3JkIjoidGVzdCIsInJpZ2h0cyI6InVzZXIiLCJwaG9uZV9udW1iZXIiOiIwNjgzMjE0NDE1IiwiYWRkcmVzcyI6IjAgVm9pZSBNb3VmZmV0YXJkIiwicmVnaW9uIjoiQ29yc2UiLCJ6aXBfY29kZSI6Ijg4Mjk2IiwiY2l0eSI6Ik5hbmN5IiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjBUMTE6MTY6MjIuOTIzWiIsInVwZGF0ZWRfYXQiOm51bGwsImlhdCI6MTY1NTcyOTYzNSwiZXhwIjoxNjU1NzMxNDM1fQ.hzFUKeQlCJ1WKEo9-UBowC-tqjvFn7_cttTqqe15EHs
+
+### Test de la route pour afficher tout les tuto
+GET http://localhost:3000/api/post/tuto
 
 ///////////////////////////////////////////////////////
 ///////////////////// ECO VILLAGE /////////////////////

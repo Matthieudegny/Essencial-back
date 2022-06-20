@@ -54,9 +54,7 @@ class User extends CoreDatamapper {
             FROM "${this.tableName}"
             JOIN "photo" ON "user".id = "photo".user_id`
         }
-        console.log("avant result");
         const result = await this.client.query(preparedQuery)
-        console.log("après", result);
         if (!result.rows[0]) {
             return null;
         }

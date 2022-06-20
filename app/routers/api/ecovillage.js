@@ -10,7 +10,7 @@ router.route('/')
  * GET /api/ecovillage
  * @summary To get all ecovillage with their photos
  * @tags Eco Village
- * @return {Object} 200 - success response
+ * @return {object} 200 - success response
  * @return {object} 400 - input data invalid
  */
 .get(ecovillageController.getAllWithPhotos)
@@ -45,7 +45,7 @@ router.route('/:id(\\d+)')
 * @return {object} 200 - success response
 * @return {object} 400 - input data invalid
 */
-.delete(ecovillageController.deleteOne)
+.delete(checkAuth, ecovillageController.deleteOne)
 
 /**
 * patch /api/ecovillage/{id}

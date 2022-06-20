@@ -25,6 +25,14 @@ const postController = {
         }
     },
 
+    async getAllTuto(req,res){
+        const result = await postDatamapper.findAllTuto()
+        if(!result){
+            return res.json({"message":"There is no post with category tuto"})
+        }
+        return res.json(result)
+    },
+
     async createOneWithPhotoAndCategory(req,res){
         const post = req.body
         let token = req.headers['authorization']; 

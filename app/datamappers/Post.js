@@ -110,6 +110,28 @@ class Post extends CoreDatamapper {
             message: "post created successfully"
         }
     }
+
+    async findAllTuto(){
+        // l'id 1 dans la table category correspond à tuto
+        const preparedQuery = {
+            text: `SELECT * FROM "post" 
+            WHERE "id" IN (
+            SELECT post_id FROM "post_has_category" WHERE category_id = $1
+            )`,
+            values: [1]
+        }
+        const result = await this.client.query(preparedQuery)
+
+        if(!result.rows) {
+            return null
+        }
+        if(result.rowCount > 1) {
+            return result.rows
+        }else{
+            return result.rows[0]
+        }
+    }
+
 }
 
 module.exports = new Post(client);

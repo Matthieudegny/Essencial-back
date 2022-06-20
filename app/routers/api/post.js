@@ -15,6 +15,16 @@ router.route('/create')
 */
 .post(checkAuth, postController.createOneWithPhotoAndCategory)
 
+router.route('/tuto')
+/**
+ * GET /api/post/tuto
+ * @summary To find all tutorials
+ * @tags Post
+ * @return {object} 200 - success response
+ * @return {ApiError} 400 - input data invalid
+ */
+ .get(postController.getAllTuto)
+
 router.route('/:id(\\d+)')
 /**
  * GET /api/post/{id}

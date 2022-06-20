@@ -135,12 +135,12 @@ for(i=0;i<NB_POSTS;i++) {
         connectionString: process.env.HEROKU_PG_URI,
         ssl: { rejectUnauthorized: false},  
     });
-
+    
     await client.connect();
 
-    /* debug('Clean Table') */
+    debug('Clean Table') 
 
-   /*  await client.query('TRUNCATE TABLE "user", "photo" RESTART IDENTITY'); */
+    await client.query('TRUNCATE TABLE "user", "photo", "post", "ecovil", "category", "friendship", "post_has_category" RESTART IDENTITY'); 
 
     const queries = [];
     let count = 0
@@ -209,7 +209,7 @@ for(i=0;i<NB_POSTS;i++) {
         queries.push(query);
     })
     count = 0
-/*     postPhotos.forEach((photo) => {
+    postPhotos.forEach((photo) => {
         count += 1;
         debug('insert photo on post / ' + 'request n°' + count );
         const query = client.query(
@@ -224,7 +224,7 @@ for(i=0;i<NB_POSTS;i++) {
         );
         queries.push(query);
     });  
-    count = 0 */
+    count = 0
 
     categories.forEach((category) => {
         count += 1;
