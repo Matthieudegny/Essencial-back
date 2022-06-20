@@ -90,7 +90,7 @@ CREATE DOMAIN "hexa_format" AS text CHECK (
 CREATE TABLE "category" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "name" TEXT NOT NULL,
-    "color" hexa_format NOT NULL,
+    "color" hexa_format,
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT now(),
     "updated_at" TIMESTAMPTZ
 );

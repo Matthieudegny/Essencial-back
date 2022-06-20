@@ -25,7 +25,7 @@ router.route('/')
 * @return {object} 200 - success response
 * @return {object} 400 - input data invalid
 */
-.patch(userController.updateWithPhotoOrNot) 
+.patch(checkAuth, userController.updateWithPhotoOrNot) 
 
 router.route('/connexion')
 /**

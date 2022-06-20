@@ -13,7 +13,7 @@ router.route('/create')
  * @return {object} 200 - success response
  * @return {ApiError} 400 - input data invalid
 */
-.post(checkAuth, postController.createOneWithPhoto)
+.post(checkAuth, postController.createOneWithPhotoAndCategory)
 
 router.route('/:id(\\d+)')
 /**

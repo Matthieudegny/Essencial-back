@@ -25,7 +25,7 @@ const postController = {
         }
     },
 
-    async createOneWithPhoto(req,res){
+    async createOneWithPhotoAndCategory(req,res){
         const post = req.body
         let token = req.headers['authorization']; 
         token = token.slice(4,token.length);
@@ -40,7 +40,10 @@ const postController = {
             if(!post.path){
                 throw Error("you must send a photo")
             }
-            const result = await postDatamapper.createWithPhoto(post)
+            if(!post.category_1){
+                throw Error("you must send at least one category")
+            }
+            const result = await postDatamapper.createWithPhotoAndCategory(post)
             return res.json(result)
         } catch (error) {
             return res.status(400).json({error: error.message})

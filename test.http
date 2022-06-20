@@ -25,7 +25,7 @@ POST http://localhost:3000/api/user/connexion
 Content-Type:application/json
 
 {
-    "email": "Barthlemy_Renault@hotmail.fr",
+    "email": "Maugis84@gmail.com",
     "password": "test"
 }
 
@@ -64,12 +64,13 @@ GET http://localhost:3000/api/user/posts/24
 ### Test de la route pour créer un nouveau post
 POST http://localhost:3000/api/post/create
 Content-Type:application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjcsImVtYWlsIjoiSm9sMTNAZ21haWwuY29tIiwiZmlyc3RfbmFtZSI6Ikpvw6tsIiwibGFzdF9uYW1lIjoiRHVyYW5kIiwicHNldWRvIjoiSm_Dq2wxNyIsImRhdGVfb2ZfYmlydGgiOiIxOTU3LTEwLTMwVDIxOjEyOjU1LjMxOFoiLCJwYXNzd29yZCI6InRlc3QiLCJyaWdodHMiOiJ1c2VyIiwicGhvbmVfbnVtYmVyIjoiMDYyMzUxMTg2MyIsImFkZHJlc3MiOiI0IEFsbMOpZSBkJ0FyZ2VudGV1aWwiLCJyZWdpb24iOiJQb2l0b3UtQ2hhcmVudGVzIiwiemlwX2NvZGUiOiI4MDU4NyIsImNpdHkiOiJUb3Vsb3VzZSIsImNyZWF0ZWRfYXQiOiIyMDIyLTA2LTE2VDExOjM2OjI1Ljc5NloiLCJ1cGRhdGVkX2F0IjpudWxsLCJpYXQiOjE2NTU0NjE4NDAsImV4cCI6MTY1NTQ2MzY0MH0.g9czbGMhENFwnCYH2yAPn9ePwodBl6_xZJnX4eZIj7Y
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJNYXVnaXM4NEBnbWFpbC5jb20iLCJmaXJzdF9uYW1lIjoiTWF1Z2lzIiwibGFzdF9uYW1lIjoiTWV1bmllciIsInBzZXVkbyI6Ik1hdWdpczEzIiwiZGF0ZV9vZl9iaXJ0aCI6IjIwMDMtMDQtMDVUMDE6MTU6NTAuMDYzWiIsInBhc3N3b3JkIjoidGVzdCIsInJpZ2h0cyI6InVzZXIiLCJwaG9uZV9udW1iZXIiOiIwNjgzMjE0NDE1IiwiYWRkcmVzcyI6IjAgVm9pZSBNb3VmZmV0YXJkIiwicmVnaW9uIjoiQ29yc2UiLCJ6aXBfY29kZSI6Ijg4Mjk2IiwiY2l0eSI6Ik5hbmN5IiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjBUMTE6MTY6MjIuOTIzWiIsInVwZGF0ZWRfYXQiOm51bGwsImlhdCI6MTY1NTcyNzI5OCwiZXhwIjoxNjU1NzI5MDk4fQ.9LT2lDIF-wVc8B4TpGGx-xAZeGXhy3PZ-pRhSU2NKbk
 
 {
-   "content": "blablablablbalbalblalblablballablbabalba",
-   "title": "heelllo !" ,
-   "path": "https://www.geo.fr/voyage/danemark-a-quoi-ressemble-la-vie-dans-un-ecovillage-205874"
+   "content": "bablablbalbalblablbabalba",
+   "title": "salutation !" ,
+   "path": "https://www.geo.fr/voyage/danemark-a-quoi-ressemble-la-vie-dans-un-ecovillage-205874",
+   "category_1": "Tuto"
 }
 
 ### Test de la route pour supprimer un post

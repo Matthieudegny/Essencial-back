@@ -13,6 +13,8 @@ faker.locale = 'fr';
 const NB_USERS = 50;
 const NB_FRIENDSHIP = 500;
 const NB_POSTS = 1000;
+const categories = ["Tuto","Maison", "Alimentation", "Gestion de l'eau", "Gestion des déchets", "Potager", "Energie"];
+
 
 // ---------- creation users faker ----------
 
@@ -115,13 +117,12 @@ for(i=0;i<NB_POSTS;i++){
 }
 
 
-
 // ---------- SEEDING ---------- 
 
 (async () => {
     const client = new Client({
-        connectionString: process.env.HEROKU_PG_URI,
-        ssl: { rejectUnauthorized: false}, 
+        connectionString: process.env.DATABASE_URL,
+        /* ssl: { rejectUnauthorized: false}, */ 
     });
 
     await client.connect();
@@ -197,7 +198,7 @@ for(i=0;i<NB_POSTS;i++){
         queries.push(query);
     })
     count = 0
-    postPhotos.forEach((photo) => {
+/*     postPhotos.forEach((photo) => {
         count += 1;
         debug('insert photo on post / ' + 'request n°' + count );
         const query = client.query(
@@ -212,6 +213,23 @@ for(i=0;i<NB_POSTS;i++){
         );
         queries.push(query);
     });  
+    count = 0 */
+
+    categories.forEach((category) => {
+        count += 1;
+        debug('insert category / ' + 'request n°' + count )
+        const query = client.query(
+            `
+            INSERT INTO "category"
+            ("name")
+            VALUES
+            ($1)
+            RETURNING *
+            `,
+            [category]
+        );
+        queries.push(query);
+    });
     count = 0
 
     await Promise.all(queries)

@@ -1,7 +1,7 @@
 const client = require('../db/pg');
 const CoreDatamapper = require('./coreDatamapper');
 const photoDatamapper = require('./Photo');
-
+const categoryDatamapper = require('./Category');
 class Post extends CoreDatamapper {
 
     tableName = 'post';
@@ -26,15 +26,19 @@ class Post extends CoreDatamapper {
         return result.rows[0]
     }
 
-    async createWithPhoto(post){
+    async createWithPhotoAndCategory(post){
 
         // création d'un post sans la propriété path pour pouvoir l'insérer
         // dans la création d'un user
-        const postWithoutPath = JSON.parse(JSON.stringify(post));
-        Reflect.deleteProperty(postWithoutPath, 'path');
+        const postWithoutPathAndCategory = JSON.parse(JSON.stringify(post));
+        Reflect.deleteProperty(postWithoutPathAndCategory, 'path');
+        Reflect.deleteProperty(postWithoutPathAndCategory, 'category_1');
+        if(post.category_2){
+            Reflect.deleteProperty(postWithoutPathAndCategory, 'category_2');   
+        }
 
         // insertion d'un post
-        const postInsert = await this.create(postWithoutPath);
+        const postInsert = await this.create(postWithoutPathAndCategory);
 
         if(!postInsert){
             return null;
@@ -52,9 +56,57 @@ class Post extends CoreDatamapper {
             return null;
         }
 
+       let categoryInsert
+
+        if(!post.category_2){
+
+            const findByName = await categoryDatamapper.findByName(post.category_1)
+
+            const preparedQuery = {
+                text: `INSERT INTO "post_has_category"
+                        ("post_id", "category_id")
+                        VALUES ($1,$2)
+                        RETURNING *`,
+                values:[postInsert.id, findByName.id]
+            }
+
+            categoryInsert = await this.client.query(preparedQuery)
+            categoryInsert = categoryInsert.rows[0]
+
+        } else {
+            const findByName1 = await categoryDatamapper.findByName(post.category_1)
+
+            const preparedQuery1 = client.query(
+                        `INSERT INTO "post_has_category"
+                        ("post_id", "category_id")
+                        VALUES ($1,$2)
+                        RETURNING *`,
+                        [postInsert.id, findByName1.id]
+            )
+
+            const findByName2 = await categoryDatamapper.findByName(post.category_2)
+
+            const preparedQuery2 = (
+                        `INSERT INTO "post_has_category"
+                        ("post_id", "category_id")
+                        VALUES ($1,$2)
+                        RETURNING *`,
+                        [postInsert.id, findByName2.id]
+            )
+
+            const queries = []
+            queries.push(preparedQuery1)
+            queries.push(preparedQuery2)
+
+            categoryInsert = await Promise.all(queries)
+            categoryInsert = categoryInsert.rows
+        }
+
+
         return {
             post: postInsert,
             photo: photoInsert,
+            post_has_category: categoryInsert,
             message: "post created successfully"
         }
     }
