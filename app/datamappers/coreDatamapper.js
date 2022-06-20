@@ -138,10 +138,7 @@ class CoreDatamapper {
 
         const result = await this.client.query(preparedQuery)
         const row = result.rows[0];
-        console.log("delete result ", row);
-        console.log("result cd --->", result);
         return row;
-
     }
 }
 

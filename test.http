@@ -107,12 +107,20 @@ Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJN
 ///////////////////// ECO VILLAGE /////////////////////
 //////////////////////////////////////////////////////
 
+### Test de la route pour récupérer tout les eco village
+GET http://localhost:3000/api/ecovillage
+
+### Test de la route pour récupérer un eco village
+GET http://localhost:3000/api/ecovillage/2
+Content-Type:application/json
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJHcmdvaXJlLk5ndXllbjg5QGdtYWlsLmNvbSIsImZpcnN0X25hbWUiOiJHcsOpZ29pcmUiLCJsYXN0X25hbWUiOiJOZ3V5ZW4iLCJwc2V1ZG8iOiJHcsOpZ29pcmU0OSIsImRhdGVfb2ZfYmlydGgiOiIxOTk4LTAzLTIxVDA4OjA2OjQ5LjgwNVoiLCJwYXNzd29yZCI6InRlc3QiLCJyaWdodHMiOiJ1c2VyIiwicGhvbmVfbnVtYmVyIjoiMDY3MTU4Mzc4OCIsImFkZHJlc3MiOiI3MiBQYXNzYWdlIGRlIGxhIEh1Y2hldHRlIiwicmVnaW9uIjoiUmjDtG5lLUFscGVzIiwiemlwX2NvZGUiOiI0NTc0OSIsImNpdHkiOiJWaWxsZWp1aWYiLCJjcmVhdGVkX2F0IjoiMjAyMi0wNi0yMFQxMzoyNDowMS4wMThaIiwidXBkYXRlZF9hdCI6bnVsbCwiaWF0IjoxNjU1NzM3MjIxLCJleHAiOjE2NTU3MzkwMjF9.wexESY3mrw3WTonaY6vq18ghKver9i82HUNCCifT3YM
+
 ### Test de la route pour créer un éco village
 POST http://localhost:3000/api/ecovillage/create
 Content-Type:application/json
 
 {
-    "email": "test@example.com",
+    "email": "teSthknjt@example.com",
     "name": "test",
     "description": "test description",
     "first_name_manager": "Bernardo",
@@ -125,3 +133,6 @@ Content-Type:application/json
     "path": "https://c8.alamy.com/compfr/ercwp7/maisons-dans-l-eco-village-fondation-findhorn-moray-scotland-uk-ercwp7.jpg"
 
 }
+
+### Test de la route pour supprimer un eco village
+DELETE http://localhost:3000/api/ecovillage/2

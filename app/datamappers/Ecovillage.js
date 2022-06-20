@@ -5,6 +5,40 @@ const photoDatamapper = require('./Photo');
 class Ecovillage extends CoreDatamapper {
     tableName= "ecovil"
 
+    async findAllWithPhoto(){
+        const preparedQuery = {
+            text: `
+            SELECT "ecovil".*, "photo".path
+            FROM "${this.tableName}"
+            JOIN "photo" ON "ecovil".id = "photo".ev_id`
+        }
+        const result = await this.client.query(preparedQuery)
+        if (!result.rows[0]) {
+            return null;
+        }
+        return result.rows
+    }
+
+    async findOneWithPhoto(ecovilId){
+
+        const preparedQuery = {
+            text: `
+            SELECT "ecovil".*, "photo".path
+            FROM "${this.tableName}"
+            JOIN "photo" ON "ecovil".id = "photo".ev_id
+            WHERE "ecovil".id = $1`,
+            values: [ecovilId]
+        }
+
+        const result = await this.client.query(preparedQuery)
+
+        if (!result.rows[0]) {
+            return null;
+        }
+
+        return result.rows[0];
+    }
+
     async createWithPhoto(ecovil){
 
         // création d'un user sans la propriété path pour pouvoir l'insérer

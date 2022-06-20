@@ -1,6 +1,7 @@
 const userDatamapper = require('../../datamappers/User');
 require('dotenv').config();
 const jwt = require('jsonwebtoken');
+const { addFriend } = require('../../datamappers/User');
 
 const userController = {
 
