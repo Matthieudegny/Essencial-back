@@ -7,7 +7,7 @@ const checkAuth = require('../../middlewares/checkAuth');
 
 router.route('/')
 /**
- * GET /api/user
+ * GET /api/ecovillage
  * @summary To get all ecovillage with their photos
  * @tags Eco Village
  * @return {User} 200 - success response
@@ -27,7 +27,7 @@ router.route('/:id(\\d+)')
 .get(checkAuth, ecovillageController.getOneWithPhoto)
 
 /**
-* DELETE /api/user/{id}
+* DELETE /api/ecovillage/{id}
 * @summary To delete one ecovillage with his photo
 * @tags Eco Village
 * @param {number} id.path.required - ecovillage's id
