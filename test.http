@@ -103,4 +103,25 @@ GET http://localhost:3000/api/post/20
 Content-Type:application/json
 Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJNYXVnaXM4NEBnbWFpbC5jb20iLCJmaXJzdF9uYW1lIjoiTWF1Z2lzIiwibGFzdF9uYW1lIjoiTWV1bmllciIsInBzZXVkbyI6Ik1hdWdpczEzIiwiZGF0ZV9vZl9iaXJ0aCI6IjIwMDMtMDQtMDVUMDE6MTU6NTAuMDYzWiIsInBhc3N3b3JkIjoidGVzdCIsInJpZ2h0cyI6InVzZXIiLCJwaG9uZV9udW1iZXIiOiIwNjgzMjE0NDE1IiwiYWRkcmVzcyI6IjAgVm9pZSBNb3VmZmV0YXJkIiwicmVnaW9uIjoiQ29yc2UiLCJ6aXBfY29kZSI6Ijg4Mjk2IiwiY2l0eSI6Ik5hbmN5IiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjBUMTE6MTY6MjIuOTIzWiIsInVwZGF0ZWRfYXQiOm51bGwsImlhdCI6MTY1NTcyOTYzNSwiZXhwIjoxNjU1NzMxNDM1fQ.hzFUKeQlCJ1WKEo9-UBowC-tqjvFn7_cttTqqe15EHs
 
+///////////////////////////////////////////////////////
+///////////////////// ECO VILLAGE /////////////////////
+//////////////////////////////////////////////////////
 
+### Test de la route pour créer un éco village
+POST http://localhost:3000/api/ecovillage/create
+Content-Type:application/json
+
+{
+    "email": "test@example.com",
+    "name": "test",
+    "description": "test description",
+    "first_name_manager": "Bernardo",
+    "last_name_manager": "Delaveiga",
+    "password": "test",
+    "address": "12 rue du test",
+    "city": "test",
+    "zip_code":"78943",
+    "phone_number": "0765388561",
+    "path": "https://c8.alamy.com/compfr/ercwp7/maisons-dans-l-eco-village-fondation-findhorn-moray-scotland-uk-ercwp7.jpg"
+
+}
