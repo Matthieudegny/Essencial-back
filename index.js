@@ -34,6 +34,16 @@ const options = {
     exposeSwaggerUI: true,
     notRequiredAsNullable: false,
     swaggerUiOptions: {},
+    paths: {
+        "/api/user": {
+            "post": {
+                "security": [ { "JWT": [] } ],
+                "tags": [
+                    "User"
+                ]
+            }
+        }
+    }      
 }
 
 expressJSDocSwagger(app)(options);
