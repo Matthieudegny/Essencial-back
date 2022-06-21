@@ -84,9 +84,12 @@ class Post extends CoreDatamapper {
             console.log("category insert --->" , categoryInsert);
 
             return {
-                post: postInsert.rows[0],
-                photo: photoInsert.rows[0],
-                category1: result1,
+                post: postInsert,
+                photo: photoInsert,
+                category1: {
+                    ...result1.rows[0],
+                    name: post.category_1
+                },
                 message: "post created successfully"
             }
 
