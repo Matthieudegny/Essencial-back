@@ -91,9 +91,16 @@ class User extends CoreDatamapper {
 
         // vérification si l'email n'éxiste pas dans ecovillage
 
-        const checkEcovil = await ecovillageDatamapper.findByEmail(user)
+        const preparedQueryCheckEcovil =  {               
+        text: `SELECT * 
+        FROM "ecovil"
+        WHERE "ecovil"."email" = $1`,
+        values: [user.email]
+        }
 
-        if(checkEcovil){
+        const resultCheckEcovil = await this.client.query(preparedQueryCheckEcovil)
+
+        if(resultCheckEcovil.rows[0]){
             throw Error("This email already been used")
         }
 

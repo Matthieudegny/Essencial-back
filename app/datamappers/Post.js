@@ -80,7 +80,6 @@ class Post extends CoreDatamapper {
             }
 
             categoryInsert = await this.client.query(preparedQuery)
-            console.log("category insert --->" , categoryInsert);
 
             return {
                 post: postInsert,
@@ -115,9 +114,7 @@ class Post extends CoreDatamapper {
 
             const result1 = await this.client.query(preparedQuery1)
             
-            console.log("result1 --->" , result1.rows);
             const result2 = await this.client.query(preparedQuery2)
-            console.log("result 2 --->" , result2.rows);
 
             return {
                 post: postInsert,

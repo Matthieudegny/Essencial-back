@@ -132,13 +132,12 @@ class CoreDatamapper {
     async delete(id) {
 
         const preparedQuery = {
-            text: `DELETE FROM "${this.tableName}" WHERE id = $1`,
+            text: `DELETE FROM "${this.tableName}" WHERE id = $1 RETURNING *`,
             values: [id]
         };
 
         const result = await this.client.query(preparedQuery)
         const row = result.rows[0];
-        console.log("row --->", row);
         return row;
     }
 }

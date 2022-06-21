@@ -103,7 +103,7 @@ const userController = {
 
             /* console.log("result --->" , result); */
 
-            const accessToken = jwt.sign(result, process.env.ACCESS_TOKEN_SECRET, {expiresIn: 1800})
+            const accessToken = jwt.sign(result, process.env.ACCESS_TOKEN_SECRET, {expiresIn: 3600})
 
             return res.json({
                     logged: true,

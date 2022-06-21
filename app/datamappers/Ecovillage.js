@@ -1,6 +1,7 @@
 const client = require('../db/pg');
 const CoreDatamapper = require('./coreDatamapper');
 const photoDatamapper = require('./Photo');
+const userDatamapper = require('./User');
 
 class Ecovillage extends CoreDatamapper {
     tableName= "ecovil"
@@ -64,6 +65,21 @@ class Ecovillage extends CoreDatamapper {
         // dans la création d'un ecovillage
         const ecovilWithoutPath = JSON.parse(JSON.stringify(ecovil));
         Reflect.deleteProperty(ecovilWithoutPath, 'path')
+
+        // vérification si l'email n'éxiste pas dans user
+
+        const preparedQueryCheckUser =  {               
+            text: `SELECT * 
+            FROM "user"
+            WHERE "user"."email" = $1`,
+            values: [ecovil.email]
+        }
+    
+        const resultCheckUser = await this.client.query(preparedQueryCheckUser)
+
+        if(resultCheckUser.rows[0]){
+            throw Error("This email already been used")
+        }
  
         // insertion d'un ecovillage
         const ecovilInsert = await this.create(ecovilWithoutPath);
