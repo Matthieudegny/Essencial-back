@@ -47,28 +47,29 @@ const ecovillageController = {
 
             if (!result){
                 throw Error(`There is no match for email and password`)
+            }else {
+                delete result.email
+                delete result.description
+                delete result.address
+                delete result.zip_code
+                delete result.city
+                delete result.first_name_manager
+                delete result.last_name_manager
+                delete result.date_of_birth_manager
+                delete result.password
+                delete result.phone_number
+                delete result.website
+                result.type = "ecovillage"
+    
+                const accessToken = jwt.sign(result, process.env.ACCESS_TOKEN_SECRET, {expiresIn: 1800})
+    
+                return res.json({
+                        logged: true,
+                        name: result.name,
+                        token: accessToken
+                        })
             }
 
-            delete result.email
-            delete result.description
-            delete result.address
-            delete result.zip_code
-            delete result.city
-            delete result.first_name_manager
-            delete result.last_name_manager
-            delete result.date_of_birth_manager
-            delete result.password
-            delete result.phone_number
-            delete result.website
-            result.type = "ecovillage"
-
-            const accessToken = jwt.sign(result, process.env.ACCESS_TOKEN_SECRET, {expiresIn: 1800})
-
-            return res.json({
-                    logged: true,
-                    name: result.name,
-                    token: accessToken
-                    })
             
         } catch(error) {
             return res.status(400).json({error: error.message})

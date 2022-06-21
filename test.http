@@ -25,7 +25,7 @@ POST http://localhost:3000/api/user/connexion
 Content-Type:application/json
 
 {
-    "email": "Armance_Dupont78@hotmail.fr",
+    "email": "Armaupont78@hotmail.fr",
     "password": "test"
 }
 
