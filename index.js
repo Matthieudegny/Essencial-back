@@ -37,7 +37,7 @@ const options = {
     paths: {
         "/api/user": {
             parameters: [ { name: "Authorization" , in: "header", type: "string", description: "auth token"}],
-            "post": {
+            "patch": {
                 "security": [ { "JWT": [] } ],
                 "tags": [
                     "User"
