@@ -70,9 +70,16 @@ const postController = {
                 throw Error("you must send the identifier")
             }
             const postToDelete = await postDatamapper.findByPk(postId)
-            console.log("ptd --->" , postToDelete);
+
             if(!postToDelete) {
                 throw Error("The id does not exist")
+            }
+
+            console.log("ptd --->" , postToDelete);
+            console.log("userId --->" , userId);
+
+            if(postToDelete.user_id !== userId) {
+                throw Error("You can't delete a post that is not yours")
             }
 
             const result = await postDatamapper.delete(postId)

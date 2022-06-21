@@ -125,7 +125,7 @@ Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzIsInBzZXVkbyI6
 }
 
 ### Test de la route pour supprimer un post
-DELETE https://essencial-api.herokuapp.com/api/post/28
+DELETE https://essencial-api.herokuapp.com/api/post/27
 Content-Type:application/json
 Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzIsInBzZXVkbyI6IkFubm9uY2lhZGUxNCIsInJpZ2h0cyI6InVzZXIiLCJjcmVhdGVkX2F0IjoiMjAyMi0wNi0yMVQxMjozNDo1OS4wOThaIiwidXBkYXRlZF9hdCI6bnVsbCwidHlwZSI6InVzZXIiLCJpYXQiOjE2NTU4NDYzNTgsImV4cCI6MTY1NTg0OTk1OH0.U2CtQOLhnFkujbSNPRRxP7If10D5oaOECEwIFEXzvew
 
