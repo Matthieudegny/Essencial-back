@@ -15,6 +15,14 @@ const options = {
     swaggerDefinition: {
         openapi: '3.0.1', // YOU NEED THIS
     },
+    securityDefinitions: {
+        "JWT": {
+            "type": "apiKey",
+            "name": "token",
+            "in": "header"
+        }
+    },
+    security: [ { "Bearer": [] } ],
     info: {
         version: '1.0.0',
         title: 'Essencial',
