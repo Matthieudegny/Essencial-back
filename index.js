@@ -14,11 +14,11 @@ app.set('views', './app/views');
 const options = {
     swaggerDefinition: {
         openapi: '3.0.1', // YOU NEED THIS
-        info: {
-            version: '1.0.0',
-            title: 'Essencial',
-            description: ' '
-        }
+    },
+    info: {
+        version: '1.0.0',
+        title: 'Essencial',
+        description: ' '
     },
     baseDir: __dirname,
     filesPattern: './**/*.js',
