@@ -80,13 +80,12 @@ class Post extends CoreDatamapper {
             }
 
             categoryInsert = await this.client.query(preparedQuery)
-            categoryInsert = categoryInsert.rows[0]
             console.log("category insert --->" , categoryInsert);
 
             return {
                 post: postInsert,
                 photo: photoInsert,
-                category1: {
+                categoryInsert: {
                     ...result1.rows[0],
                     name: post.category_1
                 },
