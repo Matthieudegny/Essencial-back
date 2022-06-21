@@ -2,6 +2,7 @@
 const client = require('../db/pg');
 const CoreDatamapper = require('./coreDatamapper');
 const photoDatamapper = require('./Photo');
+const ecovillageDatamapper = require('./Ecovillage');
 
 /**
  * @typedef {object} User
@@ -87,7 +88,15 @@ class User extends CoreDatamapper {
         // dans la création d'un user
         const userWithoutPath = JSON.parse(JSON.stringify(user));
         Reflect.deleteProperty(userWithoutPath, 'path')
- 
+
+        // vérification si l'email n'éxiste pas dans ecovillage
+
+        const checkEcovil = await ecovillageDatamapper.findByEmail(user)
+
+        if(checkEcovil){
+            throw Error("This email already been used")
+        }
+
         // insertion d'un user
         const userInsert = await this.create(userWithoutPath);
 
@@ -250,6 +259,25 @@ class User extends CoreDatamapper {
         }
 
         return newFriendship.rows[0]
+    }
+
+    async deleteFriend (userId, friendId){
+
+        const preparedQuery = {
+            text:`DELETE FROM "friendship" 
+                  WHERE ("user_id" = $1 AND "friend_id" = $2)
+                  OR ("friend_id" = $1 AND "user_id" = $2)
+                  RETURNING *`,
+            values: [userId, friendId]
+        }
+
+        const deleteRelation = await this.client.query(preparedQuery)
+
+        if(!deleteRelation){
+            return null
+        }
+
+        return deleteRelation.rows[0]
     }
 }
 

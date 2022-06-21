@@ -25,7 +25,7 @@ POST http://localhost:3000/api/user/connexion
 Content-Type:application/json
 
 {
-    "email": "Armaupont78@hotmail.fr",
+    "email": "Lonie_Mathieu@hotmail.fr",
     "password": "test"
 }
 
@@ -34,7 +34,7 @@ POST http://localhost:3000/api/user/create
 Content-Type:application/json
 
 {
-    "email": "userWithPhoto9@gmail.com",
+    "email": "bonjour@example.com",
     "first_name": "test",
     "last_name": "test",
     "pseudo": "test77",
@@ -80,8 +80,12 @@ Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsInBzZXVkbyI6
 ### Test de la route pour ajouter un amis
 GET http://localhost:3000/api/user/friends/add/11
 Content-Type:application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsInBzZXVkbyI6IkFybWFuY2UyNCIsInJpZ2h0cyI6InVzZXIiLCJjcmVhdGVkX2F0IjoiMjAyMi0wNi0yMFQxOTo0MjowNC43MDhaIiwidXBkYXRlZF9hdCI6bnVsbCwidHlwZSI6InVzZXIiLCJpYXQiOjE2NTU4MDYxNjIsImV4cCI6MTY1NTgwNzk2Mn0.vAtRy0_MmbYULr3T40tLgETcnAhQ-cvFMJsEBDU68sI
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwicHNldWRvIjoiTMOpb25pZTg2IiwicmlnaHRzIjoidXNlciIsImNyZWF0ZWRfYXQiOiIyMDIyLTA2LTIwVDE5OjQyOjA0LjcwM1oiLCJ1cGRhdGVkX2F0IjpudWxsLCJ0eXBlIjoidXNlciIsImlhdCI6MTY1NTgxOTk5OSwiZXhwIjoxNjU1ODIxNzk5fQ.Se30_-INtbO2v7gRqRC67fBLbfPQZuc9aJYhZxdMjlA
 
+### Test de la route pour supprimer un amis
+DELETE http://localhost:3000/api/user/friends/delete/12
+Content-Type:application/json
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwicHNldWRvIjoiTMOpb25pZTg2IiwicmlnaHRzIjoidXNlciIsImNyZWF0ZWRfYXQiOiIyMDIyLTA2LTIwVDE5OjQyOjA0LjcwM1oiLCJ1cGRhdGVkX2F0IjpudWxsLCJ0eXBlIjoidXNlciIsImlhdCI6MTY1NTgxOTk5OSwiZXhwIjoxNjU1ODIxNzk5fQ.Se30_-INtbO2v7gRqRC67fBLbfPQZuc9aJYhZxdMjlA
 
 ////////////////////////////////////////////////
 ///////////////////// POST ////////////////////
@@ -90,13 +94,13 @@ Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsInBzZXVkbyI6
 ### Test de la route pour créer un nouveau post
 POST http://localhost:3000/api/post/create
 Content-Type:application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDcsImVtYWlsIjoiQXJ0aG1lLkR1cHV5OTBAaG90bWFpbC5mciIsImZpcnN0X25hbWUiOiJBcnRow6htZSIsImxhc3RfbmFtZSI6IkR1cHV5IiwicHNldWRvIjoiQXJ0aMOobWUyOSIsImRhdGVfb2ZfYmlydGgiOiIxOTk1LTAzLTI5VDEyOjI0OjU0LjU0MVoiLCJwYXNzd29yZCI6InRlc3QiLCJyaWdodHMiOiJ1c2VyIiwicGhvbmVfbnVtYmVyIjoiMDY4MTE4MTQwNCIsImFkZHJlc3MiOiIxMjAgQm91bGV2YXJkIGRlIGxhIFZpY3RvaXJlIiwicmVnaW9uIjoiw45sZS1kZS1GcmFuY2UiLCJ6aXBfY29kZSI6IjU4MjczIiwiY2l0eSI6Ik1ldHoiLCJjcmVhdGVkX2F0IjoiMjAyMi0wNi0yMFQxOTo0MjowNC43MjNaIiwidXBkYXRlZF9hdCI6bnVsbCwiaWF0IjoxNjU1NzU1MTk4LCJleHAiOjE2NTU3NTY5OTh9.yScaP31IBR1n3PuxHGMoyMToqI94CfcT7fsJokTQRuE
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwicHNldWRvIjoiTMOpb25pZTg2IiwicmlnaHRzIjoidXNlciIsImNyZWF0ZWRfYXQiOiIyMDIyLTA2LTIwVDE5OjQyOjA0LjcwM1oiLCJ1cGRhdGVkX2F0IjpudWxsLCJ0eXBlIjoidXNlciIsImlhdCI6MTY1NTgyNDk3NSwiZXhwIjoxNjU1ODI2Nzc1fQ.ZjvghHq2ip_Binu1h4ccw7OnlG_q-yMsJys-cwkCCJA
 
 {
-   "content": "et dix!! post tuto",
+   "content": "et difcggbh tuto",
    "title": "test !" ,
    "path": "https://www.geo.fr/voyage/danemark-a-quoi-ressemble-la-vie-dans-un-ecovillage-205874",
-   "category_1": "Tuto"
+   "category_1": "Tutoriel"
 }
 
 ### Test de la route pour supprimer un post

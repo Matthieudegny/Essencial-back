@@ -1,7 +1,7 @@
 const userDatamapper = require('../../datamappers/User');
 require('dotenv').config();
 const jwt = require('jsonwebtoken');
-const { addFriend } = require('../../datamappers/User');
+const { addFriend, deleteFriend } = require('../../datamappers/User');
 
 const userController = {
 
@@ -259,10 +259,10 @@ const userController = {
   
         try {
             if(!user){
-                return res.json({"message":"you must send data to update a user"})
+                throw Error("you must send data to update a user")
             }
             if(jwtType !== "user"){
-                return res.json({"message":"you can't update user that is not yours"})
+                throw Error("you can't update user that is not yours")
             }
             const result = await userDatamapper.updateWithPhotoOrNot(userId,user)
             return res.json(result)
@@ -283,14 +283,43 @@ const userController = {
                 throw Error("you must send a friend")
             }
             if(jwtType !== "user"){
-                return res.json({"message":"you can't add friends for an other"})
+                throw Error("you can't add friends for an other")
             }
             if(friendId == userId){
-                return res.json({"message":"you can't add your own profil on friends"})
+                throw Error("you can't add your own profil on friends")
             }
 
             const result = await userDatamapper.addFriend(userId,friendId)
             return res.json({result, "message": "friend add successfully"})
+        } catch (error) {
+            return res.status(400).json({error: error.message})
+        }
+    },
+
+    async deleteFriend(req,res){
+        const friendId = req.params.id
+        let token = req.headers['authorization']; 
+        token = token.slice(4,token.length);
+        const jwtType = jwt.decode(token).type       
+        const userId = jwt.decode(token).id
+
+        try {
+            if(!friendId){
+                throw Error("you must send a friend")
+            }
+            if(jwtType !== "user"){
+                throw Error("you can't remove friends for an other")
+            }
+            if(friendId == userId){
+                throw Error("you can't add your own profil on friends")
+            }
+
+            const result = await userDatamapper.deleteFriend(userId,friendId)
+
+            if(!result){
+                throw Error("this relation does not exist")
+            }
+            return res.json({result, "message": "friend deleted successfully"})
         } catch (error) {
             return res.status(400).json({error: error.message})
         }

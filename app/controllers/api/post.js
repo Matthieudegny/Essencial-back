@@ -42,7 +42,7 @@ const postController = {
         post.user_id = userId;
 
         try {
-            if(!post){
+            if(Object.keys(post).length === 0){
                 throw Error("you must send a post")
             }
             if(!post.path){

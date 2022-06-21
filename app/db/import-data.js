@@ -13,7 +13,7 @@ faker.locale = 'fr';
 const NB_USERS = 50;
 const NB_FRIENDSHIP = 500;
 const NB_POSTS = 1000;
-const categories = ["Tuto","Maison", "Alimentation", "Gestion de l'eau", "Gestion des déchets", "Potager", "Energie"];
+const categories = ["Tutoriel","Maison", "Alimentation", "Gestion de l'eau", "Gestion des déchêts", "Potager", "Energie"];
 
 
 // ---------- creation users faker ----------

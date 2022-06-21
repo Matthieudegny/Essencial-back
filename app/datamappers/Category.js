@@ -17,11 +17,11 @@ class Category extends CoreDatamapper {
             };
 
         const result = await this.client.query(preparedQuery);
+        console.log("result datamapper -->" , result.rows[0])
 
         if (!result.rows[0]) {
             return null;
         }
-        console.log(result.rows[0])
         return result.rows[0];
     }
 

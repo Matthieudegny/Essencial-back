@@ -31,14 +31,21 @@ class Post extends CoreDatamapper {
         // création d'un post sans la propriété path pour pouvoir l'insérer
         // dans la création d'un user
         const postWithoutPathAndCategory = JSON.parse(JSON.stringify(post));
-        Reflect.deleteProperty(postWithoutPathAndCategory, 'path');
-        Reflect.deleteProperty(postWithoutPathAndCategory, 'category_1');
+        /* Reflect.deleteProperty(postWithoutPathAndCategory, 'path'); */
+        delete postWithoutPathAndCategory.path
+        /* Reflect.deleteProperty(postWithoutPathAndCategory, 'category_1'); */
+        delete postWithoutPathAndCategory.category_1
         if(post.category_2){
             Reflect.deleteProperty(postWithoutPathAndCategory, 'category_2');   
         }
 
+        console.log(postWithoutPathAndCategory);
+        console.log(post);
+
         // insertion d'un post
         const postInsert = await this.create(postWithoutPathAndCategory);
+
+        console.log("post insert --->" , postInsert);
 
         if(!postInsert){
             return null;
@@ -56,12 +63,14 @@ class Post extends CoreDatamapper {
             return null;
         }
 
+        // insertion d'une catégorie
+
        let categoryInsert
 
         if(!post.category_2){
 
             const findByName = await categoryDatamapper.findByName(post.category_1)
-
+            console.log("findbyname --->" , findByName);
             const preparedQuery = {
                 text: `INSERT INTO "post_has_category"
                         ("post_id", "category_id")
@@ -72,43 +81,51 @@ class Post extends CoreDatamapper {
 
             categoryInsert = await this.client.query(preparedQuery)
             categoryInsert = categoryInsert.rows[0]
+            console.log("category insert --->" , categoryInsert);
+
+            return {
+                post: postInsert,
+                photo: photoInsert,
+                category1: result1,
+                message: "post created successfully"
+            }
 
         } else {
             const findByName1 = await categoryDatamapper.findByName(post.category_1)
 
-            const preparedQuery1 = client.query(
-                        `INSERT INTO "post_has_category"
+            const preparedQuery1 = {
+                        text: `INSERT INTO "post_has_category"
                         ("post_id", "category_id")
                         VALUES ($1,$2)
                         RETURNING *`,
-                        [postInsert.id, findByName1.id]
-            )
+                        values: [postInsert.id, findByName1.id]
+            }
 
             const findByName2 = await categoryDatamapper.findByName(post.category_2)
 
-            const preparedQuery2 = (
-                        `INSERT INTO "post_has_category"
+            const preparedQuery2 = {
+                        text: `INSERT INTO "post_has_category"
                         ("post_id", "category_id")
                         VALUES ($1,$2)
                         RETURNING *`,
-                        [postInsert.id, findByName2.id]
-            )
+                        values: [postInsert.id, findByName2.id]
+            }
 
-            const queries = []
-            queries.push(preparedQuery1)
-            queries.push(preparedQuery2)
+            const result1 = await this.client.query(preparedQuery1)
+            console.log(result1);
+            const result2 = await this.client.query(preparedQuery2)
+            console.log(result2);
 
-            categoryInsert = await Promise.all(queries)
-            categoryInsert = categoryInsert.rows
+            return {
+                post: postInsert,
+                photo: photoInsert,
+                category1: result1,
+                category2: result2,
+                message: "post created successfully"
+            }
         }
 
 
-        return {
-            post: postInsert,
-            photo: photoInsert,
-            post_has_category: categoryInsert,
-            message: "post created successfully"
-        }
     }
 
     async findAllTuto(){

@@ -128,7 +128,7 @@ CREATE TABLE "friendship" (
     "updated_at" TIMESTAMPTZ
 );
 
--- On rajoute une contrainte pour véifier que le user_id et le friend_id ne soit pas les même
+-- On rajoute une contrainte pour vérifier que le user_id et le friend_id ne soit pas les mêmes
 
 ALTER TABLE "friendship"
 ADD CONSTRAINT user_different_friend 
