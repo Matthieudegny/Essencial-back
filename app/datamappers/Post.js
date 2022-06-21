@@ -112,6 +112,7 @@ class Post extends CoreDatamapper {
             }
 
             const result1 = await this.client.query(preparedQuery1)
+            
             console.log("result1 --->" , result1.rows);
             const result2 = await this.client.query(preparedQuery2)
             console.log("result 2 --->" , result2.rows);
@@ -119,8 +120,14 @@ class Post extends CoreDatamapper {
             return {
                 post: postInsert,
                 photo: photoInsert,
-                category1: result1.rows[0],
-                category2: result2.rows[0] ,
+                category1: {
+                    ...result1.rows[0],
+                    name: post.category_1
+                },
+                category2: {
+                    ...result2.rows[0],
+                    name: post.category_2
+                },
                 message: "post created successfully"
             }
         }
