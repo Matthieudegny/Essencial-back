@@ -86,7 +86,7 @@ const userController = {
             const result = await userDatamapper.findByEmail(user);
             
             if (!result){
-                return res.json({"message":`There is no match for email and password`})
+                throw Error(`There is no match for email and password`)
             }
 
             delete result.password
