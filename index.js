@@ -22,7 +22,7 @@ const options = {
             "in": "header"
         }
     },
-    security: [ { "Bearer": [] } ],
+    security: [ { "JWT": [] } ],
     info: {
         version: '1.0.0',
         title: 'Essencial',
