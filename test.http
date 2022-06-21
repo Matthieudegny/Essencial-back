@@ -8,11 +8,11 @@
 GET http://localhost:3000/api/ujnlkcsdcs
 
 ### Test de la route connexion globale
-POST http://localhost:3000/api/connexion
+POST https://essencial-api.herokuapp.com/api/connexion
 Content-Type:application/json
 
 {
-    "email": "bonjour@example.com",
+    "email": "Annonciade_Paris49@yahoo.fr",
     "password": "test"
 }
 
@@ -101,15 +101,15 @@ Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwicHNldWRvIjoi
 ///////////////////////////////////////////////
 
 ### Test de la route pour créer un nouveau post
-POST http://localhost:3000/api/post/create
+POST https://essencial-api.herokuapp.com/api/post/create
 Content-Type:application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwicHNldWRvIjoiTMOpb25pZTg2IiwicmlnaHRzIjoidXNlciIsImNyZWF0ZWRfYXQiOiIyMDIyLTA2LTIwVDE5OjQyOjA0LjcwM1oiLCJ1cGRhdGVkX2F0IjpudWxsLCJ0eXBlIjoidXNlciIsImlhdCI6MTY1NTgyNDk3NSwiZXhwIjoxNjU1ODI2Nzc1fQ.ZjvghHq2ip_Binu1h4ccw7OnlG_q-yMsJys-cwkCCJA
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzIsInBzZXVkbyI6IkFubm9uY2lhZGUxNCIsInJpZ2h0cyI6InVzZXIiLCJjcmVhdGVkX2F0IjoiMjAyMi0wNi0yMVQxMjozNDo1OS4wOThaIiwidXBkYXRlZF9hdCI6bnVsbCwidHlwZSI6InVzZXIiLCJpYXQiOjE2NTU4NDU4MDAsImV4cCI6MTY1NTg0OTQwMH0.yv8385XEiekBGr9gJtREohXNVjSQtOCQJpbLx5mj0-0
 
 {
-   "content": "et difcggbh tuto",
-   "title": "test !" ,
+   "content": "hello !!",
+   "title": "test" ,
    "path": "https://www.geo.fr/voyage/danemark-a-quoi-ressemble-la-vie-dans-un-ecovillage-205874",
-   "category_1": "Tutoriel"
+   "category_1": "Gestion de l'eau"
 }
 ### Test de la route pour créer un nouveau post
 POST https://essencial-api.herokuapp.com/api/post/create
@@ -125,9 +125,9 @@ Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzIsInBzZXVkbyI6
 }
 
 ### Test de la route pour supprimer un post
-DELETE http://localhost:3000/api/post/29
+DELETE https://essencial-api.herokuapp.com/api/post/28
 Content-Type:application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjcsImVtYWlsIjoiSm9sMTNAZ21haWwuY29tIiwiZmlyc3RfbmFtZSI6Ikpvw6tsIiwibGFzdF9uYW1lIjoiRHVyYW5kIiwicHNldWRvIjoiSm_Dq2wxNyIsImRhdGVfb2ZfYmlydGgiOiIxOTU3LTEwLTMwVDIxOjEyOjU1LjMxOFoiLCJwYXNzd29yZCI6InRlc3QiLCJyaWdodHMiOiJ1c2VyIiwicGhvbmVfbnVtYmVyIjoiMDYyMzUxMTg2MyIsImFkZHJlc3MiOiI0IEFsbMOpZSBkJ0FyZ2VudGV1aWwiLCJyZWdpb24iOiJQb2l0b3UtQ2hhcmVudGVzIiwiemlwX2NvZGUiOiI4MDU4NyIsImNpdHkiOiJUb3Vsb3VzZSIsImNyZWF0ZWRfYXQiOiIyMDIyLTA2LTE2VDExOjM2OjI1Ljc5NloiLCJ1cGRhdGVkX2F0IjpudWxsLCJpYXQiOjE2NTU0NjgzNzIsImV4cCI6MTY1NTQ3MDE3Mn0.cAF15wMnOourO6g6-KufY5Sj5owbF_8UrlU2iNdKCOY
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzIsInBzZXVkbyI6IkFubm9uY2lhZGUxNCIsInJpZ2h0cyI6InVzZXIiLCJjcmVhdGVkX2F0IjoiMjAyMi0wNi0yMVQxMjozNDo1OS4wOThaIiwidXBkYXRlZF9hdCI6bnVsbCwidHlwZSI6InVzZXIiLCJpYXQiOjE2NTU4NDYzNTgsImV4cCI6MTY1NTg0OTk1OH0.U2CtQOLhnFkujbSNPRRxP7If10D5oaOECEwIFEXzvew
 
 ### Test de la route pour afficher un post
 GET http://localhost:3000/api/post/20

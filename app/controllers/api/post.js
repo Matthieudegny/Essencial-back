@@ -60,12 +60,17 @@ const postController = {
 
     async deleteOne(req, res){
         const postId = req.params.id
+        let token = req.headers['authorization']; 
+        token = token.slice(4,token.length);
+        
+        const userId = jwt.decode(token).id
 
         try {
             if(!postId){
                 throw Error("you must send the identifier")
             }
             const postToDelete = await postDatamapper.findByPk(postId)
+            console.log("ptd --->" , postToDelete);
             if(!postToDelete) {
                 throw Error("The id does not exist")
             }
