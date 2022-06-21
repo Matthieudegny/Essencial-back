@@ -9,8 +9,7 @@ const userController = {
         const users = await userDatamapper.findAll()
         try {
             if(!result){
-                console.log("je passe dans le if no result");
-                throw Error({error: `There is no users on table user`})
+                return res.json({error: `There is no users on table user`})
             }
             return res.json(users)            
         } catch (error) {
@@ -21,31 +20,27 @@ const userController = {
     async getAllWithPhotos(req,res){
         try {
             const users = await userDatamapper.findAllWithPhoto()
-            /* console.log("users ->",users); */
             if(!users){
-                console.log("on passe dans le if");
-                throw new Error({error: "There is no user on BDD"})
+                return res.json({error: `There is no users on table user`})
             }    
             return res.json(users)
         } catch (error) {
-            console.trace(error)
             res.status(400).json({error: error})
         }
 
     },
 
     async getOne(req,res){
-        const user = req.body
+        const userId = req.params.id
         try {
-            if(!user.id){
-                throw new Error("You must specify an id")
+            if(!userId){
+                return res.json({mesage: `You must send an identifier`})
             }
 
             const result = await userDatamapper.findByPk();
 
             if(!result){
-                console.log("je passe dans le if no result");
-                throw new Error(`There is no user with id: ${user.id}`)
+                return result.json({message:`There is no user with id: ${user.id}`})
             }
 
             return res.json(result)
@@ -59,13 +54,13 @@ const userController = {
         const userId = req.params.id
         try {
             if(!userId){
-                throw new Error("You must specify an id")
+                return res.json({mesage: `You must send an identifier`})
             }
 
             const result = await userDatamapper.findOneWithPhoto(userId)
 
             if(!result){
-                throw new Error(`There is no user with id ${userId}`)
+                return result.json({message:`There is no user with id: ${user.id}`})
             }
 
             return res.json(result)
@@ -89,17 +84,30 @@ const userController = {
                 throw Error("you must send user.email & user.password")
             }
             const result = await userDatamapper.findByEmail(user);
-
+            
             if (!result){
-                throw Error(`There is no match for email and password`)
+                return res.json({message:`There is no match for email and password`})
             }
+
+            delete result.password
+            delete result.phone_number
+            delete result.address
+            delete result.zip_code
+            delete result.city
+            delete result.first_name
+            delete result.last_name
+            delete result.email
+            delete result.region
+            delete result.date_of_birth
+            result.type = "user"
+
+            /* console.log("result --->" , result); */
 
             const accessToken = jwt.sign(result, process.env.ACCESS_TOKEN_SECRET, {expiresIn: 1800})
 
             return res.json({
                     logged: true,
                     pseudo: result.pseudo,
-                    type: "user",
                     token: accessToken
                     })
             
@@ -123,7 +131,6 @@ const userController = {
 
     async createOneWithPhoto(req,res){
         const user = req.body
-        console.log("user ------>", user);
         try {
             if(!user){
                 throw Error("you must send a user")
@@ -141,9 +148,18 @@ const userController = {
     async deleteOne(req,res){
         const userId = req.params.id
 
+        let token = req.headers['authorization']; 
+        token = token.slice(4,token.length);
+        
+        const jwtUserId = jwt.decode(token).id
+        const jwtType = jwt.decode(token).type
+
         try {
             if(!userId){
                 throw Error("you must send the identifier")
+            }
+            if((userId != jwtUserId) || (jwtType !== "user")){
+                throw Error("you can't delete a user that is not yours")
             }
             const userToDelete = await userDatamapper.findByPk(userId)
             if(!userToDelete){
@@ -151,6 +167,7 @@ const userController = {
             }
 
             const result = await userDatamapper.delete(userId)
+
             return res.json({
                 message: "user deleted successfully"
             })
@@ -160,14 +177,23 @@ const userController = {
     },
 
     async getAllFriends(req, res) {
-
         const userId = req.params.id
 
-        const checkUserExist = await userDatamapper.findByPk(userId)
-        if(!checkUserExist){
-            throw Error("User with id does not exist")
+        let token = req.headers['authorization']; 
+        token = token.slice(4,token.length);
+        
+        const jwtUserId = jwt.decode(token).id
+        const jwtType = jwt.decode(token).type
+
+        if((userId != jwtUserId) || (jwtType !== "user")){
+            return res.json({"message": "you can't find friends that is not yours"})
         }
+
         const friends = await userDatamapper.findAllFriends(userId)
+
+        if(!friends){
+            return res.json({"message": "This user don't have any friend"})
+        }
 
         return res.json(friends)
 
@@ -177,21 +203,39 @@ const userController = {
 
         const userId = req.params.id
 
-        const checkUserExist = await userDatamapper.findByPk(userId)
-        if(!checkUserExist){
-            throw Error("User with id does not exist")
+        let token = req.headers['authorization']; 
+        token = token.slice(4,token.length);
+        
+        const jwtUserId = jwt.decode(token).id
+        const jwtType = jwt.decode(token).type
+
+        if((userId != jwtUserId) || (jwtType !== "user")){
+            return res.json({"message":"you can't find friends that is not yours"})
         }
+
         const posts = await userDatamapper.findAllPostsWithPhoto(userId)
 
         return res.json(posts)
     },
 
     async getAllFriendsPosts (req,res) {
+
         const userId = req.params.id
+
+        let token = req.headers['authorization']; 
+        token = token.slice(4,token.length);
+        
+        const jwtUserId = jwt.decode(token).id
+        const jwtType = jwt.decode(token).type
+
+        if((userId != jwtUserId) || (jwtType !== "user")){
+            return res.json({"message":"you can't find friend's posts that is not yours"})
+        }
+
         const allFriends = await userDatamapper.findAllFriends(userId)
 
         if(!allFriends){
-            throw Error(`User with id ${userId} don't have any friend`)
+            return res.json({"message":`User with id ${userId} don't have any friend`})
         }
 
         friendsId = []
@@ -211,10 +255,14 @@ const userController = {
         token = token.slice(4,token.length);
         
         const userId = jwt.decode(token).id
+        const jwtType = jwt.decode(token).type
   
         try {
             if(!user){
-                throw Error("you must send a user")
+                return res.json({"message":"you must send data to update a user"})
+            }
+            if(jwtType !== "user"){
+                return res.json({"message":"you can't update user that is not yours"})
             }
             const result = await userDatamapper.updateWithPhotoOrNot(userId,user)
             return res.json(result)
@@ -227,13 +275,20 @@ const userController = {
         const friendId = req.params.id
         let token = req.headers['authorization']; 
         token = token.slice(4,token.length);
-        
+        const jwtType = jwt.decode(token).type       
         const userId = jwt.decode(token).id
 
         try {
             if(!friendId){
                 throw Error("you must send a friend")
             }
+            if(jwtType !== "user"){
+                return res.json({"message":"you can't add friends for an other"})
+            }
+            if(friendId == userId){
+                return res.json({"message":"you can't add your own profil on friends"})
+            }
+
             const result = await userDatamapper.addFriend(userId,friendId)
             return res.json({result, "message": "friend add successfully"})
         } catch (error) {

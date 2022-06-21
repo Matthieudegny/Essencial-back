@@ -12,9 +12,13 @@ app.set('view engine', 'ejs');
 app.set('views', './app/views');
 
 const options = {
-    info: {
-        version: '1.0.0',
-        title: 'Essencial'
+    swaggerDefinition: {
+        openapi: '3.0.1', // YOU NEED THIS
+        info: {
+            version: '1.0.0',
+            title: 'Essencial',
+            description: ' '
+        }
     },
     baseDir: __dirname,
     filesPattern: './**/*.js',

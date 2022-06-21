@@ -25,7 +25,7 @@ POST http://localhost:3000/api/user/connexion
 Content-Type:application/json
 
 {
-    "email": "Arthme.Dupuy90@hotmail.fr",
+    "email": "Armance_Dupont78@hotmail.fr",
     "password": "test"
 }
 
@@ -49,32 +49,38 @@ Content-Type:application/json
 }
 
 ### Test de la route pour supprimer un utilisateur
-DELETE http://localhost:3000/api/user/2
+DELETE http://localhost:3000/api/user/1
+Content-Type:application/json
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsInBzZXVkbyI6IkFybWFuY2UyNCIsInJpZ2h0cyI6InVzZXIiLCJjcmVhdGVkX2F0IjoiMjAyMi0wNi0yMFQxOTo0MjowNC43MDhaIiwidXBkYXRlZF9hdCI6bnVsbCwidHlwZSI6InVzZXIiLCJpYXQiOjE2NTU4MDYwMDAsImV4cCI6MTY1NTgwNzgwMH0.3Jq9CN5s9sNfhSvbdRmGv3v_s44iJxw1JigDfQaySmU
 
 ### Test de la route pour récupérer tout les amis d'un utilisateur
-GET http://localhost:3000/api/user/friends/24
+GET http://localhost:3000/api/user/friends/120
+Content-Type:application/json
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsInBzZXVkbyI6IkFybWFuY2UyNCIsInJpZ2h0cyI6InVzZXIiLCJjcmVhdGVkX2F0IjoiMjAyMi0wNi0yMFQxOTo0MjowNC43MDhaIiwidXBkYXRlZF9hdCI6bnVsbCwidHlwZSI6InVzZXIiLCJpYXQiOjE2NTU4MDYxNjIsImV4cCI6MTY1NTgwNzk2Mn0.vAtRy0_MmbYULr3T40tLgETcnAhQ-cvFMJsEBDU68sI
 
 ### Test de la route pour récupérer tout les posts d'un utilisateur
-GET http://localhost:3000/api/user/posts/24
+GET http://localhost:3000/api/user/posts/120
+Content-Type:application/json
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsInBzZXVkbyI6IkFybWFuY2UyNCIsInJpZ2h0cyI6InVzZXIiLCJjcmVhdGVkX2F0IjoiMjAyMi0wNi0yMFQxOTo0MjowNC43MDhaIiwidXBkYXRlZF9hdCI6bnVsbCwidHlwZSI6InVzZXIiLCJpYXQiOjE2NTU4MDYxNjIsImV4cCI6MTY1NTgwNzk2Mn0.vAtRy0_MmbYULr3T40tLgETcnAhQ-cvFMJsEBDU68sI
 
 ### Test de la route pour afficher tout les posts de tout les amis d'un utilisateurs
-GET http://localhost:3000/api/user/friends/posts/34
+GET http://localhost:3000/api/user/friends/posts/120
 Content-Type:application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjcsImVtYWlsIjoiSm9sMTNAZ21haWwuY29tIiwiZmlyc3RfbmFtZSI6Ikpvw6tsIiwibGFzdF9uYW1lIjoiRHVyYW5kIiwicHNldWRvIjoiSm_Dq2wxNyIsImRhdGVfb2ZfYmlydGgiOiIxOTU3LTEwLTMwVDIxOjEyOjU1LjMxOFoiLCJwYXNzd29yZCI6InRlc3QiLCJyaWdodHMiOiJ1c2VyIiwicGhvbmVfbnVtYmVyIjoiMDYyMzUxMTg2MyIsImFkZHJlc3MiOiI0IEFsbMOpZSBkJ0FyZ2VudGV1aWwiLCJyZWdpb24iOiJQb2l0b3UtQ2hhcmVudGVzIiwiemlwX2NvZGUiOiI4MDU4NyIsImNpdHkiOiJUb3Vsb3VzZSIsImNyZWF0ZWRfYXQiOiIyMDIyLTA2LTE2VDExOjM2OjI1Ljc5NloiLCJ1cGRhdGVkX2F0IjpudWxsLCJpYXQiOjE2NTU0NjgzNzIsImV4cCI6MTY1NTQ3MDE3Mn0.cAF15wMnOourO6g6-KufY5Sj5owbF_8UrlU2iNdKCOY
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsInBzZXVkbyI6IkFybWFuY2UyNCIsInJpZ2h0cyI6InVzZXIiLCJjcmVhdGVkX2F0IjoiMjAyMi0wNi0yMFQxOTo0MjowNC43MDhaIiwidXBkYXRlZF9hdCI6bnVsbCwidHlwZSI6InVzZXIiLCJpYXQiOjE2NTU4MDYxNjIsImV4cCI6MTY1NTgwNzk2Mn0.vAtRy0_MmbYULr3T40tLgETcnAhQ-cvFMJsEBDU68sI
 
 ### Test de la route pour update un utilisateur
 PATCH http://localhost:3000/api/user
 Content-Type:application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJNYXVnaXM4NEBnbWFpbC5jb20iLCJmaXJzdF9uYW1lIjoiTWF1Z2lzIiwibGFzdF9uYW1lIjoiTWV1bmllciIsInBzZXVkbyI6Ik1hdWdpczEzIiwiZGF0ZV9vZl9iaXJ0aCI6IjIwMDMtMDQtMDVUMDE6MTU6NTAuMDYzWiIsInBhc3N3b3JkIjoidGVzdCIsInJpZ2h0cyI6InVzZXIiLCJwaG9uZV9udW1iZXIiOiIwNjgzMjE0NDE1IiwiYWRkcmVzcyI6IjAgVm9pZSBNb3VmZmV0YXJkIiwicmVnaW9uIjoiQ29yc2UiLCJ6aXBfY29kZSI6Ijg4Mjk2IiwiY2l0eSI6Ik5hbmN5IiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjBUMTE6MTY6MjIuOTIzWiIsInVwZGF0ZWRfYXQiOm51bGwsImlhdCI6MTY1NTczMDI4MSwiZXhwIjoxNjU1NzMyMDgxfQ.Xx4WnvIFt6MGpAG_meoFT5Cea_JGdzGJAGsaJe9X14M
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsInBzZXVkbyI6IkFybWFuY2UyNCIsInJpZ2h0cyI6InVzZXIiLCJjcmVhdGVkX2F0IjoiMjAyMi0wNi0yMFQxOTo0MjowNC43MDhaIiwidXBkYXRlZF9hdCI6bnVsbCwidHlwZSI6InVzZXIiLCJpYXQiOjE2NTU4MDYxNjIsImV4cCI6MTY1NTgwNzk2Mn0.vAtRy0_MmbYULr3T40tLgETcnAhQ-cvFMJsEBDU68sI
 
 {
     "last_name": "Robert"
 }
 
 ### Test de la route pour ajouter un amis
-GET http://localhost:3000/api/user/friends/add/45
+GET http://localhost:3000/api/user/friends/add/11
 Content-Type:application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJHcmdvaXJlLk5ndXllbjg5QGdtYWlsLmNvbSIsImZpcnN0X25hbWUiOiJHcsOpZ29pcmUiLCJsYXN0X25hbWUiOiJOZ3V5ZW4iLCJwc2V1ZG8iOiJHcsOpZ29pcmU0OSIsImRhdGVfb2ZfYmlydGgiOiIxOTk4LTAzLTIxVDA4OjA2OjQ5LjgwNVoiLCJwYXNzd29yZCI6InRlc3QiLCJyaWdodHMiOiJ1c2VyIiwicGhvbmVfbnVtYmVyIjoiMDY3MTU4Mzc4OCIsImFkZHJlc3MiOiI3MiBQYXNzYWdlIGRlIGxhIEh1Y2hldHRlIiwicmVnaW9uIjoiUmjDtG5lLUFscGVzIiwiemlwX2NvZGUiOiI0NTc0OSIsImNpdHkiOiJWaWxsZWp1aWYiLCJjcmVhdGVkX2F0IjoiMjAyMi0wNi0yMFQxMzoyNDowMS4wMThaIiwidXBkYXRlZF9hdCI6bnVsbCwiaWF0IjoxNjU1NzMyNTAyLCJleHAiOjE2NTU3MzQzMDJ9.UCxE3sDEowQOnADiY658tA57WFVK1eRF7OdQuTkbFuc
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsInBzZXVkbyI6IkFybWFuY2UyNCIsInJpZ2h0cyI6InVzZXIiLCJjcmVhdGVkX2F0IjoiMjAyMi0wNi0yMFQxOTo0MjowNC43MDhaIiwidXBkYXRlZF9hdCI6bnVsbCwidHlwZSI6InVzZXIiLCJpYXQiOjE2NTU4MDYxNjIsImV4cCI6MTY1NTgwNzk2Mn0.vAtRy0_MmbYULr3T40tLgETcnAhQ-cvFMJsEBDU68sI
 
 
 ////////////////////////////////////////////////
@@ -123,7 +129,7 @@ POST http://localhost:3000/api/ecovillage/create
 Content-Type:application/json
 
 {
-    "email": "adresse@example.com",
+    "email": "ubhiknjlk@example.com",
     "name": "test",
     "description": "test description",
     "first_name_manager": "Bernardo",
@@ -141,9 +147,9 @@ Content-Type:application/json
 DELETE http://localhost:3000/api/ecovillage/9
 
 ### Test de la route pour modifier un éco village
-PATCH http://localhost:3000/api/ecovillage/8
+PATCH http://localhost:3000/api/ecovillage/1
 Content-Type:application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiZW1haWwiOiJ0ZVN0aGtuanRAZXhhbXBsZS5jb20iLCJuYW1lIjoidGVzdCIsImRlc2NyaXB0aW9uIjoidGVzdCBkZXNjcmlwdGlvbiIsImFkZHJlc3MiOiIxMiBydWUgZHUgdGVzdCIsInppcF9jb2RlIjoiNzg5NDMiLCJjaXR5IjoidGVzdCIsImZpcnN0X25hbWVfbWFuYWdlciI6IkJlcm5hcmRvIiwibGFzdF9uYW1lX21hbmFnZXIiOiJEZWxhdmVpZ2EiLCJkYXRlX29mX2JpcnRoX21hbmFnZXIiOm51bGwsInBhc3N3b3JkIjoidGVzdCIsInBob25lX251bWJlciI6IjA3NjUzODg1NjEiLCJ3ZWJzaXRlIjpudWxsLCJjcmVhdGVkX2F0IjoiMjAyMi0wNi0yMFQxNTowNDo1Ny4zODdaIiwidXBkYXRlZF9hdCI6bnVsbCwiaWF0IjoxNjU1NzQ2NzI4LCJleHAiOjE2NTU3NDg1Mjh9.XngUVIbpyM6eQFYc6-pCr7DTUtKvjLJLwD0T3UlKa6E
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhZHJlc3NlQGV4YW1wbGUuY29tIiwibmFtZSI6InRlc3QiLCJkZXNjcmlwdGlvbiI6InRlc3QgZGVzY3JpcHRpb24iLCJhZGRyZXNzIjoiMTIgcnVlIGR1IHRlc3QiLCJ6aXBfY29kZSI6Ijc4OTQzIiwiY2l0eSI6InRlc3QiLCJmaXJzdF9uYW1lX21hbmFnZXIiOiJCZXJuYXJkbyIsImxhc3RfbmFtZV9tYW5hZ2VyIjoiRGVsYXZlaWdhIiwiZGF0ZV9vZl9iaXJ0aF9tYW5hZ2VyIjpudWxsLCJwYXNzd29yZCI6InRlc3QiLCJwaG9uZV9udW1iZXIiOiIwNzY1Mzg4NTYxIiwid2Vic2l0ZSI6bnVsbCwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjFUMDc6Mzc6MjIuNzgxWiIsInVwZGF0ZWRfYXQiOm51bGwsImlhdCI6MTY1NTc5NzEyMiwiZXhwIjoxNjU1Nzk4OTIyfQ.INzeh7E2JMtycObq74hu8RsdV2-cRd2cIWaGL7fYhcY
 
 {
     "name":"super test"
@@ -154,6 +160,6 @@ POST http://localhost:3000/api/ecovillage/connexion
 Content-Type:application/json
 
 {
-    "email": "teSthknjt@example.com",
+    "email": "adresse@example.com",
     "password": "test"
 }
