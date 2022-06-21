@@ -46,7 +46,8 @@ const ecovillageController = {
             const result = await ecovillageDatamapper.findByEmail(ecovil);
 
             if (!result){
-                throw Error(`There is no match for email and password`)
+                /* throw Error(`There is no match for email and password`) */
+                return null
             }else {
                 delete result.email
                 delete result.description

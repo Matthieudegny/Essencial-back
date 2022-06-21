@@ -7,6 +7,15 @@
 ### Test d'une route introuvable
 GET http://localhost:3000/api/ujnlkcsdcs
 
+### Test de la route connexion globale
+POST http://localhost:3000/api/connexion
+Content-Type:application/json
+
+{
+    "email": "bonjour@example.com",
+    "password": "test"
+}
+
 
 ### Test de la route pour récupérer tous les utilisateurs (avec leurs photos)
 GET http://localhost:3000/api/user
@@ -34,7 +43,7 @@ POST https://essencial-api.herokuapp.com/api/user/create
 Content-Type:application/json
 
 {
-    "email": "monsupertest@laposte.net",
+    "email": "ginvqvqvqvette@laposte.net",
     "first_name": "test",
     "last_name": "test",
     "pseudo": "test77",
@@ -145,7 +154,7 @@ POST https://essencial-api.herokuapp.com/api/ecovillage/create
 Content-Type:application/json
 
 {
-    "email": "Delphine91@yahoo.fr",
+    "email": "monsupertest@laposte.net",
     "name": "test",
     "description": "test description",
     "first_name_manager": "Bernardo",
@@ -156,7 +165,6 @@ Content-Type:application/json
     "zip_code":"78943",
     "phone_number": "0765388561",
     "path": "https://c8.alamy.com/compfr/ercwp7/maisons-dans-l-eco-village-fondation-findhorn-moray-scotland-uk-ercwp7.jpg"
-
 }
 
 ### Test de la route pour supprimer un eco village

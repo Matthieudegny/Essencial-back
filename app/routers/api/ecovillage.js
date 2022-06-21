@@ -15,17 +15,6 @@ router.route('/')
  */
 .get(ecovillageController.getAllWithPhotos)
 
-router.route('/connexion')
-/**
-* POST /api/ecovillage/connexion
-* @summary To verified if email match with password
-* @tags Eco Village
-* @param  {object} request.body.required - ecovillage's object with only email and password
-* @return {object} 200 - success response
-* @return {object} 400 - input data invalid
-*/
-.post(ecovillageController.verifyAuthentification) 
-
 router.route('/:id(\\d+)')
 /**
  * GET /api/ecovillage/{id}
