@@ -102,6 +102,18 @@ Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwicHNldWRvIjoi
    "path": "https://www.geo.fr/voyage/danemark-a-quoi-ressemble-la-vie-dans-un-ecovillage-205874",
    "category_1": "Tutoriel"
 }
+### Test de la route pour créer un nouveau post
+POST https://essencial-api.herokuapp.com/api/post/create
+Content-Type:application/json
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwicHNldWRvIjoiTMOpb25pZTg2IiwicmlnaHRzIjoidXNlciIsImNyZWF0ZWRfYXQiOiIyMDIyLTA2LTIwVDE5OjQyOjA0LjcwM1oiLCJ1cGRhdGVkX2F0IjpudWxsLCJ0eXBlIjoidXNlciIsImlhdCI6MTY1NTgyNDk3NSwiZXhwIjoxNjU1ODI2Nzc1fQ.ZjvghHq2ip_Binu1h4ccw7OnlG_q-yMsJys-cwkCCJA
+
+{
+   "content": "et difcggbh tuto",
+   "title": "test !" ,
+   "path": "https://www.geo.fr/voyage/danemark-a-quoi-ressemble-la-vie-dans-un-ecovillage-205874",
+   "category_1": "Tutoriel",
+   "category_2": "Energie"
+}
 
 ### Test de la route pour supprimer un post
 DELETE http://localhost:3000/api/post/29
