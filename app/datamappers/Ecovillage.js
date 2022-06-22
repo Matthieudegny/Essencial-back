@@ -5,6 +5,7 @@ const userDatamapper = require('./User');
 
 /**
  * @typedef {object} Ecovillage
+ * @summary Object to send to create an ecovillage
  * @property {number} id - Identifier unique primary key of the table
  * @property {string} email - Email unique 
  * @property {string} name - Name

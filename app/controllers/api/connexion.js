@@ -6,6 +6,7 @@ const bcrypt = require('bcrypt');
 
 /**
  * @typedef {object} Connexion
+ * @summary Object to send to connect a user or an ecovillage
  * @property {string} email - Identifier unique primary key of the table
  * @property {string} password - Password 
  */
