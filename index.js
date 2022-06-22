@@ -27,9 +27,9 @@ const options = {
         },
         BearerAuth: {
           type: 'http',
-          scheme: 'jwt',
+          scheme: 'bearer',
         },
-    /* security: [ { "JWT": [] } ], */
+      },
     baseDir: __dirname,
     filesPattern: './**/*.js',
     swaggerUIPath: '/api-docs',
