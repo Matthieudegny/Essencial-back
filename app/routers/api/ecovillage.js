@@ -51,7 +51,7 @@ router.route('/create')
  * POST /api/ecovillage/create
  * @summary To create one eco village
  * @tags Eco Village
- * @param {object} request.body.required - ecovillage object with all ecovillage's info + path (photo path)
+ * @param {Ecovillage} request.body.required - ecovillage object with all ecovillage's info + path (photo path)
  * @return {object} 200 - success response
  * @return {object} 400 - input data invalid
  */

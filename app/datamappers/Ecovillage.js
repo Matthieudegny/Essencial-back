@@ -3,6 +3,25 @@ const CoreDatamapper = require('./coreDatamapper');
 const photoDatamapper = require('./Photo');
 const userDatamapper = require('./User');
 
+/**
+ * @typedef {object} Ecovillage
+ * @property {number} id - Identifier unique primary key of the table
+ * @property {string} email - Email unique 
+ * @property {string} name - Name
+ * @property {string} description - Description
+ * @property {string} address - Address
+ * @property {string} zip_code - Zip code
+ * @property {string} city - City
+ * @property {string} region - Region
+ * @property {string} first_name_manager - Manager's first name
+ * @property {string} last_name_manager - Manager's last name
+ * @property {string} date_of_birth_manager - Manager's date of birth
+ * @property {string} password - Password
+ * @property {string} phone_number - Phone number
+ * @property {string} website - Website
+ * @property {string} path - Path of the profile picture
+ */
+
 class Ecovillage extends CoreDatamapper {
     tableName= "ecovil"
 
