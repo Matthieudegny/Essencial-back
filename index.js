@@ -22,7 +22,7 @@ const options = {
     },
     security: {
         BearerAuth: {
-          type: 'http',
+          type: 'https',
           scheme: 'bearer',
           bearerFormat: "JWT"
         },
