@@ -14,12 +14,13 @@ app.set('views', './app/views');
 const options = {
     definition: {
         openapi: '3.0.3', // YOU NEED THIS
-        info: {
-            version: '1.0.0',
-            title: 'Essencial',
-            description: ' '
-        }
     },
+    info: {
+        version: '1.0.0',
+        title: 'Essencial',
+        description: ' '
+    },
+
     /* security: [ { "JWT": [] } ], */
     baseDir: __dirname,
     filesPattern: './**/*.js',
