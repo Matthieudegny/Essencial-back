@@ -59,7 +59,7 @@ class User extends CoreDatamapper {
                     "user".region,
                     "user".zip_code,
                     "user".city,
-                    "photo".path,
+                    "photo".path
             FROM "${this.tableName}"
             JOIN "photo" ON "user".id = "photo".user_id`
         }
