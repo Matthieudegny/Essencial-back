@@ -6,7 +6,6 @@ const ecovillageDatamapper = require('./Ecovillage');
 
 /**
  * @typedef {object} User
- * @property {number} id - Identifier unique primary key of the table
  * @property {string} email - Email unique 
  * @property {string} first_name - First name
  * @property {string} last_name - Last name
@@ -19,8 +18,6 @@ const ecovillageDatamapper = require('./Ecovillage');
  * @property {string} region - region
  * @property {string} zip_code - postal code
  * @property {string} city - city
- * @property {string} created_at - Date of creation
- * @property {string} updated_at - Date of updated
  * @property {string} path - Path of the profile picture
  */
 
