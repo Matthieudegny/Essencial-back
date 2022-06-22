@@ -23,6 +23,12 @@ const userDatamapper = require('./User');
  * @property {string} path - Path of the profile picture
  */
 
+/**
+ * @typedef {object} EcovillageUpdate
+ * @summury Object to send with data(s) to update
+ * @property {type value} keyValue - property to update
+ */
+
 class Ecovillage extends CoreDatamapper {
     tableName= "ecovil"
 

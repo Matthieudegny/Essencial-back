@@ -2,6 +2,16 @@ const client = require('../db/pg');
 const CoreDatamapper = require('./coreDatamapper');
 const photoDatamapper = require('./Photo');
 const categoryDatamapper = require('./Category');
+
+/**
+ * @typedef {object} Post
+ * @summary Object to send to create a Post
+ * @property {number} user_id - Identifier of the id's redactor
+ * @property {string} content - Content 
+ * @property {string} title - Title
+ * @property {string} path - Path of the picture
+ */
+
 class Post extends CoreDatamapper {
 
     tableName = 'post';
