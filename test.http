@@ -78,17 +78,17 @@ Content-Type:application/json
 Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsInBzZXVkbyI6IkFybWFuY2UyNCIsInJpZ2h0cyI6InVzZXIiLCJjcmVhdGVkX2F0IjoiMjAyMi0wNi0yMFQxOTo0MjowNC43MDhaIiwidXBkYXRlZF9hdCI6bnVsbCwidHlwZSI6InVzZXIiLCJpYXQiOjE2NTU4MDYxNjIsImV4cCI6MTY1NTgwNzk2Mn0.vAtRy0_MmbYULr3T40tLgETcnAhQ-cvFMJsEBDU68sI
 
 ### Test de la route pour update un utilisateur
-PATCH http://localhost:3000/api/user
+PATCH https://essencial-api.herokuapp.com/api/user
 Content-Type:application/json
 Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDgsInBzZXVkbyI6Ik9yaWFuZTE2IiwiZGVzY3JpcHRpb24iOm51bGwsInJpZ2h0cyI6InVzZXIiLCJjcmVhdGVkX2F0IjoiMjAyMi0wNi0yMlQxMjo1Nzo0Mi40NTlaIiwidXBkYXRlZF9hdCI6bnVsbCwidHlwZSI6InVzZXIiLCJpYXQiOjE2NTU5MDQzODgsImV4cCI6MTY1NTkwNzk4OH0.RmKlYW5E1_pdIwv0HtwyxgKnbIgBrim4b4q55xUw8LM
 
 {
     "first_name": "Robert",
     "last_name": "Skywalker",
-    "password": '',
+    "password": " ",
     "description": "bonjour moi c'est Robert",
     "region": "Tatooine",
-    "city": ''
+    "city": " "
 }
 
 ### Test de la route pour ajouter un amis

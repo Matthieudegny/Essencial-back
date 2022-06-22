@@ -117,11 +117,11 @@ class CoreDatamapper {
                 UPDATE "${this.tableName}" SET
                 ${fieldsAndPlaceholders},
                 updated_at = now()
-                WHERE id = $2
+                WHERE id = $${indexPlaceholder}
                 RETURNING *
                 `,
                 values
-                /* WHERE id = $${indexPlaceholder} */
+                /* WHERE  */
         };
         const result = await this.client.query(preparedQuery);
         const row = result.rows[0];
