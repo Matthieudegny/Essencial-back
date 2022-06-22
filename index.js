@@ -20,7 +20,15 @@ const options = {
         title: 'Essencial',
         description: ' '
     },
-
+    security: {
+        BasicAuth: {
+          type: 'http',
+          scheme: 'basic',
+        },
+        BearerAuth: {
+          type: 'http',
+          scheme: 'jwt',
+        },
     /* security: [ { "JWT": [] } ], */
     baseDir: __dirname,
     filesPattern: './**/*.js',

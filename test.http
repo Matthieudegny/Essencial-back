@@ -8,11 +8,11 @@
 GET http://localhost:3000/api/ujnlkcsdcs
 
 ### Test de la route connexion globale
-POST http://localhost:3000/api/connexion
+POST https://essencial-api.herokuapp.com/api/connexion
 Content-Type:application/json
 
 {
-    "email": "Lonie_Mathieu@hotmail.fr",
+    "email": "Matthias27@gmail.com",
     "password": "test"
 }
 
