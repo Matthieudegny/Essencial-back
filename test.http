@@ -27,17 +27,6 @@ GET http://localhost:3000/api/user/23
 Content-Type:application/json
 Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjcsImVtYWlsIjoiSm9sMTNAZ21haWwuY29tIiwiZmlyc3RfbmFtZSI6Ikpvw6tsIiwibGFzdF9uYW1lIjoiRHVyYW5kIiwicHNldWRvIjoiSm_Dq2wxNyIsImRhdGVfb2ZfYmlydGgiOiIxOTU3LTEwLTMwVDIxOjEyOjU1LjMxOFoiLCJwYXNzd29yZCI6InRlc3QiLCJyaWdodHMiOiJ1c2VyIiwicGhvbmVfbnVtYmVyIjoiMDYyMzUxMTg2MyIsImFkZHJlc3MiOiI0IEFsbMOpZSBkJ0FyZ2VudGV1aWwiLCJyZWdpb24iOiJQb2l0b3UtQ2hhcmVudGVzIiwiemlwX2NvZGUiOiI4MDU4NyIsImNpdHkiOiJUb3Vsb3VzZSIsImNyZWF0ZWRfYXQiOiIyMDIyLTA2LTE2VDExOjM2OjI1Ljc5NloiLCJ1cGRhdGVkX2F0IjpudWxsLCJpYXQiOjE2NTU0NTg0MDgsImV4cCI6MTY1NTQ2MDIwOH0.POTBgiOwy1U9z4bVT77ob9dzi9v-1QBsx_rzx1NjFC4
 
-
-### Test de la route pour vérifier si un user existe ou si il match avec un mdp
-## régler la gestion des erreurs (faire en sorte que les messages s'affiche)
-POST http://localhost:3000/api/user/connexion
-Content-Type:application/json
-
-{
-    "email": "Lonie_Mathieu@hotmail.fr",
-    "password": "test"
-}
-
 ### Test de la route pour ajouter un nouvel utilisateur
 POST http://localhost:3000/api/user/create
 Content-Type:application/json
@@ -187,11 +176,4 @@ Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJh
     "name":"super test"
 }
 
-### Test de la route pour vérifier si un ecovillage est connecté
-POST https://essencial-api.herokuapp.com/api/ecovillage/connexion
-Content-Type:application/json
 
-{
-    "email": "Delphine91@yahoo.fr",
-    "password": "test"
-}

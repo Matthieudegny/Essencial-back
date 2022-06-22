@@ -12,22 +12,15 @@ app.set('view engine', 'ejs');
 app.set('views', './app/views');
 
 const options = {
-/*     swaggerDefinition: {
-        openapi: '3.0.1', // YOU NEED THIS
-    }, */
-/*     securityDefinitions: {
-        "JWT": {
-            "type": "apiKey",
-            "name": "token",
-            "in": "header"
+    definition: {
+        openapi: '3.0.3', // YOU NEED THIS
+        info: {
+            version: '1.0.0',
+            title: 'Essencial',
+            description: ' '
         }
-    }, */
-    /* security: [ { "JWT": [] } ], */
-    info: {
-        version: '1.0.0',
-        title: 'Essencial',
-        description: ' '
     },
+    /* security: [ { "JWT": [] } ], */
     baseDir: __dirname,
     filesPattern: './**/*.js',
     swaggerUIPath: '/api-docs',

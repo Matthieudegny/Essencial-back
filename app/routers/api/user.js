@@ -18,7 +18,14 @@ router.route('/')
 
 /**
 * patch /api/user/
-* @summary To update one user 
+* @summary To update one user
+* @openapi
+* /api/user:
+*   patch:
+*     security:
+*       - Authorization: []
+*     tags: [User]
+*     description: to update one user. 
 * @tags User
 * @param {object} request.body.required - user's data to update
 * @return {object} 200 - success response
