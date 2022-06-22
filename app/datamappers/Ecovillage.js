@@ -27,7 +27,19 @@ class Ecovillage extends CoreDatamapper {
     async findAllWithPhoto(){
         const preparedQuery = {
             text: `
-            SELECT "ecovil".*, "photo".path
+            SELECT "ecovil".email,
+                   "ecovil".name,
+                   "ecovil".description,
+                   "ecovil".address,
+                   "ecovil".zip_code,
+                   "ecovil".city,
+                   "ecovil".region,
+                   "ecovil".first_name_manager,
+                   "ecovil".last_name_manager,
+                   "ecovil"."date_of_birth",
+                   "ecovil".phone_number,
+                   "ecovil".website,
+                   "photo".path
             FROM "${this.tableName}"
             JOIN "photo" ON "ecovil".id = "photo".ev_id`
         }
