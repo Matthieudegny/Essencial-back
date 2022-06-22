@@ -67,7 +67,6 @@ class User extends CoreDatamapper {
         if (!result.rows[0]) {
             return null;
         }
-        console.log(result.rows[0]);
         return result.rows
     }
 
@@ -225,6 +224,12 @@ class User extends CoreDatamapper {
     }
 
     async updateWithPhotoOrNot(userId, inputData){
+
+        for(let[key,value] of Object.entries(inputData)){
+            if(!value){
+                Reflect.deleteProperty(inputData, key);
+            }
+        }
 
         if(inputData.path){
             const inputDataWithoutPath = JSON.parse(JSON.stringify(inputData));
