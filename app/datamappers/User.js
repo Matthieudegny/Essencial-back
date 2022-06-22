@@ -6,6 +6,7 @@ const ecovillageDatamapper = require('./Ecovillage');
 
 /**
  * @typedef {object} User
+ * @summary Object to send to create a user
  * @property {string} email - Email unique 
  * @property {string} first_name - First name
  * @property {string} last_name - Last name
