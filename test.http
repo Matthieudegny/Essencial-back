@@ -12,7 +12,7 @@ POST https://essencial-api.herokuapp.com/api/connexion
 Content-Type:application/json
 
 {
-    "email": "Annonciade_Paris49@yahoo.fr",
+    "email": "vdgggd@laposte.net",
     "password": "test"
 }
 
@@ -125,12 +125,12 @@ Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzIsInBzZXVkbyI6
 }
 
 ### Test de la route pour supprimer un post
-DELETE https://essencial-api.herokuapp.com/api/post/27
+DELETE https://essencial-api.herokuapp.com/api/post/1018
 Content-Type:application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzIsInBzZXVkbyI6IkFubm9uY2lhZGUxNCIsInJpZ2h0cyI6InVzZXIiLCJjcmVhdGVkX2F0IjoiMjAyMi0wNi0yMVQxMjozNDo1OS4wOThaIiwidXBkYXRlZF9hdCI6bnVsbCwidHlwZSI6InVzZXIiLCJpYXQiOjE2NTU4NDYzNTgsImV4cCI6MTY1NTg0OTk1OH0.U2CtQOLhnFkujbSNPRRxP7If10D5oaOECEwIFEXzvew
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzIsIm5hbWUiOiJ0ZXN0IiwicmVnaW9uIjpudWxsLCJjcmVhdGVkX2F0IjoiMjAyMi0wNi0yMVQyMTozMjozMS42MDlaIiwidXBkYXRlZF9hdCI6bnVsbCwidHlwZSI6ImVjb3ZpbGxhZ2UiLCJpYXQiOjE2NTU4NDc0NDgsImV4cCI6MTY1NTg1MTA0OH0.LO0GqTf4JdS2uzy1TD8hvqL7CBA-cHjT1cu4BoItXsU
 
 ### Test de la route pour afficher un post
-GET http://localhost:3000/api/post/20
+GET http://localhost:3000/api/post/1018
 Content-Type:application/json
 Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJNYXVnaXM4NEBnbWFpbC5jb20iLCJmaXJzdF9uYW1lIjoiTWF1Z2lzIiwibGFzdF9uYW1lIjoiTWV1bmllciIsInBzZXVkbyI6Ik1hdWdpczEzIiwiZGF0ZV9vZl9iaXJ0aCI6IjIwMDMtMDQtMDVUMDE6MTU6NTAuMDYzWiIsInBhc3N3b3JkIjoidGVzdCIsInJpZ2h0cyI6InVzZXIiLCJwaG9uZV9udW1iZXIiOiIwNjgzMjE0NDE1IiwiYWRkcmVzcyI6IjAgVm9pZSBNb3VmZmV0YXJkIiwicmVnaW9uIjoiQ29yc2UiLCJ6aXBfY29kZSI6Ijg4Mjk2IiwiY2l0eSI6Ik5hbmN5IiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjBUMTE6MTY6MjIuOTIzWiIsInVwZGF0ZWRfYXQiOm51bGwsImlhdCI6MTY1NTcyOTYzNSwiZXhwIjoxNjU1NzMxNDM1fQ.hzFUKeQlCJ1WKEo9-UBowC-tqjvFn7_cttTqqe15EHs
 
@@ -154,7 +154,7 @@ POST https://essencial-api.herokuapp.com/api/ecovillage/create
 Content-Type:application/json
 
 {
-    "email": "monsupertest@laposte.net",
+    "email": "bfgbfgbfgbfgbb@laposte.net",
     "name": "test",
     "description": "test description",
     "first_name_manager": "Bernardo",

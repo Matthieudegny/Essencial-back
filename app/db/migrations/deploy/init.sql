@@ -139,8 +139,10 @@ UNIQUE (user_id, friend_id);
 
 CREATE TABLE "post_has_category" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    "post_id" INTEGER NOT NULL REFERENCES "post" (id), 
-    "category_id" INTEGER NOT NULL REFERENCES "category"("id"),
+    "post_id" INTEGER NOT NULL REFERENCES "post" (id)
+                ON DELETE CASCADE, 
+    "category_id" INTEGER NOT NULL REFERENCES "category"("id")
+                ON DELETE CASCADE,
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT now(),
     "updated_at" TIMESTAMPTZ
 );

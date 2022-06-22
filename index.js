@@ -12,17 +12,17 @@ app.set('view engine', 'ejs');
 app.set('views', './app/views');
 
 const options = {
-    swaggerDefinition: {
+/*     swaggerDefinition: {
         openapi: '3.0.1', // YOU NEED THIS
-    },
-    securityDefinitions: {
+    }, */
+/*     securityDefinitions: {
         "JWT": {
             "type": "apiKey",
             "name": "token",
             "in": "header"
         }
-    },
-    security: [ { "JWT": [] } ],
+    }, */
+    /* security: [ { "JWT": [] } ], */
     info: {
         version: '1.0.0',
         title: 'Essencial',
@@ -34,7 +34,7 @@ const options = {
     exposeSwaggerUI: true,
     notRequiredAsNullable: false,
     swaggerUiOptions: {},
-    paths: {
+/*     paths: {
         "/api/user": {
             parameters: [ { name: "Authorization" , in: "header", type: "string", description: "auth token"}],
             "patch": {
@@ -44,7 +44,7 @@ const options = {
                 ]
             }
         }
-    }      
+    }      */ 
 }
 
 expressJSDocSwagger(app)(options);

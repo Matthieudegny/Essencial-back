@@ -64,6 +64,7 @@ const postController = {
         token = token.slice(4,token.length);
         
         const userId = jwt.decode(token).id
+        const userType = jwt.decode(token).type
 
         try {
             if(!postId){
@@ -75,10 +76,7 @@ const postController = {
                 throw Error("The id does not exist")
             }
 
-            console.log("ptd --->" , postToDelete);
-            console.log("userId --->" , userId);
-
-            if(postToDelete.user_id !== userId) {
+            if(postToDelete.user_id !== userId || userType !== "user") {
                 throw Error("You can't delete a post that is not yours")
             }
 
