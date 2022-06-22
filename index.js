@@ -21,13 +21,10 @@ const options = {
         description: ' '
     },
     security: {
-        BasicAuth: {
-          type: 'http',
-          scheme: 'basic',
-        },
         BearerAuth: {
           type: 'http',
-          scheme: 'jwt',
+          scheme: 'bearer',
+          bearerFormat: "JWT"
         },
       },
     baseDir: __dirname,
