@@ -27,7 +27,7 @@ const options = {
         },
         BearerAuth: {
           type: 'http',
-          scheme: 'bearer',
+          scheme: 'jwt',
         },
       },
     baseDir: __dirname,
@@ -36,17 +36,7 @@ const options = {
     exposeSwaggerUI: true,
     notRequiredAsNullable: false,
     swaggerUiOptions: {},
-/*     paths: {
-        "/api/user": {
-            parameters: [ { name: "Authorization" , in: "header", type: "string", description: "auth token"}],
-            "patch": {
-                "security": [ { "JWT": [] } ],
-                "tags": [
-                    "User"
-                ]
-            }
-        }
-    }      */ 
+
 }
 
 expressJSDocSwagger(app)(options);
