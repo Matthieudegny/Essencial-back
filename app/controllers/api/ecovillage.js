@@ -1,6 +1,7 @@
 const ecovillageDatamapper = require('../../datamappers/Ecovillage');
 require('dotenv').config();
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
 
 const ecovillageController = {
 
@@ -37,46 +38,14 @@ const ecovillageController = {
         }
     },
 
-    async verifyAuthentification(req,res){
-        const ecovil = req.body
-        try {
-            if(!ecovil.email || !ecovil.password){
-                throw Error("you must send ecovil.email & ecovil.password")
-            }
-            const result = await ecovillageDatamapper.findByEmail(ecovil);
-
-            if (!result){
-                /* throw Error(`There is no match for email and password`) */
-                return null
-            }else {
-                delete result.email
-                delete result.description
-                delete result.address
-                delete result.zip_code
-                delete result.city
-                delete result.first_name_manager
-                delete result.last_name_manager
-                delete result.date_of_birth_manager
-                delete result.password
-                delete result.phone_number
-                delete result.website
-                result.type = "ecovillage"
-    
-                const accessToken = jwt.sign(result, process.env.ACCESS_TOKEN_SECRET, {expiresIn: 1800})
-    
-                return res.json({
-                        logged: true,
-                        name: result.name,
-                        token: accessToken
-                        })
-            }    
-        } catch(error) {
-            return res.status(400).json({error: error.message})
-        }
-    },
-
     async createOneWithPhoto(req,res) {
         const ecovil = req.body
+
+        const salt = bcrypt.genSaltSync(parseInt(process.env.HASH_SALT_ROUNDS));
+        const hash = bcrypt.hashSync(ecovil.password, salt);
+
+        ecovil.password = hash
+
         try {
             if(!ecovil){
                 throw Error("you must send data to create an ecovillage")
@@ -119,6 +88,7 @@ const ecovillageController = {
             return res.json({
                 message: "ecovillage deleted successfully"
             })
+            
         } catch (error) {
             return res.status(400).json({error: error.message})
         }

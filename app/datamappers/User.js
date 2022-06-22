@@ -28,15 +28,13 @@ class User extends CoreDatamapper {
     tableName = 'user'
 
     async findByEmail(user) {
-        // user -> {user.email && user.password}
 
         const preparedQuery = {
                 text: `
                 SELECT * 
                 FROM "${this.tableName}"
-                WHERE "user"."email" = $1
-                AND "user"."password" = $2`,
-                values: [user.email, user.password]
+                WHERE "user"."email" = $1`,
+                values: [user.email]
             };
 
         const result = await this.client.query(preparedQuery);
@@ -44,7 +42,6 @@ class User extends CoreDatamapper {
         if (!result.rows[0]) {
             return null;
         }
-        console.log(result.rows[0])
         return result.rows[0];
     }
 
@@ -202,8 +199,6 @@ class User extends CoreDatamapper {
                     WHERE "post"."user_id" IN (${indexPlaceholders})`, values: friendsId
                 } 
                 
-        console.log("preparedQuery --->" , preparedQuery);
-
         let result = await this.client.query(preparedQuery)
 
 
@@ -222,9 +217,7 @@ class User extends CoreDatamapper {
         if(inputData.path){
             const inputDataWithoutPath = JSON.parse(JSON.stringify(inputData));
             Reflect.deleteProperty(inputDataWithoutPath, "path");
-            console.log("je passe au dessus de user result");
             const userResult = await this.update(userId,inputDataWithoutPath);
-            console.log("je passe en dessous de userResult");
             const preparedQuery = {
                 text: `UPDATE "photo" SET
                 path = $1,

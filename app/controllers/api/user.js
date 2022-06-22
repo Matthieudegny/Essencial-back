@@ -1,7 +1,7 @@
 const userDatamapper = require('../../datamappers/User');
 require('dotenv').config();
 const jwt = require('jsonwebtoken');
-const { addFriend, deleteFriend } = require('../../datamappers/User');
+const bcrypt = require('bcrypt');
 
 const userController = {
 
@@ -70,52 +70,6 @@ const userController = {
         }
     },
 
-    /**
-     * User controller to verify Authentification
-     * ExpressMiddleware signature
-     * @param {object} req Express request object
-     * @param {object} res Express response object
-     * @return Route API JSON response
-     */
-    async verifyAuthentification(req,res){
-        const user = req.body
-        try {
-            if(!user.email || !user.password){
-                throw Error("you must send user.email & user.password")
-            }
-            const result = await userDatamapper.findByEmail(user);
-            
-            if (!result){
-                throw Error(`There is no match for email and password`)
-            }
-
-            delete result.password
-            delete result.phone_number
-            delete result.address
-            delete result.zip_code
-            delete result.city
-            delete result.first_name
-            delete result.last_name
-            delete result.email
-            delete result.region
-            delete result.date_of_birth
-            result.type = "user"
-
-            /* console.log("result --->" , result); */
-
-            const accessToken = jwt.sign(result, process.env.ACCESS_TOKEN_SECRET, {expiresIn: 3600})
-
-            return res.json({
-                    logged: true,
-                    pseudo: result.pseudo,
-                    token: accessToken
-                    })
-            
-        } catch(error) {
-            return res.status(400).json({error: error.message})
-        }
-    },
-
     async createOne(req,res){
         const user = req.body
         try {
@@ -131,6 +85,12 @@ const userController = {
 
     async createOneWithPhoto(req,res){
         const user = req.body
+        
+        const salt = bcrypt.genSaltSync(parseInt(process.env.HASH_SALT_ROUNDS));
+        const hash = bcrypt.hashSync(user.password, salt);
+
+        user.password = hash
+
         try {
             if(!user){
                 throw Error("you must send a user")

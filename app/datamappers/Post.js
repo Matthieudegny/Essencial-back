@@ -39,13 +39,8 @@ class Post extends CoreDatamapper {
             Reflect.deleteProperty(postWithoutPathAndCategory, 'category_2');   
         }
 
-        console.log(postWithoutPathAndCategory);
-        console.log(post);
-
         // insertion d'un post
         const postInsert = await this.create(postWithoutPathAndCategory);
-
-        console.log("post insert --->" , postInsert);
 
         if(!postInsert){
             return null;
@@ -70,7 +65,7 @@ class Post extends CoreDatamapper {
         if(!post.category_2){
 
             const findByName = await categoryDatamapper.findByName(post.category_1)
-            console.log("findbyname --->" , findByName);
+            
             const preparedQuery = {
                 text: `INSERT INTO "post_has_category"
                         ("post_id", "category_id")

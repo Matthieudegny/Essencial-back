@@ -8,11 +8,11 @@
 GET http://localhost:3000/api/ujnlkcsdcs
 
 ### Test de la route connexion globale
-POST https://essencial-api.herokuapp.com/api/connexion
+POST http://localhost:3000/api/connexion
 Content-Type:application/json
 
 {
-    "email": "vdgggd@laposte.net",
+    "email": "bfgbfgbfgbfgbb@laposte.net",
     "password": "test"
 }
 
@@ -39,11 +39,11 @@ Content-Type:application/json
 }
 
 ### Test de la route pour ajouter un nouvel utilisateur
-POST https://essencial-api.herokuapp.com/api/user/create
+POST http://localhost:3000/api/user/create
 Content-Type:application/json
 
 {
-    "email": "ginvqvqvqvette@laposte.net",
+    "email": "testbdvdfour@laposte.net",
     "first_name": "test",
     "last_name": "test",
     "pseudo": "test77",
@@ -150,7 +150,7 @@ Content-Type:application/json
 Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiZW1haWwiOiJ0ZVN0aGtuanRAZXhhbXBsZS5jb20iLCJuYW1lIjoidGVzdCIsImRlc2NyaXB0aW9uIjoidGVzdCBkZXNjcmlwdGlvbiIsImFkZHJlc3MiOiIxMiBydWUgZHUgdGVzdCIsInppcF9jb2RlIjoiNzg5NDMiLCJjaXR5IjoidGVzdCIsImZpcnN0X25hbWVfbWFuYWdlciI6IkJlcm5hcmRvIiwibGFzdF9uYW1lX21hbmFnZXIiOiJEZWxhdmVpZ2EiLCJkYXRlX29mX2JpcnRoX21hbmFnZXIiOm51bGwsInBhc3N3b3JkIjoidGVzdCIsInBob25lX251bWJlciI6IjA3NjUzODg1NjEiLCJ3ZWJzaXRlIjpudWxsLCJjcmVhdGVkX2F0IjoiMjAyMi0wNi0yMFQxNTowNDo1Ny4zODdaIiwidXBkYXRlZF9hdCI6bnVsbCwiaWF0IjoxNjU1NzQ2NzI4LCJleHAiOjE2NTU3NDg1Mjh9.XngUVIbpyM6eQFYc6-pCr7DTUtKvjLJLwD0T3UlKa6E
 
 ### Test de la route pour créer un éco village
-POST https://essencial-api.herokuapp.com/api/ecovillage/create
+POST http://localhost:3000/api/ecovillage/create
 Content-Type:application/json
 
 {

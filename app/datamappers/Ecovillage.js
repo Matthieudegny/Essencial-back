@@ -12,9 +12,8 @@ class Ecovillage extends CoreDatamapper {
                 text: `
                 SELECT * 
                 FROM "${this.tableName}"
-                WHERE "ecovil"."email" = $1
-                AND "ecovil"."password" = $2`,
-                values: [ecovil.email, ecovil.password]
+                WHERE "ecovil"."email" = $1`,
+                values: [ecovil.email]
             };
 
         const result = await this.client.query(preparedQuery);
