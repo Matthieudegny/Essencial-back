@@ -72,7 +72,18 @@ class User extends CoreDatamapper {
 
         const preparedQuery = {
             text: `
-            SELECT "user".*, "photo".path
+            SELECT "user".email,
+                   "user".first_name,
+                   "user".last_name,
+                   "user".pseudo,
+                   "user".description,
+                   "user".date_of_birth,
+                   "user".phone_number,
+                   "user".address,
+                   "user".region,
+                   "user".zip_code,
+                   "user".city,
+                   "photo".path
             FROM "${this.tableName}"
             JOIN "photo" ON "user".id = "photo".user_id
             WHERE "user".id = $1`,

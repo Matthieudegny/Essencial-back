@@ -4,11 +4,18 @@
 # https://marketplace.visualstudio.com/items?itemName=humao.rest-client
 ################################################################################
 
+@endpoint = http://localhost:3000/api
+#@endpoint = https://essencial-api.herokuapp.com/api
+
 ### Test d'une route introuvable
-GET http://localhost:3000/api/ujnlkcsdcs
+GET {{ endpoint }}/ujnlkcsdcs
+
+/////////////////////////////////////////////////
+///////////////////   USER   ///////////////////
+////////////////////////////////////////////////
 
 ### Test de la route connexion globale
-POST https://essencial-api.herokuapp.com/api/connexion
+POST {{ endpoint }}/connexion
 Content-Type:application/json
 
 {
@@ -18,17 +25,17 @@ Content-Type:application/json
 
 
 ### Test de la route pour récupérer tous les utilisateurs (avec leurs photos)
-GET https://essencial-api.herokuapp.com/api/user
+GET {{ endpoint }}/user
 Content-Type:application/json
 Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6InRlc3QiLCJyZWdpb24iOm51bGwsImNyZWF0ZWRfYXQiOiIyMDIyLTA2LTIyVDEwOjQwOjMxLjU1NFoiLCJ1cGRhdGVkX2F0IjpudWxsLCJ0eXBlIjoiZWNvdmlsbGFnZSIsImlhdCI6MTY1NTkwMTgxNywiZXhwIjoxNjU1OTA1NDE3fQ.QJhAyrBOMsy0pEGXl16gQruT1SoDFJB55kw2Cr_XnP4
 
 ### Test de la route pour récupérer un utilisateur et sa photo avec son id 
-GET http://localhost:3000/api/user/23
+GET {{ endpoint }}/user/23
 Content-Type:application/json
 Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjcsImVtYWlsIjoiSm9sMTNAZ21haWwuY29tIiwiZmlyc3RfbmFtZSI6Ikpvw6tsIiwibGFzdF9uYW1lIjoiRHVyYW5kIiwicHNldWRvIjoiSm_Dq2wxNyIsImRhdGVfb2ZfYmlydGgiOiIxOTU3LTEwLTMwVDIxOjEyOjU1LjMxOFoiLCJwYXNzd29yZCI6InRlc3QiLCJyaWdodHMiOiJ1c2VyIiwicGhvbmVfbnVtYmVyIjoiMDYyMzUxMTg2MyIsImFkZHJlc3MiOiI0IEFsbMOpZSBkJ0FyZ2VudGV1aWwiLCJyZWdpb24iOiJQb2l0b3UtQ2hhcmVudGVzIiwiemlwX2NvZGUiOiI4MDU4NyIsImNpdHkiOiJUb3Vsb3VzZSIsImNyZWF0ZWRfYXQiOiIyMDIyLTA2LTE2VDExOjM2OjI1Ljc5NloiLCJ1cGRhdGVkX2F0IjpudWxsLCJpYXQiOjE2NTU0NTg0MDgsImV4cCI6MTY1NTQ2MDIwOH0.POTBgiOwy1U9z4bVT77ob9dzi9v-1QBsx_rzx1NjFC4
 
 ### Test de la route pour ajouter un nouvel utilisateur
-POST http://localhost:3000/api/user/create
+POST {{ endpoint }}/user/create
 Content-Type:application/json
 
 {
@@ -47,27 +54,27 @@ Content-Type:application/json
 }
 
 ### Test de la route pour supprimer un utilisateur
-DELETE http://localhost:3000/api/user/1
+DELETE {{ endpoint }}/user/1
 Content-Type:application/json
 Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsInBzZXVkbyI6IkFybWFuY2UyNCIsInJpZ2h0cyI6InVzZXIiLCJjcmVhdGVkX2F0IjoiMjAyMi0wNi0yMFQxOTo0MjowNC43MDhaIiwidXBkYXRlZF9hdCI6bnVsbCwidHlwZSI6InVzZXIiLCJpYXQiOjE2NTU4MDYwMDAsImV4cCI6MTY1NTgwNzgwMH0.3Jq9CN5s9sNfhSvbdRmGv3v_s44iJxw1JigDfQaySmU
 
 ### Test de la route pour récupérer tout les amis d'un utilisateur
-GET http://localhost:3000/api/user/friends/120
+GET {{ endpoint }}/user/friends/120
 Content-Type:application/json
 Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsInBzZXVkbyI6IkFybWFuY2UyNCIsInJpZ2h0cyI6InVzZXIiLCJjcmVhdGVkX2F0IjoiMjAyMi0wNi0yMFQxOTo0MjowNC43MDhaIiwidXBkYXRlZF9hdCI6bnVsbCwidHlwZSI6InVzZXIiLCJpYXQiOjE2NTU4MDYxNjIsImV4cCI6MTY1NTgwNzk2Mn0.vAtRy0_MmbYULr3T40tLgETcnAhQ-cvFMJsEBDU68sI
 
 ### Test de la route pour récupérer tout les posts d'un utilisateur
-GET http://localhost:3000/api/user/posts/120
+GET {{ endpoint }}/user/posts/120
 Content-Type:application/json
 Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsInBzZXVkbyI6IkFybWFuY2UyNCIsInJpZ2h0cyI6InVzZXIiLCJjcmVhdGVkX2F0IjoiMjAyMi0wNi0yMFQxOTo0MjowNC43MDhaIiwidXBkYXRlZF9hdCI6bnVsbCwidHlwZSI6InVzZXIiLCJpYXQiOjE2NTU4MDYxNjIsImV4cCI6MTY1NTgwNzk2Mn0.vAtRy0_MmbYULr3T40tLgETcnAhQ-cvFMJsEBDU68sI
 
 ### Test de la route pour afficher tout les posts de tout les amis d'un utilisateurs
-GET http://localhost:3000/api/user/friends/posts/120
+GET {{ endpoint }}/user/friends/posts/120
 Content-Type:application/json
 Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsInBzZXVkbyI6IkFybWFuY2UyNCIsInJpZ2h0cyI6InVzZXIiLCJjcmVhdGVkX2F0IjoiMjAyMi0wNi0yMFQxOTo0MjowNC43MDhaIiwidXBkYXRlZF9hdCI6bnVsbCwidHlwZSI6InVzZXIiLCJpYXQiOjE2NTU4MDYxNjIsImV4cCI6MTY1NTgwNzk2Mn0.vAtRy0_MmbYULr3T40tLgETcnAhQ-cvFMJsEBDU68sI
 
 ### Test de la route pour update un utilisateur
-PATCH https://essencial-api.herokuapp.com/api/user
+PATCH {{ endpoint }}/user
 Content-Type:application/json
 Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDgsInBzZXVkbyI6Ik9yaWFuZTE2IiwiZGVzY3JpcHRpb24iOm51bGwsInJpZ2h0cyI6InVzZXIiLCJjcmVhdGVkX2F0IjoiMjAyMi0wNi0yMlQxMjo1Nzo0Mi40NTlaIiwidXBkYXRlZF9hdCI6bnVsbCwidHlwZSI6InVzZXIiLCJpYXQiOjE2NTU5MDQzODgsImV4cCI6MTY1NTkwNzk4OH0.RmKlYW5E1_pdIwv0HtwyxgKnbIgBrim4b4q55xUw8LM
 
@@ -81,21 +88,21 @@ Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDgsInBzZXVkbyI6
 }
 
 ### Test de la route pour ajouter un amis
-GET http://localhost:3000/api/user/friends/add/11
+GET {{ endpoint }}/user/friends/add/11
 Content-Type:application/json
 Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwicHNldWRvIjoiTMOpb25pZTg2IiwicmlnaHRzIjoidXNlciIsImNyZWF0ZWRfYXQiOiIyMDIyLTA2LTIwVDE5OjQyOjA0LjcwM1oiLCJ1cGRhdGVkX2F0IjpudWxsLCJ0eXBlIjoidXNlciIsImlhdCI6MTY1NTgxOTk5OSwiZXhwIjoxNjU1ODIxNzk5fQ.Se30_-INtbO2v7gRqRC67fBLbfPQZuc9aJYhZxdMjlA
 
 ### Test de la route pour supprimer un amis
-DELETE http://localhost:3000/api/user/friends/delete/12
+DELETE {{ endpoint }}/user/friends/delete/12
 Content-Type:application/json
 Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwicHNldWRvIjoiTMOpb25pZTg2IiwicmlnaHRzIjoidXNlciIsImNyZWF0ZWRfYXQiOiIyMDIyLTA2LTIwVDE5OjQyOjA0LjcwM1oiLCJ1cGRhdGVkX2F0IjpudWxsLCJ0eXBlIjoidXNlciIsImlhdCI6MTY1NTgxOTk5OSwiZXhwIjoxNjU1ODIxNzk5fQ.Se30_-INtbO2v7gRqRC67fBLbfPQZuc9aJYhZxdMjlA
 
 ////////////////////////////////////////////////
-///////////////////// POST ////////////////////
+///////////////////   POST   //////////////////
 ///////////////////////////////////////////////
 
 ### Test de la route pour créer un nouveau post
-POST https://essencial-api.herokuapp.com/api/post/create
+POST {{ endpoint }}/post/create
 Content-Type:application/json
 Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzIsInBzZXVkbyI6IkFubm9uY2lhZGUxNCIsInJpZ2h0cyI6InVzZXIiLCJjcmVhdGVkX2F0IjoiMjAyMi0wNi0yMVQxMjozNDo1OS4wOThaIiwidXBkYXRlZF9hdCI6bnVsbCwidHlwZSI6InVzZXIiLCJpYXQiOjE2NTU4NDU4MDAsImV4cCI6MTY1NTg0OTQwMH0.yv8385XEiekBGr9gJtREohXNVjSQtOCQJpbLx5mj0-0
 
@@ -106,7 +113,7 @@ Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzIsInBzZXVkbyI6
    "category_1": "Gestion de l'eau"
 }
 ### Test de la route pour créer un nouveau post
-POST https://essencial-api.herokuapp.com/api/post/create
+POST {{ endpoint }}/post/create
 Content-Type:application/json
 Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzIsInBzZXVkbyI6IkFubm9uY2lhZGUxNCIsInJpZ2h0cyI6InVzZXIiLCJjcmVhdGVkX2F0IjoiMjAyMi0wNi0yMVQxMjozNDo1OS4wOThaIiwidXBkYXRlZF9hdCI6bnVsbCwidHlwZSI6InVzZXIiLCJpYXQiOjE2NTU4MjcxOTYsImV4cCI6MTY1NTgyODk5Nn0.pZ20X59chiB0x26iccOm2-nloHU9BqFI46Eah6E2B1Q
 
@@ -119,32 +126,32 @@ Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzIsInBzZXVkbyI6
 }
 
 ### Test de la route pour supprimer un post
-DELETE https://essencial-api.herokuapp.com/api/post/1018
+DELETE {{ endpoint }}/post/1018
 Content-Type:application/json
 Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzIsIm5hbWUiOiJ0ZXN0IiwicmVnaW9uIjpudWxsLCJjcmVhdGVkX2F0IjoiMjAyMi0wNi0yMVQyMTozMjozMS42MDlaIiwidXBkYXRlZF9hdCI6bnVsbCwidHlwZSI6ImVjb3ZpbGxhZ2UiLCJpYXQiOjE2NTU4NDc0NDgsImV4cCI6MTY1NTg1MTA0OH0.LO0GqTf4JdS2uzy1TD8hvqL7CBA-cHjT1cu4BoItXsU
 
 ### Test de la route pour afficher un post
-GET http://localhost:3000/api/post/1018
+GET {{ endpoint }}/post/1018
 Content-Type:application/json
 Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJNYXVnaXM4NEBnbWFpbC5jb20iLCJmaXJzdF9uYW1lIjoiTWF1Z2lzIiwibGFzdF9uYW1lIjoiTWV1bmllciIsInBzZXVkbyI6Ik1hdWdpczEzIiwiZGF0ZV9vZl9iaXJ0aCI6IjIwMDMtMDQtMDVUMDE6MTU6NTAuMDYzWiIsInBhc3N3b3JkIjoidGVzdCIsInJpZ2h0cyI6InVzZXIiLCJwaG9uZV9udW1iZXIiOiIwNjgzMjE0NDE1IiwiYWRkcmVzcyI6IjAgVm9pZSBNb3VmZmV0YXJkIiwicmVnaW9uIjoiQ29yc2UiLCJ6aXBfY29kZSI6Ijg4Mjk2IiwiY2l0eSI6Ik5hbmN5IiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjBUMTE6MTY6MjIuOTIzWiIsInVwZGF0ZWRfYXQiOm51bGwsImlhdCI6MTY1NTcyOTYzNSwiZXhwIjoxNjU1NzMxNDM1fQ.hzFUKeQlCJ1WKEo9-UBowC-tqjvFn7_cttTqqe15EHs
 
 ### Test de la route pour afficher tout les tuto
-GET http://localhost:3000/api/post/tuto
+GET {{ endpoint }}/post/tuto
 
 ///////////////////////////////////////////////////////
-///////////////////// ECO VILLAGE /////////////////////
+///////////////////   ECO VILLAGE   ///////////////////
 //////////////////////////////////////////////////////
 
 ### Test de la route pour récupérer tout les eco village
-GET http://localhost:3000/api/ecovillage
+GET {{ endpoint }}/ecovillage
 
 ### Test de la route pour récupérer un eco village
-GET http://localhost:3000/api/ecovillage/8
+GET {{ endpoint }}/ecovillage/8
 Content-Type:application/json
 Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiZW1haWwiOiJ0ZVN0aGtuanRAZXhhbXBsZS5jb20iLCJuYW1lIjoidGVzdCIsImRlc2NyaXB0aW9uIjoidGVzdCBkZXNjcmlwdGlvbiIsImFkZHJlc3MiOiIxMiBydWUgZHUgdGVzdCIsInppcF9jb2RlIjoiNzg5NDMiLCJjaXR5IjoidGVzdCIsImZpcnN0X25hbWVfbWFuYWdlciI6IkJlcm5hcmRvIiwibGFzdF9uYW1lX21hbmFnZXIiOiJEZWxhdmVpZ2EiLCJkYXRlX29mX2JpcnRoX21hbmFnZXIiOm51bGwsInBhc3N3b3JkIjoidGVzdCIsInBob25lX251bWJlciI6IjA3NjUzODg1NjEiLCJ3ZWJzaXRlIjpudWxsLCJjcmVhdGVkX2F0IjoiMjAyMi0wNi0yMFQxNTowNDo1Ny4zODdaIiwidXBkYXRlZF9hdCI6bnVsbCwiaWF0IjoxNjU1NzQ2NzI4LCJleHAiOjE2NTU3NDg1Mjh9.XngUVIbpyM6eQFYc6-pCr7DTUtKvjLJLwD0T3UlKa6E
 
 ### Test de la route pour créer un éco village
-POST https://essencial-api.herokuapp.com/api/ecovillage/create
+POST {{ endpoint }}/ecovillage/create
 Content-Type:application/json
 
 {
@@ -163,12 +170,12 @@ Content-Type:application/json
 }
 
 ### Test de la route pour supprimer un eco village
-DELETE https://essencial-api.herokuapp.com/api/ecovillage/7
+DELETE {{ endpoint }}/ecovillage/7
 Content-Type:application/json
 Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywibmFtZSI6InRlc3QiLCJyZWdpb24iOm51bGwsImNyZWF0ZWRfYXQiOiIyMDIyLTA2LTIxVDE4OjEzOjUyLjc1MloiLCJ1cGRhdGVkX2F0IjpudWxsLCJ0eXBlIjoiZWNvdmlsbGFnZSIsImlhdCI6MTY1NTgzNTI3OSwiZXhwIjoxNjU1ODM3MDc5fQ.k0vwodk1NImuVNUeCsoDEc6TYGVNPLwezGDr1sxL2KE
 
 ### Test de la route pour modifier un éco village
-PATCH http://localhost:3000/api/ecovillage/1
+PATCH {{ endpoint }}/ecovillage/1
 Content-Type:application/json
 Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhZHJlc3NlQGV4YW1wbGUuY29tIiwibmFtZSI6InRlc3QiLCJkZXNjcmlwdGlvbiI6InRlc3QgZGVzY3JpcHRpb24iLCJhZGRyZXNzIjoiMTIgcnVlIGR1IHRlc3QiLCJ6aXBfY29kZSI6Ijc4OTQzIiwiY2l0eSI6InRlc3QiLCJmaXJzdF9uYW1lX21hbmFnZXIiOiJCZXJuYXJkbyIsImxhc3RfbmFtZV9tYW5hZ2VyIjoiRGVsYXZlaWdhIiwiZGF0ZV9vZl9iaXJ0aF9tYW5hZ2VyIjpudWxsLCJwYXNzd29yZCI6InRlc3QiLCJwaG9uZV9udW1iZXIiOiIwNzY1Mzg4NTYxIiwid2Vic2l0ZSI6bnVsbCwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjFUMDc6Mzc6MjIuNzgxWiIsInVwZGF0ZWRfYXQiOm51bGwsImlhdCI6MTY1NTc5NzEyMiwiZXhwIjoxNjU1Nzk4OTIyfQ.INzeh7E2JMtycObq74hu8RsdV2-cRd2cIWaGL7fYhcY
 

@@ -22,11 +22,6 @@ const userDatamapper = require('./User');
  * @property {string} path - Path of the post's picture
  */
 
-/**
- * @typedef {object} EcovillageUpdate
- * @summury Object to send with data(s) to update
- * @property {type value} keyValue - property to update
- */
 
 class Ecovillage extends CoreDatamapper {
     tableName= "ecovil"
@@ -78,11 +73,23 @@ class Ecovillage extends CoreDatamapper {
     async findOneWithPhoto(ecovilId){
 
         const preparedQuery = {
-            text: `
-            SELECT "ecovil".*, "photo".path
-            FROM "${this.tableName}"
-            JOIN "photo" ON "ecovil".id = "photo".ev_id
-            WHERE "ecovil".id = $1`,
+            text: `SELECT "ecovil".id,
+                   "ecovil".email,
+                   "ecovil".name,
+                   "ecovil".description,
+                   "ecovil".address,
+                   "ecovil".zip_code,
+                   "ecovil".city,
+                   "ecovil".region,
+                   "ecovil".first_name_manager,
+                   "ecovil".last_name_manager,
+                   "ecovil".date_of_birth_manager,
+                   "ecovil".phone_number,
+                   "ecovil".website,
+                   "photo".path 
+                   FROM "${this.tableName}"
+                   JOIN "photo" ON "ecovil".id = "photo".ev_id
+                   WHERE "ecovil".id = $1`,
             values: [ecovilId]
         }
 
