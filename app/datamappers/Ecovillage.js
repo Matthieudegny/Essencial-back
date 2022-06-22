@@ -4,7 +4,7 @@ const photoDatamapper = require('./Photo');
 const userDatamapper = require('./User');
 
 /**
- * @typedef {object} Ecovillage (route create)
+ * @typedef {object} Ecovillage
  * @property {number} id - Identifier unique primary key of the table
  * @property {string} email - Email unique 
  * @property {string} name - Name

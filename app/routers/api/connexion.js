@@ -8,7 +8,7 @@ router.route('/')
  * POST /api/connexion
  * @summary To connect a user or ecovillage profile
  * @tags Connexion
- * @param {object} request.body.required - user or ecovillage object with only email and password 
+ * @param {Connexion} request.body.required - user or ecovillage object with only email and password 
  * @return {object} 200 - success response
  * @return {ApiError} 400 - input data invalid
 */

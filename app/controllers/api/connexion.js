@@ -4,6 +4,12 @@ require('dotenv').config();
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
+/**
+ * @typedef {object} Connexion
+ * @property {string} email - Identifier unique primary key of the table
+ * @property {string} password - Password 
+ */
+
 const connexionController = {
 
     async verifyAuthentification(req,res){
