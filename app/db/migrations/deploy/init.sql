@@ -74,7 +74,7 @@ CREATE TABLE "ecovil" (
     "address" TEXT,
     "zip_code" text ,
     "city" TEXT,
-    "region" TEXT,
+    "region" TEXT NOT NULL,
     "first_name_manager" TEXT NOT NULL,
     "last_name_manager" TEXT NOT NULL,
     "date_of_birth_manager" TIMESTAMPTZ,

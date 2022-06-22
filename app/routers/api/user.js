@@ -14,7 +14,6 @@ router.route('/')
  * @return {User} 200 - success response
  * @return {object} 400 - input data invalid
  */
-/*.get(validator('query', userGetSchema), userController.getAll) */
 .get(userController.getAllWithPhotos)
 
 /**
@@ -90,7 +89,7 @@ router.route('/friends/:id(\\d+)')
 * @return {object} 200 - success response
 * @return {object} 400 - input data invalid
 */
-.get(userController.getAllFriends) 
+.get(checkAuth,userController.getAllFriends) 
 
 router.route('/friends/posts/:id(\\d+)') 
 /**
@@ -101,7 +100,7 @@ router.route('/friends/posts/:id(\\d+)')
 * @return {object} 200 - success response
 * @return {object} 400 - input data invalid
 */
-.get(userController.getAllFriendsPosts) 
+.get(checkAuth,userController.getAllFriendsPosts) 
 
 router.route('/posts/:id(\\d+)') 
 /**

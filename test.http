@@ -85,10 +85,10 @@ Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDgsInBzZXVkbyI6
 {
     "first_name": "Robert",
     "last_name": "Skywalker",
-    "password": " ",
+    "password": "",
     "description": "bonjour moi c'est Robert",
     "region": "Tatooine",
-    "city": " "
+    "city": ""
 }
 
 ### Test de la route pour ajouter un amis
@@ -155,17 +155,18 @@ Content-Type:application/json
 Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiZW1haWwiOiJ0ZVN0aGtuanRAZXhhbXBsZS5jb20iLCJuYW1lIjoidGVzdCIsImRlc2NyaXB0aW9uIjoidGVzdCBkZXNjcmlwdGlvbiIsImFkZHJlc3MiOiIxMiBydWUgZHUgdGVzdCIsInppcF9jb2RlIjoiNzg5NDMiLCJjaXR5IjoidGVzdCIsImZpcnN0X25hbWVfbWFuYWdlciI6IkJlcm5hcmRvIiwibGFzdF9uYW1lX21hbmFnZXIiOiJEZWxhdmVpZ2EiLCJkYXRlX29mX2JpcnRoX21hbmFnZXIiOm51bGwsInBhc3N3b3JkIjoidGVzdCIsInBob25lX251bWJlciI6IjA3NjUzODg1NjEiLCJ3ZWJzaXRlIjpudWxsLCJjcmVhdGVkX2F0IjoiMjAyMi0wNi0yMFQxNTowNDo1Ny4zODdaIiwidXBkYXRlZF9hdCI6bnVsbCwiaWF0IjoxNjU1NzQ2NzI4LCJleHAiOjE2NTU3NDg1Mjh9.XngUVIbpyM6eQFYc6-pCr7DTUtKvjLJLwD0T3UlKa6E
 
 ### Test de la route pour créer un éco village
-POST http://localhost:3000/api/ecovillage/create
+POST https://essencial-api.herokuapp.com/api/ecovillage/create
 Content-Type:application/json
 
 {
-    "email": "bfgbfgbfgbfgbb@laposte.net",
+    "email": "coucou@laposte.net",
     "name": "test",
     "description": "test description",
     "first_name_manager": "Bernardo",
     "last_name_manager": "Delaveiga",
     "password": "test",
     "address": "12 rue du test",
+    "region": "Picardie",
     "city": "test",
     "zip_code":"78943",
     "phone_number": "0765388561",

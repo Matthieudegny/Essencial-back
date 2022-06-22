@@ -80,7 +80,7 @@ class Ecovillage extends CoreDatamapper {
         // vérification si l'email n'éxiste pas dans user
 
         const preparedQueryCheckUser =  {               
-            text: `SELECT * 
+            text: `SELECT "user".email 
             FROM "user"
             WHERE "user"."email" = $1`,
             values: [ecovil.email]
@@ -98,6 +98,8 @@ class Ecovillage extends CoreDatamapper {
         if(!ecovilInsert){
             return null;
         }
+
+        delete ecovilInsert.password
 
         const photoInput = {
             ev_id : ecovilInsert.id,
