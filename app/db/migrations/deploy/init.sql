@@ -43,6 +43,7 @@ CREATE TABLE "user" (
     "first_name" TEXT NOT NULL,
     "last_name" TEXT NOT NULL,
     "pseudo" TEXT NOT NULL UNIQUE,
+    "description" TEXT,
     "date_of_birth" TIMESTAMPTZ,
     "password" text NOT NULL,
     "rights" TEXT NOT NULL DEFAULT 'user',

@@ -67,6 +67,7 @@ class User extends CoreDatamapper {
         if (!result.rows[0]) {
             return null;
         }
+        console.log(result.rows[0]);
         return result.rows
     }
 
