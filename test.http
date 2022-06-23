@@ -76,15 +76,11 @@ Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsInBzZXVkbyI6
 ### Test de la route pour update un utilisateur
 PATCH {{ endpoint }}/user
 Content-Type:application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicHNldWRvIjoiQXVyw6hsZTIxIiwiZGVzY3JpcHRpb24iOm51bGwsInJpZ2h0cyI6InVzZXIiLCJjcmVhdGVkX2F0IjoiMjAyMi0wNi0yMlQxODoyMjoyNy41MTRaIiwidXBkYXRlZF9hdCI6bnVsbCwidHlwZSI6InVzZXIiLCJpYXQiOjE2NTU5ODM2NDQsImV4cCI6MTY1NTk4NzI0NH0.WyrhWA8P54e5fMbwt57BHczKFxINrtj1tiPe5VIwdZQ
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwicHNldWRvIjoiTWF0dGhpYXM2OSIsImRlc2NyaXB0aW9uIjpudWxsLCJyaWdodHMiOiJ1c2VyIiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjJUMTQ6MTA6NDYuNzI4WiIsInVwZGF0ZWRfYXQiOm51bGwsInR5cGUiOiJ1c2VyIiwiaWF0IjoxNjU1OTk2NDc5LCJleHAiOjE2NTYwMDAwNzl9.P3rLCAOyio2Hs9Cbc43EzMhw0KZi4RCZJZpxpxHt4jQ
 
 {
     "first_name": "Robert",
-    "last_name": "Skywalker",
-    "password": "",
-    "description": "bonjour moi c'est Robert",
-    "region": "Tatooine",
-    "city": ""
+    "region": "Tatooine"
 }
 
 ### Test de la route pour ajouter un amis
@@ -104,25 +100,25 @@ Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicHNldWRvIjoi
 ### Test de la route pour créer un nouveau post
 POST {{ endpoint }}/post/create
 Content-Type:application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicHNldWRvIjoiQXVyw6hsZTIxIiwiZGVzY3JpcHRpb24iOm51bGwsInJpZ2h0cyI6InVzZXIiLCJjcmVhdGVkX2F0IjoiMjAyMi0wNi0yMlQxODoyMjoyNy41MTRaIiwidXBkYXRlZF9hdCI6bnVsbCwidHlwZSI6InVzZXIiLCJpYXQiOjE2NTU5ODM2NDQsImV4cCI6MTY1NTk4NzI0NH0.WyrhWA8P54e5fMbwt57BHczKFxINrtj1tiPe5VIwdZQ
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAsInBzZXVkbyI6Ill2b25uZTYiLCJkZXNjcmlwdGlvbiI6bnVsbCwicmlnaHRzIjoidXNlciIsImNyZWF0ZWRfYXQiOiIyMDIyLTA2LTIyVDE0OjEwOjQ3LjAyNFoiLCJ1cGRhdGVkX2F0IjpudWxsLCJ0eXBlIjoidXNlciIsImlhdCI6MTY1NTk5NzMyNywiZXhwIjoxNjU2MDAwOTI3fQ.NLZyIQC6eqFfCa8OYIr5LfciiMhilv9DN6XO4vLyhvM
 
 {
-   "content": "hello !!",
-   "title": "test" ,
-   "path": "https://www.geo.fr/voyage/danemark-a-quoi-ressemble-la-vie-dans-un-ecovillage-205874",
-   "category_1": "Gestion de l'eau"
+   "content": "Chaque année, si tout le monde vivait comme un Français, il faudrait les ressources renouvelables de trois planètes pour répondre à nos besoins. Un rythme effréné qui ne pourra pas durer. Peut-on cependant continuer à vivre confortablement sans épuiser les ressources à notre disposition ? C’est la question à laquelle tentent de répondre Lionel Montoliu, Nelly Bonnefous et Monica Bassett avec un projet expérimental d’éco-villages et leur ONG 0.6 Planet. Ce projet crée il y a deux ans à un but simple : prouver qu’un nouveau mode de vie, durable, compatible avec les limites planétaires est possible et enviable. Pour cela, ils ont ouvert leur premier éco-village à Champ Romain dans le Périgord en janvier Le concept des éco-villages remonte au Sommet de la Terre, organisé à Rio en 1992 par les Nations Unies. Des ONG ont alors proposé ce modèle d’habitat pour mettre en pratique un mode de vie qui respecte l’environnement et permet un épanouissement de l’humain. En France, il existe aujourd’hui une trentaine d’éco-lieux où vivent quelques dizaines d’habitants, ils sont regroupés dans le réseaux français des Eco-villages, lui-même membre du Global Ecovillage Network qui rassemble quelques 250 organisations dans le monde entier. Mais pour les fondateurs du projet 0.6 Planet, face à l’urgence climatique cela est loin d’être suffisant. Ainsi ils entendent augmenter considérablement le nombre de personnes habitant dans des éco-villages en montrant qu’on peut tout à fait vivre en réduisant son empreinte écologique à 0,6 planète par an, sans diminuer sa qualité de vie. Nelly, Lionel et Monica ont des parcours très différents : Lionel est chercheur au Commissariat à l’énergie atomique et aux énergies alternatives, son épouse Monica est artiste peintre et Nelly vient du monde des médias. Mais ils ont tous les trois vite pris conscience de l’importance d’agir et de changer son mode de vie pour protéger notre planète.  Seulement, pour que ce changement soit significatif il faut qu’il implique une grande partie de la population mondiale. Ils entendent donc proposer, à travers cette expérimentation, un modèle d’habitation durable local qui pourra ensuite être transposé et adapté ailleurs dans le monde. Pour Nelly il s’agit simplement « d’apporter des solutions locales à un problème global ». L’éco-village de Champ Romain regroupe actuellement 12 habitants sur un terrain de 50 hectares avec une forêt, un étang, un centre équestre et une maison commune. L’éco-village venant d’ouvrir, il reste encore beaucoup à faire et à construire. Le centre équestre sera transformé en un centre de formation à la permaculture, à l’écoconstruction, à l’aquaponie et au développement personnel. Le site abritera aussi un incubateur low tech qui produira, par exemple, des pompes à chaleur et des panneaux solaires. Un centre d’activité artisanale où l’on pourra notamment travailler le verre et la céramique sera également construit. Le village aura une véritable activité maraîchère et arboricole avec pas moins de 2000 arbres fruitiers qui seront plantés. Les habitants ont pour objectif de produire du miel, de l’huile de lin, de chanvre et de noix, de la farine de châtaigne, de sarrasin et du fromage dont les deux tiers seront destinés à la vente en circuit court. Le but est que l’éco-village fournisse entre 50 et 100 emplois directs.",
+   "title": "Vivre et consommer autrement : les éco-villages testent un mode de vie durable" ,
+   "path": "https://images.unric.org/fr/wp-content/uploads/sites/2/2021/03/ecovillage-champ-romain-1068x662.jpg.webp",
+   "category_1": "Energie"
 }
+
 ### Test de la route pour créer un nouveau post
 POST {{ endpoint }}/post/create
 Content-Type:application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzIsInBzZXVkbyI6IkFubm9uY2lhZGUxNCIsInJpZ2h0cyI6InVzZXIiLCJjcmVhdGVkX2F0IjoiMjAyMi0wNi0yMVQxMjozNDo1OS4wOThaIiwidXBkYXRlZF9hdCI6bnVsbCwidHlwZSI6InVzZXIiLCJpYXQiOjE2NTU4MjcxOTYsImV4cCI6MTY1NTgyODk5Nn0.pZ20X59chiB0x26iccOm2-nloHU9BqFI46Eah6E2B1Q
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwicHNldWRvIjoiTWF0dGhpYXM2OSIsImRlc2NyaXB0aW9uIjpudWxsLCJyaWdodHMiOiJ1c2VyIiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjJUMTQ6MTA6NDYuNzI4WiIsInVwZGF0ZWRfYXQiOm51bGwsInR5cGUiOiJ1c2VyIiwiaWF0IjoxNjU1OTk1ODk5LCJleHAiOjE2NTU5OTk0OTl9.BGg8m79npri8nGrj-O_anyt_W7802sRafzFve-3luwc
 
 {
-   "content": "et difcggbh tuto",
-   "title": "test !" ,
-   "path": "https://www.geo.fr/voyage/danemark-a-quoi-ressemble-la-vie-dans-un-ecovillage-205874",
-   "category_1": "Energie",
-   "category_2": "Tutoriel"
+   "content": "Vous êtes nombreux à chercher des recettes de lessive maison. Dans un précédent article, on vous donnait 3 recettes faciles de lessive Zéro Déchet. Aujourd’hui, on vous explique comment faire sa lessive au lierre. C’est très simple à faire et l’avantage c’est qu’elle est gratuite ! En effet, c’est une plante qui se trouve très facilement dans la nature en été comme en hiver et c’est le seul ingrédient nécessaire pour faire sa lessive au lierre. C’est donc une lessive 100% écologique.",
+   "title": "FAIRE SA LESSIVE AU LIERRE : RECETTE FACILE ET 100% ÉCOLOGIQUE" ,
+   "path": "https://toitsalternatifs.fr/wp-content/uploads/2019/12/ranke-60368_1280.jpg",
+   "category_1": "Gestion des déchêts"
 }
 
 ### Test de la route pour supprimer un post
@@ -155,19 +151,19 @@ POST {{ endpoint }}/ecovillage/create
 Content-Type:application/json
 
 {
-    "email": "contact@ecolieu-kerville.fr",
-    "name": "The Queer Ashram Project",
-    "description": "Une ancienne porcherie sur les hauteurs d'un petit hameau, un petit village perdu dans la campagne poitevine, de nombreux bâtis, une prairie, un verger, un potager. De nombreux espaces pour s'exprimer de façon créative, ludique et féerique. La nature, le calme, la collaboration, la bienveillance, la créativité. Se ressourcer de façon naturelle et intuitive.",
-    "first_name_manager": "Mark",
-    "last_name_manager": "Darmek",
+    "email": "contact@saintecamelle.fr",
+    "name": "Ecovillage Sainte Camelle",
+    "description": "Nous sommes environ une vingtaine de personnes à vivre cette super aventure. Nous avons tous choisi cette forme de vie parce que nous croyons que le rassemblement de différentes compétences, expériences, identités est une réelle réponse à certains problèmes actuels de notre société. A savoir le problème que pose l’individualisme prédominant. Le rassemblement permet aussi à l’intelligence collective de s’exprimer. Nous mettons beaucoup de coeur à préserver un relationnel harmonieux entre nous car nous avons expérimenté que c’est la base du vivre-ensemble. Bien sûr, cela demande l’effort d’un réel travail intérieur pour chacun. C’est-à-dire être conscient de ses points forts et de ses points faibles. Chacun de nous a choisi d’être un plus pour ce collectif et non d’être le « boulet » qui apporte un problème. Nous avons une vision commune afin que chacun puisse exprimer totalement son potentiel, être pleinement lui-même au service de notre mission commune. Nous cultivons la solidarité, l’entraide, le respect de soi, de l’autre et de l’environnement, le partage, la joie du faire-ensemble et la joie d’être… Nous avons à coeur de témoigner de ce que l’on vit. Et de témoigner d’un modèle pérenne sur le plan économique, relationnel, écologique, social et humanitaire. Nous avons tous choisi de travailler sur le lieu afin de re-créer une économie locale avec une pépinière de différents projets dont certains sont des projets collectifs et d’autres des projets personnels.",
+    "first_name_manager": "Jean-jacques",
+    "last_name_manager": "Sousa",
     "password": "test",
-    "address": "Kervillé",
-    "region": "Bretagne",
-    "city": "Beuzac-Cap-Sizun",
-    "website": "https://www.thequeerashram.org/",
-    "zip_code":"29790",
-    "phone_number": "06 63 69 61 82",
-    "path": "https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1688,h=1504,fit=crop/A0xkbObJJ2h2jWN9/img-mxB39Obon9Hjjpek.jpg"
+    "address": "Sainte Camelle",
+    "region": "Ariège",
+    "city": "Saint-Victor-Rouzaud",
+    "website": "https://ecovillagestecamelle.fr/",
+    "zip_code":"09100",
+    "phone_number": "0607012089",
+    "path": "https://ecovillagestecamelle.fr/wp-content/uploads/2017/12/IMG_0010-16-9.jpg"
 }
 
 ### Test de la route pour supprimer un eco village
@@ -176,12 +172,12 @@ Content-Type:application/json
 Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywibmFtZSI6InRlc3QiLCJyZWdpb24iOm51bGwsImNyZWF0ZWRfYXQiOiIyMDIyLTA2LTIxVDE4OjEzOjUyLjc1MloiLCJ1cGRhdGVkX2F0IjpudWxsLCJ0eXBlIjoiZWNvdmlsbGFnZSIsImlhdCI6MTY1NTgzNTI3OSwiZXhwIjoxNjU1ODM3MDc5fQ.k0vwodk1NImuVNUeCsoDEc6TYGVNPLwezGDr1sxL2KE
 
 ### Test de la route pour modifier un éco village
-PATCH {{ endpoint }}/ecovillage/1
+PATCH {{ endpoint }}/ecovillage/4
 Content-Type:application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhZHJlc3NlQGV4YW1wbGUuY29tIiwibmFtZSI6InRlc3QiLCJkZXNjcmlwdGlvbiI6InRlc3QgZGVzY3JpcHRpb24iLCJhZGRyZXNzIjoiMTIgcnVlIGR1IHRlc3QiLCJ6aXBfY29kZSI6Ijc4OTQzIiwiY2l0eSI6InRlc3QiLCJmaXJzdF9uYW1lX21hbmFnZXIiOiJCZXJuYXJkbyIsImxhc3RfbmFtZV9tYW5hZ2VyIjoiRGVsYXZlaWdhIiwiZGF0ZV9vZl9iaXJ0aF9tYW5hZ2VyIjpudWxsLCJwYXNzd29yZCI6InRlc3QiLCJwaG9uZV9udW1iZXIiOiIwNzY1Mzg4NTYxIiwid2Vic2l0ZSI6bnVsbCwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjFUMDc6Mzc6MjIuNzgxWiIsInVwZGF0ZWRfYXQiOm51bGwsImlhdCI6MTY1NTc5NzEyMiwiZXhwIjoxNjU1Nzk4OTIyfQ.INzeh7E2JMtycObq74hu8RsdV2-cRd2cIWaGL7fYhcY
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6IkxlcyBwdWl0cyBkZSBMYWNoYXVkIiwicmVnaW9uIjoiUHV5LWRlLUTDtG1lIiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjNUMTM6MDk6MjEuMDI4WiIsInVwZGF0ZWRfYXQiOm51bGwsInR5cGUiOiJlY292aWxsYWdlIiwiaWF0IjoxNjU1OTk1NDQ0LCJleHAiOjE2NTU5OTkwNDR9.q2Vac2J3ifYrXZvMWZHUNStn5ZeM3E2mp3KOKN0TFxA
 
 {
-    "name":"super test"
+    "website":"http://ecolieuxdefrance.free.fr/LES_SITES/Les_puitsdelachaud.htm"
 }
 
 

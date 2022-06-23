@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const postController = require('../../controllers/api/post')
-const validator = require('../../validation/validator');
+const validate = require('../../validation/validator');
+const postCreateSchema = require('../../validation/schemas/post/postCreate.schema')
 const checkAuth = require('../../middlewares/checkAuth');
 
 router.route('/create')
@@ -13,7 +14,7 @@ router.route('/create')
  * @return {object} 200 - success response
  * @return {ApiError} 400 - input data invalid
 */
-.post(checkAuth, postController.createOneWithPhotoAndCategory)
+.post(checkAuth, validate('body', postCreateSchema), postController.createOneWithPhotoAndCategory)
 
 router.route('/tuto')
 /**

@@ -4,6 +4,7 @@ const userController = require('../../controllers/api/user');
 const validate = require('../../validation/validator');
 const checkAuth = require('../../middlewares/checkAuth');
 const userCreateSchema = require('../../validation/schemas/user/userCreate.schema');
+const userUpdateSchema = require('../../validation/schemas/user/userUpdate.schema');
 
 
 router.route('/')
@@ -25,7 +26,7 @@ router.route('/')
 * @return {object} 200 - success response
 * @return {object} 400 - input data invalid
 */
-.patch(checkAuth, userController.updateWithPhotoOrNot) 
+.patch(checkAuth, validate('body',userUpdateSchema), userController.updateWithPhotoOrNot) 
         
 router.route('/create')
 /**
