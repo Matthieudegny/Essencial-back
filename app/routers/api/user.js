@@ -76,6 +76,7 @@ router.route('/friends/delete/:id(\\d+)')
  * @summary To remove friend
  * @tags User
  * @param {number} id.path.required - friend's id to delete
+ * @param {string} access_token.header.required - access_token
  * @return {object} 200 - success response
  * @return {object} 400 - input data invalid
  */
