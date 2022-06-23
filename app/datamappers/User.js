@@ -48,6 +48,7 @@ class User extends CoreDatamapper {
             text: `
             SELECT "user".id,
                     "user".email,
+                    "user".description,
                     "user".first_name,
                     "user".last_name,
                     "user".pseudo,
@@ -73,10 +74,10 @@ class User extends CoreDatamapper {
         const preparedQuery = {
             text: `
             SELECT "user".email,
+                   "user".description,
                    "user".first_name,
                    "user".last_name,
                    "user".pseudo,
-                   "user".description,
                    "user".date_of_birth,
                    "user".phone_number,
                    "user".address,

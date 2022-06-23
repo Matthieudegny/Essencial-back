@@ -4,8 +4,8 @@
 # https://marketplace.visualstudio.com/items?itemName=humao.rest-client
 ################################################################################
 
-@endpoint = http://localhost:3000/api
-#@endpoint = https://essencial-api.herokuapp.com/api
+#@endpoint = http://localhost:3000/api
+@endpoint = https://essencial-api.herokuapp.com/api
 
 ### Test d'une route introuvable
 GET {{ endpoint }}/ujnlkcsdcs
@@ -155,18 +155,19 @@ POST {{ endpoint }}/ecovillage/create
 Content-Type:application/json
 
 {
-    "email": "coucou@laposte.net",
-    "name": "test",
-    "description": "test description",
-    "first_name_manager": "Bernardo",
-    "last_name_manager": "Delaveiga",
+    "email": "contact@ecolieu-kerville.fr",
+    "name": "The Queer Ashram Project",
+    "description": "Une ancienne porcherie sur les hauteurs d'un petit hameau, un petit village perdu dans la campagne poitevine, de nombreux bâtis, une prairie, un verger, un potager. De nombreux espaces pour s'exprimer de façon créative, ludique et féerique. La nature, le calme, la collaboration, la bienveillance, la créativité. Se ressourcer de façon naturelle et intuitive.",
+    "first_name_manager": "Mark",
+    "last_name_manager": "Darmek",
     "password": "test",
-    "address": "12 rue du test",
-    "region": "Picardie",
-    "city": "test",
-    "zip_code":"78943",
-    "phone_number": "0765388561",
-    "path": "https://c8.alamy.com/compfr/ercwp7/maisons-dans-l-eco-village-fondation-findhorn-moray-scotland-uk-ercwp7.jpg"
+    "address": "Kervillé",
+    "region": "Bretagne",
+    "city": "Beuzac-Cap-Sizun",
+    "website": "https://www.thequeerashram.org/",
+    "zip_code":"29790",
+    "phone_number": "06 63 69 61 82",
+    "path": "https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1688,h=1504,fit=crop/A0xkbObJJ2h2jWN9/img-mxB39Obon9Hjjpek.jpg"
 }
 
 ### Test de la route pour supprimer un eco village
