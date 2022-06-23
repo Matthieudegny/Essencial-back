@@ -100,10 +100,10 @@ Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicHNldWRvIjoi
 ### Test de la route pour créer un nouveau post
 POST {{ endpoint }}/post/create
 Content-Type:application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAsInBzZXVkbyI6Ill2b25uZTYiLCJkZXNjcmlwdGlvbiI6bnVsbCwicmlnaHRzIjoidXNlciIsImNyZWF0ZWRfYXQiOiIyMDIyLTA2LTIyVDE0OjEwOjQ3LjAyNFoiLCJ1cGRhdGVkX2F0IjpudWxsLCJ0eXBlIjoidXNlciIsImlhdCI6MTY1NTk5NzMyNywiZXhwIjoxNjU2MDAwOTI3fQ.NLZyIQC6eqFfCa8OYIr5LfciiMhilv9DN6XO4vLyhvM
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInBzZXVkbyI6IkV1c8OoYmU1NCIsImRlc2NyaXB0aW9uIjpudWxsLCJyaWdodHMiOiJ1c2VyIiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjJUMTQ6MTA6NDcuMTEwWiIsInVwZGF0ZWRfYXQiOm51bGwsInR5cGUiOiJ1c2VyIiwiaWF0IjoxNjU1OTk5NTE2LCJleHAiOjE2NTYwMDMxMTZ9.l6tQ1NatoLw_Gx3zQDTWGikysXefOzGs1p5gcR6iS34
 
 {
-   "content": "Salut les amis, je viens de m'inscrire sur essencial, ça à l'air vraiment trop cool! pour l'occaz je vous partage une photo de mon chien",
+   "content": "Salut les amis, je viens de m'inscrire sur essencial, ça à l'air vraiment trop cool! pour l'occaz je vous partage mon premier selfie. BG non?",
    "title": "mon premier post !" ,
    "path": "https://www.cliniquelarenardiere.com/wp-content/uploads/2016/07/vision-chez-le-chien-.jpg",
    "category_1": "Maison"
