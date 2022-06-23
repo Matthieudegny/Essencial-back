@@ -49,7 +49,7 @@ const connexionController = {
                         return res.json({
                                 logged: true,
                                 id: ecovilResult.id,
-                                /* name: ecovilResult.name, */
+                                name: ecovilResult.name, 
                                 token: accessToken
                                 })
 
@@ -80,7 +80,7 @@ const connexionController = {
                         return res.json({
                                 logged: true,
                                 id: userResult.id,
-                                /* pseudo: userResult.pseudo, */
+                                pseudo: userResult.pseudo, 
                                 token: accessToken
                                 })
                     }else{

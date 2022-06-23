@@ -8,7 +8,7 @@ module.exports = Joi.object({
     content: textRule
         .required(),
     title: textRule
-        .required()
-/*     category_1: Joi.string()
-        .required() */
+        .required(),
+    category_1: Joi.string()
+        .required() 
 }).required();

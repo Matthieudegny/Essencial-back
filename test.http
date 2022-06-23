@@ -117,8 +117,7 @@ Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwicHNldWRvIjoi
 {
    "content": "Vous êtes nombreux à chercher des recettes de lessive maison. Dans un précédent article, on vous donnait 3 recettes faciles de lessive Zéro Déchet. Aujourd’hui, on vous explique comment faire sa lessive au lierre. C’est très simple à faire et l’avantage c’est qu’elle est gratuite ! En effet, c’est une plante qui se trouve très facilement dans la nature en été comme en hiver et c’est le seul ingrédient nécessaire pour faire sa lessive au lierre. C’est donc une lessive 100% écologique.",
    "title": "FAIRE SA LESSIVE AU LIERRE : RECETTE FACILE ET 100% ÉCOLOGIQUE" ,
-   "path": "https://toitsalternatifs.fr/wp-content/uploads/2019/12/ranke-60368_1280.jpg",
-   "category_1": "Gestion des déchêts"
+   "path": "https://toitsalternatifs.fr/wp-content/uploads/2019/12/ranke-60368_1280.jpg"
 }
 
 ### Test de la route pour supprimer un post
