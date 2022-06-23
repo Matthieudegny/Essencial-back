@@ -65,6 +65,7 @@ router.route('/friends/add/:id(\\d+)')
  * @summary To add new friend
  * @tags User
  * @param {number} id.path.required - friend's id to add
+ * @param {string} access_token.header.required - access_token
  * @return {object} 200 - success response
  * @return {object} 400 - input data invalid
  */
