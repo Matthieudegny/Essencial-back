@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const userController = require('../../controllers/api/user');
-const validator = require('../../validation/validator');
+const validate = require('../../validation/validator');
 const checkAuth = require('../../middlewares/checkAuth');
-const userGetSchema = require('../../validation/schemas/user/userGet.schema');
+const userCreateSchema = require('../../validation/schemas/user/userCreate.schema');
 
 
 router.route('/')
@@ -36,7 +36,7 @@ router.route('/create')
  * @return {object} 200 - success response
  * @return {object} 400 - input data invalid
  */
-.post(userController.createOneWithPhoto)
+.post(validate('body', userCreateSchema),userController.createOneWithPhoto)
 
 router.route('/:id(\\d+)') 
 /**
@@ -57,7 +57,7 @@ router.route('/:id(\\d+)')
 * @return {object} 200 - success response
 * @return {object} 400 - input data invalid
 */
-.delete(userController.deleteOne)
+.delete(checkAuth, userController.deleteOne)
 
 router.route('/friends/add/:id(\\d+)')
 /**

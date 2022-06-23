@@ -12,8 +12,10 @@
         try {
             // request[sourceData] ---> request.query ou request.body ou request.params
             await schema.validateAsync(request[sourceData]);
+            console.log("je passe par le validator, le schema est ok!");
             next();
         } catch (err) {
+            console.log("je passe par le validator, le schema n'est pas vérifié!");
             response.json({ error: err.details[0].message });
         }
     };

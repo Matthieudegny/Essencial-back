@@ -19,7 +19,7 @@ POST {{ endpoint }}/connexion
 Content-Type:application/json
 
 {
-    "email": "Matthias27@gmail.com",
+    "email": "Aurle.Pons43@gmail.com",
     "password": "test"
 }
 
@@ -29,28 +29,28 @@ GET {{ endpoint }}/user
 Content-Type:application/json
 Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6InRlc3QiLCJyZWdpb24iOm51bGwsImNyZWF0ZWRfYXQiOiIyMDIyLTA2LTIyVDEwOjQwOjMxLjU1NFoiLCJ1cGRhdGVkX2F0IjpudWxsLCJ0eXBlIjoiZWNvdmlsbGFnZSIsImlhdCI6MTY1NTkwMTgxNywiZXhwIjoxNjU1OTA1NDE3fQ.QJhAyrBOMsy0pEGXl16gQruT1SoDFJB55kw2Cr_XnP4
 
-### Test de la route pour récupérer un utilisateur et sa photo avec son id 
-GET {{ endpoint }}/user/23
+### Test de la route pour récupérer un utilisateur et sa photo
+GET {{ endpoint }}/user/235
 Content-Type:application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjcsImVtYWlsIjoiSm9sMTNAZ21haWwuY29tIiwiZmlyc3RfbmFtZSI6Ikpvw6tsIiwibGFzdF9uYW1lIjoiRHVyYW5kIiwicHNldWRvIjoiSm_Dq2wxNyIsImRhdGVfb2ZfYmlydGgiOiIxOTU3LTEwLTMwVDIxOjEyOjU1LjMxOFoiLCJwYXNzd29yZCI6InRlc3QiLCJyaWdodHMiOiJ1c2VyIiwicGhvbmVfbnVtYmVyIjoiMDYyMzUxMTg2MyIsImFkZHJlc3MiOiI0IEFsbMOpZSBkJ0FyZ2VudGV1aWwiLCJyZWdpb24iOiJQb2l0b3UtQ2hhcmVudGVzIiwiemlwX2NvZGUiOiI4MDU4NyIsImNpdHkiOiJUb3Vsb3VzZSIsImNyZWF0ZWRfYXQiOiIyMDIyLTA2LTE2VDExOjM2OjI1Ljc5NloiLCJ1cGRhdGVkX2F0IjpudWxsLCJpYXQiOjE2NTU0NTg0MDgsImV4cCI6MTY1NTQ2MDIwOH0.POTBgiOwy1U9z4bVT77ob9dzi9v-1QBsx_rzx1NjFC4
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicHNldWRvIjoiQXVyw6hsZTIxIiwiZGVzY3JpcHRpb24iOm51bGwsInJpZ2h0cyI6InVzZXIiLCJjcmVhdGVkX2F0IjoiMjAyMi0wNi0yMlQxODoyMjoyNy41MTRaIiwidXBkYXRlZF9hdCI6bnVsbCwidHlwZSI6InVzZXIiLCJpYXQiOjE2NTU5MjIyMjYsImV4cCI6MTY1NTkyNTgyNn0.J9hQh_ouMNY4TOQo3lPKbciY-Yheo4tUKI0H8nbhYzg
 
 ### Test de la route pour ajouter un nouvel utilisateur
 POST {{ endpoint }}/user/create
 Content-Type:application/json
 
 {
-    "email": "testbdvdfour@laposte.net",
-    "first_name": "test",
-    "last_name": "test",
-    "pseudo": "test77",
+    "email": "tni@yahoo.org",
+    "first_name": "Tony",
+    "last_name": "Williams",
+    "pseudo": "drum1",
     "date_of_birth": "2021-10-29T02:58:12.923Z",
     "password": "test",
     "phone_number": "0677777777",
     "address": "77 rue du test",
     "region": "ile de france",
-    "zip_code": "77777",
-    "city": "test",
-    "path": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/823.jpg"
+    "zip_code": "75829",
+    "city": "Paris",
+    "path": "https://images.sk-static.com/images/media/profile_images/artists/517366/huge_avatar"
 }
 
 ### Test de la route pour supprimer un utilisateur
@@ -59,9 +59,9 @@ Content-Type:application/json
 Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsInBzZXVkbyI6IkFybWFuY2UyNCIsInJpZ2h0cyI6InVzZXIiLCJjcmVhdGVkX2F0IjoiMjAyMi0wNi0yMFQxOTo0MjowNC43MDhaIiwidXBkYXRlZF9hdCI6bnVsbCwidHlwZSI6InVzZXIiLCJpYXQiOjE2NTU4MDYwMDAsImV4cCI6MTY1NTgwNzgwMH0.3Jq9CN5s9sNfhSvbdRmGv3v_s44iJxw1JigDfQaySmU
 
 ### Test de la route pour récupérer tout les amis d'un utilisateur
-GET {{ endpoint }}/user/friends/120
+GET {{ endpoint }}/user/friends/1
 Content-Type:application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsInBzZXVkbyI6IkFybWFuY2UyNCIsInJpZ2h0cyI6InVzZXIiLCJjcmVhdGVkX2F0IjoiMjAyMi0wNi0yMFQxOTo0MjowNC43MDhaIiwidXBkYXRlZF9hdCI6bnVsbCwidHlwZSI6InVzZXIiLCJpYXQiOjE2NTU4MDYxNjIsImV4cCI6MTY1NTgwNzk2Mn0.vAtRy0_MmbYULr3T40tLgETcnAhQ-cvFMJsEBDU68sI
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicHNldWRvIjoiQXVyw6hsZTIxIiwiZGVzY3JpcHRpb24iOiJib25qb3VyIG1vaSBjJ2VzdCBSb2JlcnQiLCJyaWdodHMiOiJ1c2VyIiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjJUMTg6MjI6MjcuNTE0WiIsInVwZGF0ZWRfYXQiOiIyMDIyLTA2LTIzVDExOjI4OjUzLjMwNloiLCJ0eXBlIjoidXNlciIsImlhdCI6MTY1NTk4NTk2OCwiZXhwIjoxNjU1OTg5NTY4fQ.1FWBwk4uIROirW_dQEFjZ5v7YSYeQ8N2ZBcOljf61x8
 
 ### Test de la route pour récupérer tout les posts d'un utilisateur
 GET {{ endpoint }}/user/posts/120
@@ -76,7 +76,7 @@ Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsInBzZXVkbyI6
 ### Test de la route pour update un utilisateur
 PATCH {{ endpoint }}/user
 Content-Type:application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDgsInBzZXVkbyI6Ik9yaWFuZTE2IiwiZGVzY3JpcHRpb24iOm51bGwsInJpZ2h0cyI6InVzZXIiLCJjcmVhdGVkX2F0IjoiMjAyMi0wNi0yMlQxMjo1Nzo0Mi40NTlaIiwidXBkYXRlZF9hdCI6bnVsbCwidHlwZSI6InVzZXIiLCJpYXQiOjE2NTU5MDQzODgsImV4cCI6MTY1NTkwNzk4OH0.RmKlYW5E1_pdIwv0HtwyxgKnbIgBrim4b4q55xUw8LM
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicHNldWRvIjoiQXVyw6hsZTIxIiwiZGVzY3JpcHRpb24iOm51bGwsInJpZ2h0cyI6InVzZXIiLCJjcmVhdGVkX2F0IjoiMjAyMi0wNi0yMlQxODoyMjoyNy41MTRaIiwidXBkYXRlZF9hdCI6bnVsbCwidHlwZSI6InVzZXIiLCJpYXQiOjE2NTU5ODM2NDQsImV4cCI6MTY1NTk4NzI0NH0.WyrhWA8P54e5fMbwt57BHczKFxINrtj1tiPe5VIwdZQ
 
 {
     "first_name": "Robert",
@@ -88,14 +88,14 @@ Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDgsInBzZXVkbyI6
 }
 
 ### Test de la route pour ajouter un amis
-GET {{ endpoint }}/user/friends/add/11
+GET {{ endpoint }}/user/friends/add/14
 Content-Type:application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwicHNldWRvIjoiTMOpb25pZTg2IiwicmlnaHRzIjoidXNlciIsImNyZWF0ZWRfYXQiOiIyMDIyLTA2LTIwVDE5OjQyOjA0LjcwM1oiLCJ1cGRhdGVkX2F0IjpudWxsLCJ0eXBlIjoidXNlciIsImlhdCI6MTY1NTgxOTk5OSwiZXhwIjoxNjU1ODIxNzk5fQ.Se30_-INtbO2v7gRqRC67fBLbfPQZuc9aJYhZxdMjlA
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicHNldWRvIjoiQXVyw6hsZTIxIiwiZGVzY3JpcHRpb24iOiJib25qb3VyIG1vaSBjJ2VzdCBSb2JlcnQiLCJyaWdodHMiOiJ1c2VyIiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjJUMTg6MjI6MjcuNTE0WiIsInVwZGF0ZWRfYXQiOiIyMDIyLTA2LTIzVDExOjI4OjUzLjMwNloiLCJ0eXBlIjoidXNlciIsImlhdCI6MTY1NTk4NTk2OCwiZXhwIjoxNjU1OTg5NTY4fQ.1FWBwk4uIROirW_dQEFjZ5v7YSYeQ8N2ZBcOljf61x8
 
 ### Test de la route pour supprimer un amis
-DELETE {{ endpoint }}/user/friends/delete/12
+DELETE {{ endpoint }}/user/friends/delete/11
 Content-Type:application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwicHNldWRvIjoiTMOpb25pZTg2IiwicmlnaHRzIjoidXNlciIsImNyZWF0ZWRfYXQiOiIyMDIyLTA2LTIwVDE5OjQyOjA0LjcwM1oiLCJ1cGRhdGVkX2F0IjpudWxsLCJ0eXBlIjoidXNlciIsImlhdCI6MTY1NTgxOTk5OSwiZXhwIjoxNjU1ODIxNzk5fQ.Se30_-INtbO2v7gRqRC67fBLbfPQZuc9aJYhZxdMjlA
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicHNldWRvIjoiQXVyw6hsZTIxIiwiZGVzY3JpcHRpb24iOm51bGwsInJpZ2h0cyI6InVzZXIiLCJjcmVhdGVkX2F0IjoiMjAyMi0wNi0yMlQxODoyMjoyNy41MTRaIiwidXBkYXRlZF9hdCI6bnVsbCwidHlwZSI6InVzZXIiLCJpYXQiOjE2NTU5ODM2NDQsImV4cCI6MTY1NTk4NzI0NH0.WyrhWA8P54e5fMbwt57BHczKFxINrtj1tiPe5VIwdZQ
 
 ////////////////////////////////////////////////
 ///////////////////   POST   //////////////////
@@ -104,7 +104,7 @@ Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwicHNldWRvIjoi
 ### Test de la route pour créer un nouveau post
 POST {{ endpoint }}/post/create
 Content-Type:application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzIsInBzZXVkbyI6IkFubm9uY2lhZGUxNCIsInJpZ2h0cyI6InVzZXIiLCJjcmVhdGVkX2F0IjoiMjAyMi0wNi0yMVQxMjozNDo1OS4wOThaIiwidXBkYXRlZF9hdCI6bnVsbCwidHlwZSI6InVzZXIiLCJpYXQiOjE2NTU4NDU4MDAsImV4cCI6MTY1NTg0OTQwMH0.yv8385XEiekBGr9gJtREohXNVjSQtOCQJpbLx5mj0-0
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicHNldWRvIjoiQXVyw6hsZTIxIiwiZGVzY3JpcHRpb24iOm51bGwsInJpZ2h0cyI6InVzZXIiLCJjcmVhdGVkX2F0IjoiMjAyMi0wNi0yMlQxODoyMjoyNy41MTRaIiwidXBkYXRlZF9hdCI6bnVsbCwidHlwZSI6InVzZXIiLCJpYXQiOjE2NTU5ODM2NDQsImV4cCI6MTY1NTk4NzI0NH0.WyrhWA8P54e5fMbwt57BHczKFxINrtj1tiPe5VIwdZQ
 
 {
    "content": "hello !!",

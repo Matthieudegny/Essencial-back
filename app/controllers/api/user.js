@@ -2,6 +2,7 @@ const userDatamapper = require('../../datamappers/User');
 require('dotenv').config();
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
+const { ApiError } = require('../../helpers/errorHandler');
 
 const userController = {
 
@@ -40,7 +41,7 @@ const userController = {
             const result = await userDatamapper.findByPk();
 
             if(!result){
-                return result.json({message:`There is no user with id: ${user.id}`})
+                return result.json({message:`There is no user with id: ${userId}`})
             }
 
             return res.json(result)
@@ -60,7 +61,8 @@ const userController = {
             const result = await userDatamapper.findOneWithPhoto(userId)
 
             if(!result){
-                return result.json({message:`There is no user with id: ${user.id}`})
+                return result.json({message:`There is no user with id: ${userId}`})
+                /* throw new ApiError(`There is no user with id ${user.id}`, { statusCode: 404 }); */
             }
 
             return res.json(result)
@@ -99,6 +101,8 @@ const userController = {
                 throw Error("you must send a photo")
             }
             const result = await userDatamapper.createWithPhoto(user)
+            delete result.user.password
+            console.log(result);
             return res.json(result)
         } catch (error) {
             return res.status(400).json({error: error.message})
@@ -225,6 +229,7 @@ const userController = {
                 throw Error("you can't update user that is not yours")
             }
             const result = await userDatamapper.updateWithPhotoOrNot(userId,user)
+            delete result.password
             return res.json(result)
         } catch (error) {
             return res.status(400).json({error: error.message})
