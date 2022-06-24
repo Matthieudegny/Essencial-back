@@ -17,8 +17,8 @@ module.exports = Joi.object({
     date_of_birth_manager: Joi.string()
         .allow(null),
     password: Joi.string()
-        .allow(null)
-        /* .pattern(/^(?=.*[0-9])(?=.*[az])(?=.*[AZ])(?=.*[@#$%^&-+=() ])(?=\\S+$).{8, 20}$/) */,
+        /* .pattern(/^(?=.*[0-9])(?=.*[az])(?=.*[AZ])(?=.*[@#$%^&-+=() ])(?=\\S+$).{8, 20}$/) */
+        .allow(null),
     phone_number: Joi.string()
         .pattern(/^(0|\+33)[ .-]?[1-9]([ .-]?[0-9]){8}$/)
         .allow(null),
