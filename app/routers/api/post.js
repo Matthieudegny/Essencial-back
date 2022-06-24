@@ -3,6 +3,7 @@ const router = express.Router();
 const postController = require('../../controllers/api/post')
 const validate = require('../../validation/validator');
 const postCreateSchema = require('../../validation/schemas/post/postCreate.schema')
+/* const postUpdateSchema = require('../../validation/schemas/post/postUpdate.schema') */
 const checkAuth = require('../../middlewares/checkAuth');
 
 router.route('/create')

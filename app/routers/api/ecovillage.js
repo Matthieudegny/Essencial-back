@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const ecovillageController = require('../../controllers/api/ecovillage')
-const validator = require('../../validation/validator');
+const validate = require('../../validation/validator');
 const checkAuth = require('../../middlewares/checkAuth');
+const ecovillageCreateSchema = require('../../validation/schemas/ecovillage/ecovilCreate.schema');
 
 
 router.route('/')
@@ -55,7 +56,7 @@ router.route('/create')
  * @return {object} 200 - success response
  * @return {object} 400 - input data invalid
  */
-.post(ecovillageController.createOneWithPhoto)
+.post(validate('body',ecovillageCreateSchema), ecovillageController.createOneWithPhoto)
 
 
 module.exports = router

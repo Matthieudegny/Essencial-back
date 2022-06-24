@@ -139,19 +139,19 @@ POST {{ endpoint }}/ecovillage/create
 Content-Type:application/json
 
 {
-    "email": "contact@saintecamelle.fr",
+    "email": "accueil@ecolectif.com",
     "name": "Ecovillage Sainte Camelle",
-    "description": "Nous sommes environ une vingtaine de personnes à vivre cette super aventure. Nous avons tous choisi cette forme de vie parce que nous croyons que le rassemblement de différentes compétences, expériences, identités est une réelle réponse à certains problèmes actuels de notre société. A savoir le problème que pose l’individualisme prédominant. Le rassemblement permet aussi à l’intelligence collective de s’exprimer. Nous mettons beaucoup de coeur à préserver un relationnel harmonieux entre nous car nous avons expérimenté que c’est la base du vivre-ensemble. Bien sûr, cela demande l’effort d’un réel travail intérieur pour chacun. C’est-à-dire être conscient de ses points forts et de ses points faibles. Chacun de nous a choisi d’être un plus pour ce collectif et non d’être le « boulet » qui apporte un problème. Nous avons une vision commune afin que chacun puisse exprimer totalement son potentiel, être pleinement lui-même au service de notre mission commune. Nous cultivons la solidarité, l’entraide, le respect de soi, de l’autre et de l’environnement, le partage, la joie du faire-ensemble et la joie d’être… Nous avons à coeur de témoigner de ce que l’on vit. Et de témoigner d’un modèle pérenne sur le plan économique, relationnel, écologique, social et humanitaire. Nous avons tous choisi de travailler sur le lieu afin de re-créer une économie locale avec une pépinière de différents projets dont certains sont des projets collectifs et d’autres des projets personnels.",
-    "first_name_manager": "Jean-jacques",
-    "last_name_manager": "Sousa",
+    "description": "A mesure que le groupe s’étoffe, nous souhaitons co-construire et préserver les bases d’une véritable « écologie relationnelle » auxquelles nous avons travaillé en priorité dès le départ. Ainsi, nous avons créé un parcours d’inclusion progressif et personnalisé afin de donner à tous le temps de se situer, de vérifier la place de chacun dans le projet. Nous croyons qu’il est essentiel de se doter de moyens concrets pour révéler l’intelligence collective et donner au groupe une stabilité relationnelle permettant de dépasser les difficultés du chemin. Pour cela, nous nous réunissons régulièrement depuis mars 2009, apprenons à fonctionner en cercle en améliorant nos processus de décision, partageons notre expérience et nos compétences. Nous avons écrit ensemble une charte. Forts de ces éléments clés, nous souhaitons accueillir d’autres personnes qui se sentent mobilisées par cette vision, ces valeurs et ces choix. Nous prévoyons un groupe d’une vingtaine de foyers à terme. Nous tendons vers un habitat auto-construit, des bâtiments écologiques et sains, des économies d’énergie, dans un environnement cohérent. Pour nous, l’auto-éco-construction est d’abord un état d’esprit ouvert à l’entraide, à la créativité, à l’utilisation des matériaux locaux et au recyclage de matériaux usagés : - Utilisation de terre, de pierres, de bois, de paille et autres végétaux produits localement - Utilisation de matériaux recyclables ou réutilisables (pneus, bouteilles en verre, textiles divers) - Redécouverte des techniques traditionnelles du monde (maisons individuelles passives) - Accès à des réseaux d’artistes et d’artisans constructeurs - Organisation de chantiers participatifs, formateurs et festifs",
+    "first_name_manager": "Thomas",
+    "last_name_manager": "Baker",
     "password": "test",
-    "address": "Sainte Camelle",
-    "region": "Ariège",
-    "city": "Saint-Victor-Rouzaud",
-    "website": "https://ecovillagestecamelle.fr/",
-    "zip_code":"09100",
-    "phone_number": "0607012089",
-    "path": "https://ecovillagestecamelle.fr/wp-content/uploads/2017/12/IMG_0010-16-9.jpg"
+    "address": "Association les Chemins d'Ecolectif Voie N°3 du Bernadaou Le Paoulé",
+    "region": "Occitanie",
+    "city": "Gensac de Boulogne",
+    "website": "https://ecolectif.jimdofree.com/",
+    "zip_code":"31350",
+    "phone_number": "09 84 31 50 38",
+    "path": "https://image.jimcdn.com/app/cms/image/transf/dimension=1920x400:format=jpg/path/s5f8fb5b2a2c616b4/image/ic42e56a91b7b17e8/version/1525713911/image.jpg"
 }
 
 ### Test de la route pour supprimer un eco village
