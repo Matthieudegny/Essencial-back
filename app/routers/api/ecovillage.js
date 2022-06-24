@@ -17,6 +17,18 @@ router.route('/')
  */
 .get(ecovillageController.getAllWithPhotos)
 
+/**
+* patch /api/ecovillage/{id}
+* @summary To update one ecovillage 
+* @tags Eco Village
+* @param {object} request.body.required - ecovillage's data to update
+* @return {object} 200 - success response
+* @return {object} 400 - input data invalid
+*/
+.patch(checkAuth,
+     validate('body', ecovillageUpdateSchema),
+     ecovillageController.updateWithPhotoOrNot) 
+
 router.route('/:id(\\d+)')
 /**
  * GET /api/ecovillage/{id}
@@ -37,18 +49,6 @@ router.route('/:id(\\d+)')
 * @return {object} 400 - input data invalid
 */
 .delete(checkAuth, ecovillageController.deleteOne)
-
-/**
-* patch /api/ecovillage/{id}
-* @summary To update one ecovillage 
-* @tags Eco Village
-* @param {object} request.body.required - ecovillage's data to update
-* @return {object} 200 - success response
-* @return {object} 400 - input data invalid
-*/
-.patch(checkAuth,
-     validate('body', ecovillageUpdateSchema),
-     ecovillageController.updateWithPhotoOrNot) 
 
 router.route('/create')
 /**
