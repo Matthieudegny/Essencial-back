@@ -20,7 +20,7 @@ module.exports = Joi.object({
         .required(),
     phone_number: Joi.string()
         .pattern(/^(0|\+33)[ .-]?[1-9]([ .-]?[0-9]){8}$/),
-    address: textRule,
+    address: Joi.string(),
     region: textRule
         .required(),
     website: Joi.string(),
