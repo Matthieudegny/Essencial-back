@@ -114,7 +114,7 @@ router.route('/posts/:id(\\d+)')
 * @tags User
 * @param {number} id.path.required - user's id
 * @return {object} 200 - success response
-* @return {ApiError} 400 - input data invalid
+* @return {object} 400 - input data invalid
 */
 .get(userController.getAllPostsWithPhoto) 
 

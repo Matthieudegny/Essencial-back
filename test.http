@@ -30,9 +30,9 @@ Content-Type:application/json
 Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6InRlc3QiLCJyZWdpb24iOm51bGwsImNyZWF0ZWRfYXQiOiIyMDIyLTA2LTIyVDEwOjQwOjMxLjU1NFoiLCJ1cGRhdGVkX2F0IjpudWxsLCJ0eXBlIjoiZWNvdmlsbGFnZSIsImlhdCI6MTY1NTkwMTgxNywiZXhwIjoxNjU1OTA1NDE3fQ.QJhAyrBOMsy0pEGXl16gQruT1SoDFJB55kw2Cr_XnP4
 
 ### Test de la route pour récupérer un utilisateur et sa photo
-GET {{ endpoint }}/user/23
+GET {{ endpoint }}/user/966
 Content-Type:application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsIm5hbWUiOiJFY292aWxsYWdlIFNhaW50ZSBDYW1lbGxlIiwicmVnaW9uIjoiT2NjaXRhbmllIiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjRUMDg6MTk6NDYuNzYyWiIsInVwZGF0ZWRfYXQiOiIyMDIyLTA2LTI0VDA4OjI0OjQ2LjA3M1oiLCJ0eXBlIjoiZWNvdmlsbGFnZSIsImlhdCI6MTY1NjA4NDA4OCwiZXhwIjoxNjU2MDg3Njg4fQ.2sch8Her6k4gQU-OAqwlbNJKwhsoLQ1q2PHKeK-I0U0
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsIm5hbWUiOiJFY292aWxsYWdlIFNhaW50ZSBDYW1lbGxlIiwicmVnaW9uIjoiT2NjaXRhbmllIiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjRUMDg6MTk6NDYuNzYyWiIsInVwZGF0ZWRfYXQiOiIyMDIyLTA2LTI0VDA4OjI0OjQ2LjA3M1oiLCJ0eXBlIjoiZWNvdmlsbGFnZSIsImlhdCI6MTY1NjA4ODM4NiwiZXhwIjoxNjU2MDkxOTg2fQ.duHyfPKcIhcGdEMpHKshGAXe21iGkqBfpgPR2mdKp1k
 
 ### Test de la route pour ajouter un nouvel utilisateur
 POST {{ endpoint }}/user/create
@@ -47,7 +47,6 @@ Content-Type:application/json
     "password": "test",
     "phone_number": "0677777777",
     "address": "77 rue du test",
-    "region": "ile de france",
     "zip_code": "75829",
     "city": "Paris",
     "path": "https://images.sk-static.com/images/media/profile_images/artists/517366/huge_avatar"
@@ -134,9 +133,9 @@ GET {{ endpoint }}/post/tuto
 GET {{ endpoint }}/ecovillage
 
 ### Test de la route pour récupérer un eco village
-GET {{ endpoint }}/ecovillage/1
+GET {{ endpoint }}/ecovillage/3
 Content-Type:application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwicHNldWRvIjoiTWF0dGhpYXM2OSIsImRlc2NyaXB0aW9uIjpudWxsLCJyaWdodHMiOiJ1c2VyIiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjJUMTQ6MTA6NDYuNzI4WiIsInVwZGF0ZWRfYXQiOiIyMDIyLTA2LTIzVDE1OjAyOjIxLjQ4MloiLCJ0eXBlIjoidXNlciIsImlhdCI6MTY1NjA4MTI0MSwiZXhwIjoxNjU2MDg0ODQxfQ.yNtbbkLk_7geyOdbuZut5sdp91AfF3AP4e2uLQOK1es
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsIm5hbWUiOiJFY292aWxsYWdlIFNhaW50ZSBDYW1lbGxlIiwicmVnaW9uIjoiT2NjaXRhbmllIiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjRUMDg6MTk6NDYuNzYyWiIsInVwZGF0ZWRfYXQiOiIyMDIyLTA2LTI0VDA4OjI0OjQ2LjA3M1oiLCJ0eXBlIjoiZWNvdmlsbGFnZSIsImlhdCI6MTY1NjA4NDA4OCwiZXhwIjoxNjU2MDg3Njg4fQ.2sch8Her6k4gQU-OAqwlbNJKwhsoLQ1q2PHKeK-I0U0
 
 ### Test de la route pour créer un éco village
 POST {{ endpoint }}/ecovillage/create

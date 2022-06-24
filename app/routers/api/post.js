@@ -13,7 +13,7 @@ router.route('/')
  * @summary To get all posts
  * @tags Post
  * @return {object} 200 - success response
- * @return {ApiError} 400 - input data invalid
+ * @return {object} 400 - input data invalid
 */
 .get(postController.getAllWithPhotoAndCategory)
 
@@ -22,9 +22,9 @@ router.route('/create')
  * POST /api/post/create
  * @summary To create a new post
  * @tags Post
- * @param {Post} request.body.required - post to create (content, title, path)
+ * @param {Post} request.body.required - post to create 
  * @return {object} 200 - success response
- * @return {ApiError} 400 - input data invalid
+ * @return {object} 400 - input data invalid
 */
 .post(checkAuth, validate('body', postCreateSchema), postController.createOneWithPhotoAndCategory)
 
@@ -34,7 +34,7 @@ router.route('/tuto')
  * @summary To find all tutorials
  * @tags Post
  * @return {object} 200 - success response
- * @return {ApiError} 400 - input data invalid
+ * @return {object} 400 - input data invalid
  */
  .get(postController.getAllTuto)
 
@@ -45,7 +45,7 @@ router.route('/:id(\\d+)')
  * @tags Post
  * @param {number} id.path.required - post's id 
  * @return {object} 200 - success response
- * @return {ApiError} 400 - input data invalid
+ * @return {object} 400 - input data invalid
 */
 .get(checkAuth, postController.getOneWithPhotoAndCategory)
 /**
@@ -54,7 +54,7 @@ router.route('/:id(\\d+)')
  * @tags Post
  * @param {number} id.path.required - post's id
  * @return {object} 200 - success response
- * @return {ApiError} 400 - input data invalid
+ * @return {object} 400 - input data invalid
 */
 .delete(checkAuth, postController.deleteOne)
 
