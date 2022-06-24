@@ -24,7 +24,8 @@ class Post extends CoreDatamapper {
                            "post".user_id AS author_id,
                            "post".content AS post_content,
                            "post".title AS post_title,
-                           photo.*, 
+                           "photo".id AS photo_id,
+                           "photo".path AS photo_path,
                            array_agg(category."name") AS categories_name
                     FROM "post"
                     JOIN "photo" ON "photo"."post_id" = "post".id
@@ -43,10 +44,11 @@ class Post extends CoreDatamapper {
 
         const preparedQuery = {
             text: `SELECT "post".id,
-            "post".user_id,
-            "post".content,
-            "post".title,
-            photo.*, 
+            "post".user_id AS author_id,
+            "post".content AS post_content,
+            "post".title AS post_title,
+            "photo".id AS photo_id,
+            "photo".path AS photo_path, 
             array_agg(category."name") AS categories_name
             FROM "post"
             JOIN "photo" ON "photo"."post_id" = "post".id
