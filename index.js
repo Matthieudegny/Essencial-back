@@ -12,9 +12,6 @@ app.set('view engine', 'ejs');
 app.set('views', './app/views');
 
 const options = {
-    definition: {
-        openapi: '3.0.3', // YOU NEED THIS
-    },
     info: {
         version: '1.0.0',
         title: 'Essencial',
@@ -25,9 +22,9 @@ const options = {
             type: 'http',
             scheme: 'basic',
           },
-          JwtAuth: {
+          BearerAuth: {
             type: 'http',
-            scheme: 'jwt',
+            scheme: 'bearer',
           },
       },
     baseDir: __dirname,
