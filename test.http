@@ -114,14 +114,14 @@ Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwicHNldWRvIjoi
 }
 
 ### Test de la route pour supprimer un post
-DELETE {{ endpoint }}/post/1069
+DELETE {{ endpoint }}/post/1070
 Content-Type:application/json
 Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwicHNldWRvIjoiQmV1dmU4MCIsImRlc2NyaXB0aW9uIjpudWxsLCJyaWdodHMiOiJ1c2VyIiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjJUMTg6MjI6MjcuNTI1WiIsInVwZGF0ZWRfYXQiOm51bGwsInR5cGUiOiJ1c2VyIiwiaWF0IjoxNjU2MDczMzY0LCJleHAiOjE2NTYwNzY5NjR9.es_eht1mYy-vg-ouySGVnoVOJ-kztc51zg-u0Ek0Zms
 
 ### Test de la route pour afficher un post
-GET {{ endpoint }}/post/1
+GET {{ endpoint }}/post/1013
 Content-Type:application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwicHNldWRvIjoiQmV1dmU4MCIsImRlc2NyaXB0aW9uIjpudWxsLCJyaWdodHMiOiJ1c2VyIiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjJUMTg6MjI6MjcuNTI1WiIsInVwZGF0ZWRfYXQiOm51bGwsInR5cGUiOiJ1c2VyIiwiaWF0IjoxNjU2MDY5NzYxLCJleHAiOjE2NTYwNzMzNjF9.gdw8Etw2AFIndtgd4lUe5gFG9KxaWi6j1rrdI_7MdvA
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwicHNldWRvIjoiQmV1dmU4MCIsImRlc2NyaXB0aW9uIjpudWxsLCJyaWdodHMiOiJ1c2VyIiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjJUMTg6MjI6MjcuNTI1WiIsInVwZGF0ZWRfYXQiOm51bGwsInR5cGUiOiJ1c2VyIiwiaWF0IjoxNjU2MDczMzY0LCJleHAiOjE2NTYwNzY5NjR9.es_eht1mYy-vg-ouySGVnoVOJ-kztc51zg-u0Ek0Zms
 
 ### Test de la route pour afficher tout les tuto
 GET {{ endpoint }}/post/tuto

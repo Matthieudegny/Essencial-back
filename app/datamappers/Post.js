@@ -20,10 +20,10 @@ class Post extends CoreDatamapper {
     async findAllWithPhotoAndCategory(){
 
         const preparedQuery = {
-            text: `SELECT  "post".id,
-                           "post".user_id,
-                           "post".content,
-                           "post".title,
+            text: `SELECT  "post".id AS post_id,
+                           "post".user_id AS author_id,
+                           "post".content AS post_content,
+                           "post".title AS post_title,
                            photo.*, 
                            array_agg(category."name") AS categories_name
                     FROM "post"
