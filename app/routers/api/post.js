@@ -11,6 +11,7 @@ router.route('/')
 /**
  * GET /api/post
  * @summary To get all posts
+ * @tags POST
  * @return {object} 200 - success response
  * @return {ApiError} 400 - input data invalid
 */
