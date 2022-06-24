@@ -18,10 +18,9 @@ router.route('/')
 .get(ecovillageController.getAllWithPhotos)
 
 /**
-* patch /api/ecovillage/{id}
+* patch /api/ecovillage
 * @summary To update one ecovillage 
 * @tags Eco Village
-* @param {object} request.body.required - ecovillage's data to update
 * @return {object} 200 - success response
 * @return {object} 400 - input data invalid
 */
