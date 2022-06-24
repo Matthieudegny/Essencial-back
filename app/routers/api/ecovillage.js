@@ -26,7 +26,7 @@ router.route('/:id(\\d+)')
  * @return {object} 200 - success response
  * @return {ApiError} 400 - input data invalid
 */
-.get(checkAuth, ecovillageController.getOneWithPhoto)
+.get(ecovillageController.getOneWithPhoto)
 
 /**
 * DELETE /api/ecovillage/{id}
