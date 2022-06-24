@@ -160,12 +160,14 @@ Content-Type:application/json
 Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywibmFtZSI6InRlc3QiLCJyZWdpb24iOm51bGwsImNyZWF0ZWRfYXQiOiIyMDIyLTA2LTIxVDE4OjEzOjUyLjc1MloiLCJ1cGRhdGVkX2F0IjpudWxsLCJ0eXBlIjoiZWNvdmlsbGFnZSIsImlhdCI6MTY1NTgzNTI3OSwiZXhwIjoxNjU1ODM3MDc5fQ.k0vwodk1NImuVNUeCsoDEc6TYGVNPLwezGDr1sxL2KE
 
 ### Test de la route pour modifier un éco village
-PATCH {{ endpoint }}/ecovillage/4
+PATCH {{ endpoint }}/ecovillage/11
 Content-Type:application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6IkxlcyBwdWl0cyBkZSBMYWNoYXVkIiwicmVnaW9uIjoiUHV5LWRlLUTDtG1lIiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjNUMTM6MDk6MjEuMDI4WiIsInVwZGF0ZWRfYXQiOm51bGwsInR5cGUiOiJlY292aWxsYWdlIiwiaWF0IjoxNjU1OTk1NDQ0LCJleHAiOjE2NTU5OTkwNDR9.q2Vac2J3ifYrXZvMWZHUNStn5ZeM3E2mp3KOKN0TFxA
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6InRlc3QiLCJyZWdpb24iOiJQaWNhcmRpZSIsImNyZWF0ZWRfYXQiOiIyMDIyLTA2LTIyVDE0OjEyOjA2LjYyN1oiLCJ1cGRhdGVkX2F0IjpudWxsLCJ0eXBlIjoiZWNvdmlsbGFnZSIsImlhdCI6MTY1NjA1OTkwOCwiZXhwIjoxNjU2MDYzNTA4fQ.HmBWWJipnXo_MZzulDq29f8NB2KVXhDOc7Skm4PyDYM
 
 {
-    "website":"http://ecolieuxdefrance.free.fr/LES_SITES/Les_puitsdelachaud.htm"
+    "date_of_birth_manager": "1977-07-18T20:31:05.469Z",
+    "name": "Ecovil city",
+    "region": "Abou Dabi"
 }
 
 

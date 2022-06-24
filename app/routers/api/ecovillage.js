@@ -4,6 +4,7 @@ const ecovillageController = require('../../controllers/api/ecovillage')
 const validate = require('../../validation/validator');
 const checkAuth = require('../../middlewares/checkAuth');
 const ecovillageCreateSchema = require('../../validation/schemas/ecovillage/ecovilCreate.schema');
+const ecovillageUpdateSchema = require('../../validation/schemas/ecovillage/ecovilUpdate.schema');
 
 
 router.route('/')
@@ -45,7 +46,9 @@ router.route('/:id(\\d+)')
 * @return {object} 200 - success response
 * @return {object} 400 - input data invalid
 */
-.patch(ecovillageController.updateWithPhotoOrNot) 
+.patch(checkAuth,
+     validate('body', ecovillageUpdateSchema),
+     ecovillageController.updateWithPhotoOrNot) 
 
 router.route('/create')
 /**
