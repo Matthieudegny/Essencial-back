@@ -1,10 +1,5 @@
 /**
- * On implémente notre propre type d'erreur.
- * Cela s'appelle une exception
- * On en profite pour lui permettre de prendre
- * des information supplémentaires, par exemple : un code de status HTTP
- * Les instances transporteront ces infos avec elles
- * et elles pourront être exploitées ultérieurement
+ * type Error
  * @typedef {object} ApiError
  * @property {string} message - Error message
  */
