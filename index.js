@@ -25,9 +25,9 @@ const options = {
             type: 'http',
             scheme: 'basic',
           },
-          BearerAuth: {
+          JwtAuth: {
             type: 'http',
-            scheme: 'bearer',
+            scheme: 'jwt',
           },
       },
     baseDir: __dirname,
