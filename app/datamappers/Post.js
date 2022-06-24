@@ -5,11 +5,12 @@ const categoryDatamapper = require('./Category');
 
 /**
  * @typedef {object} Post
- * @summary Object to send to create a Post
- * @property {number} user_id - Identifier of the id's redactor
+ * @summary Object to create a Post
  * @property {string} content - Content 
  * @property {string} title - Title
  * @property {string} path - Path of the picture
+ * @property {string} category_1 - First categorie
+ * @property {string} category_2 - Second categorie
  */
 
 class Post extends CoreDatamapper {

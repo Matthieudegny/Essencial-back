@@ -9,6 +9,7 @@ module.exports = Joi.object({
         .required(),
     category_1: Joi.string()
         .required(),
+    category_2: Joi.string(),
     path: Joi.string()
         .required()
 }).required();
