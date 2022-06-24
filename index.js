@@ -21,11 +21,14 @@ const options = {
         description: ' '
     },
     security: {
-        BearerAuth: {
-          type: 'http',
-          scheme: 'jwt',
-          bearerFormat: "JWT"
-        },
+        BasicAuth: {
+            type: 'http',
+            scheme: 'basic',
+          },
+          BearerAuth: {
+            type: 'http',
+            scheme: 'bearer',
+          },
       },
     baseDir: __dirname,
     filesPattern: './**/*.js',
