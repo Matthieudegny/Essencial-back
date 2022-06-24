@@ -17,14 +17,43 @@ class Post extends CoreDatamapper {
 
     tableName = 'post';
 
-    async findOneWithPhoto(postId){
+    async findAllWithPhotoAndCategory(){
 
         const preparedQuery = {
-            text: `
-            SELECT "post".*, "photo".path
-            FROM "${this.tableName}"
-            JOIN "photo" ON "post".user_id = "photo".user_id
-            WHERE post."user_id" = $1`,
+            text: `SELECT  "post".id,
+                           "post".user_id,
+                           "post".content,
+                           "post".title,
+                           photo.*, 
+                           array_agg(category."name") AS categories_name
+                    FROM "post"
+                    JOIN "photo" ON "photo"."post_id" = "post".id
+                    JOIN "post_has_category" ON "post_has_category"."post_id" = "post".id
+                    JOIN "category" ON  post_has_category.category_id = category."id"
+                    GROUP BY post.id , photo.id`
+        }
+        const result = await this.client.query(preparedQuery)
+        if (!result.rows[0]) {
+            return null;
+        }
+        return result.rows
+    }
+
+    async findOneWithPhotoAndCategory(postId){
+
+        const preparedQuery = {
+            text: `SELECT "post".id,
+            "post".user_id,
+            "post".content,
+            "post".title,
+            photo.*, 
+            array_agg(category."name") AS categories_name
+            FROM "post"
+            JOIN "photo" ON "photo"."post_id" = "post".id
+            JOIN "post_has_category" ON "post_has_category"."post_id" = "post".id
+            JOIN "category" ON  post_has_category.category_id = category."id"
+            WHERE post."id" = $1
+            GROUP BY post.id , photo.id`,
             values: [postId]
         }
 
@@ -73,7 +102,7 @@ class Post extends CoreDatamapper {
 
        let categoryInsert
 
-        if(!post.category_2){
+        if(!post.category_2 || (post.category_1 === post.category_2)){
 
             const findByName = await categoryDatamapper.findByName(post.category_1)
             
@@ -98,6 +127,7 @@ class Post extends CoreDatamapper {
             }
 
         } else {
+  
             const findByName1 = await categoryDatamapper.findByName(post.category_1)
 
             const preparedQuery1 = {

@@ -6,6 +6,16 @@ const postCreateSchema = require('../../validation/schemas/post/postCreate.schem
 /* const postUpdateSchema = require('../../validation/schemas/post/postUpdate.schema') */
 const checkAuth = require('../../middlewares/checkAuth');
 
+
+router.route('/')
+/**
+ * POST /api/post
+ * @summary To get all posts
+ * @return {object} 200 - success response
+ * @return {ApiError} 400 - input data invalid
+*/
+.get(postController.getAllWithPhotoAndCategory)
+
 router.route('/create')
 /**
  * POST /api/post/create
@@ -36,7 +46,7 @@ router.route('/:id(\\d+)')
  * @return {object} 200 - success response
  * @return {ApiError} 400 - input data invalid
 */
-.get(checkAuth, postController.getOneWithPhoto)
+.get(checkAuth, postController.getOneWithPhotoAndCategory)
 /**
  * DELETE /api/post/{id}
  * @summary To delete a post

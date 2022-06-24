@@ -4,8 +4,8 @@
 # https://marketplace.visualstudio.com/items?itemName=humao.rest-client
 ################################################################################
 
-#@endpoint = http://localhost:3000/api
-@endpoint = https://essencial-api.herokuapp.com/api
+@endpoint = http://localhost:3000/api
+#@endpoint = https://essencial-api.herokuapp.com/api
 
 ### Test d'une route introuvable
 GET {{ endpoint }}/ujnlkcsdcs
@@ -19,7 +19,7 @@ POST {{ endpoint }}/connexion
 Content-Type:application/json
 
 {
-    "email": "Matthias27@gmail.com",
+    "email": "Beuve57@gmail.com",
     "password": "test"
 }
 
@@ -97,16 +97,20 @@ Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicHNldWRvIjoi
 ///////////////////   POST   //////////////////
 ///////////////////////////////////////////////
 
+### Test de la route pour récupérer tout les posts
+GET {{ endpoint }}/post
+
 ### Test de la route pour créer un nouveau post
 POST {{ endpoint }}/post/create
 Content-Type:application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInBzZXVkbyI6IkV1c8OoYmU1NCIsImRlc2NyaXB0aW9uIjpudWxsLCJyaWdodHMiOiJ1c2VyIiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjJUMTQ6MTA6NDcuMTEwWiIsInVwZGF0ZWRfYXQiOm51bGwsInR5cGUiOiJ1c2VyIiwiaWF0IjoxNjU2MDU1MDI1LCJleHAiOjE2NTYwNTg2MjV9.A80xIBtV_ADfd9qLrxJ6dbx9jFFeKSJFchUlrVggI2s
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwicHNldWRvIjoiQmV1dmU4MCIsImRlc2NyaXB0aW9uIjpudWxsLCJyaWdodHMiOiJ1c2VyIiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjJUMTg6MjI6MjcuNTI1WiIsInVwZGF0ZWRfYXQiOm51bGwsInR5cGUiOiJ1c2VyIiwiaWF0IjoxNjU2MDczMzY0LCJleHAiOjE2NTYwNzY5NjR9.es_eht1mYy-vg-ouySGVnoVOJ-kztc51zg-u0Ek0Zms
 
 {
    "content": "Le fonctionnement du composteur est assez simple. Le compost se forme par l'action de micro-organismes et par un processus de fermentation. Sans oxygène et sans eau, aucune forme de vie n'est possible. Quand le compost Est-il mûr ? Au bout de 8 à 12 mois en moyenne, lorsque les déchets se sont transformés en une terre grumeleuse, friable, brun foncé, le compost est prêt à être utilisé. C'est le compost mûr, ressemblant au terreau et dégageant une odeur de sous-bois, qui contient un effet amendant et fertilisant.",
    "title": "Comment fonctionne un bac à compost ?" ,
    "path": "https://trucmania.ouest-france.fr/wp-content/uploads/2020/09/bac-a-compost-en-palettes-%C2%A9-Nature-et-construction.jpg",
-   "category_1": "Tutoriel"
+   "category_1": "Potager",
+   "category_2": "Gestion des déchêts"
 }
 
 ### Test de la route pour supprimer un post
@@ -115,9 +119,9 @@ Content-Type:application/json
 Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzIsIm5hbWUiOiJ0ZXN0IiwicmVnaW9uIjpudWxsLCJjcmVhdGVkX2F0IjoiMjAyMi0wNi0yMVQyMTozMjozMS42MDlaIiwidXBkYXRlZF9hdCI6bnVsbCwidHlwZSI6ImVjb3ZpbGxhZ2UiLCJpYXQiOjE2NTU4NDc0NDgsImV4cCI6MTY1NTg1MTA0OH0.LO0GqTf4JdS2uzy1TD8hvqL7CBA-cHjT1cu4BoItXsU
 
 ### Test de la route pour afficher un post
-GET {{ endpoint }}/post/1018
+GET {{ endpoint }}/post/1
 Content-Type:application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJNYXVnaXM4NEBnbWFpbC5jb20iLCJmaXJzdF9uYW1lIjoiTWF1Z2lzIiwibGFzdF9uYW1lIjoiTWV1bmllciIsInBzZXVkbyI6Ik1hdWdpczEzIiwiZGF0ZV9vZl9iaXJ0aCI6IjIwMDMtMDQtMDVUMDE6MTU6NTAuMDYzWiIsInBhc3N3b3JkIjoidGVzdCIsInJpZ2h0cyI6InVzZXIiLCJwaG9uZV9udW1iZXIiOiIwNjgzMjE0NDE1IiwiYWRkcmVzcyI6IjAgVm9pZSBNb3VmZmV0YXJkIiwicmVnaW9uIjoiQ29yc2UiLCJ6aXBfY29kZSI6Ijg4Mjk2IiwiY2l0eSI6Ik5hbmN5IiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjBUMTE6MTY6MjIuOTIzWiIsInVwZGF0ZWRfYXQiOm51bGwsImlhdCI6MTY1NTcyOTYzNSwiZXhwIjoxNjU1NzMxNDM1fQ.hzFUKeQlCJ1WKEo9-UBowC-tqjvFn7_cttTqqe15EHs
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwicHNldWRvIjoiQmV1dmU4MCIsImRlc2NyaXB0aW9uIjpudWxsLCJyaWdodHMiOiJ1c2VyIiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjJUMTg6MjI6MjcuNTI1WiIsInVwZGF0ZWRfYXQiOm51bGwsInR5cGUiOiJ1c2VyIiwiaWF0IjoxNjU2MDY5NzYxLCJleHAiOjE2NTYwNzMzNjF9.gdw8Etw2AFIndtgd4lUe5gFG9KxaWi6j1rrdI_7MdvA
 
 ### Test de la route pour afficher tout les tuto
 GET {{ endpoint }}/post/tuto

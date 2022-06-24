@@ -5,14 +5,22 @@ require('dotenv').config();
 
 const postController = {
 
-    async getOneWithPhoto(req,res){
+    async getAllWithPhotoAndCategory(req,res){
+        const result = await postDatamapper.findAllWithPhotoAndCategory()
+        if(!result){
+            return res.json({"message":"There is no post on table post"})
+        }
+        return res.json(result)
+    },
+
+    async getOneWithPhotoAndCategory(req,res){
         const postId = req.params.id
         try {
             if(!postId){
                 throw new Error("You must specify and id")
             }
 
-            const result = await postDatamapper.findOneWithPhoto(postId)
+            const result = await postDatamapper.findOneWithPhotoAndCategory(postId)
 
             if(!result){
                 throw new Error(`There is no post with id ${postId}`)
