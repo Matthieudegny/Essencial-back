@@ -55,6 +55,7 @@ router.route('/:id(\\d+)')
 * @summary To delete one user with his photo
 * @tags User
 * @param {number} id.path.required - user's id
+* @security BearerAuth
 * @return {object} 200 - success response
 * @return {object} 400 - input data invalid
 */
