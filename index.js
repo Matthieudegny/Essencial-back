@@ -27,7 +27,7 @@ const options = {
           },
           BearerAuth: {
             type: 'http',
-            scheme: 'jwt',
+            scheme: 'bearer',
           },
       },
     baseDir: __dirname,
