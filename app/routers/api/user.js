@@ -26,7 +26,8 @@ router.route('/')
 * @return {object} 200 - success response
 * @return {object} 400 - input data invalid
 */
-.patch(checkAuth, validate('body',userUpdateSchema), userController.updateWithPhotoOrNot) 
+.patch(checkAuth, userController.updateWithPhotoOrNot) 
+/* validate('body',userUpdateSchema) */
         
 router.route('/create')
 /**
