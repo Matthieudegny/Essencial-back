@@ -24,9 +24,7 @@ router.route('/')
 * @return {object} 200 - success response
 * @return {object} 400 - input data invalid
 */
-.patch(checkAuth,
-     validate('body', ecovillageUpdateSchema),
-     ecovillageController.updateWithPhotoOrNot) 
+.patch(checkAuth,validate('body', ecovillageUpdateSchema),ecovillageController.updateWithPhotoOrNot) 
 
 router.route('/:id(\\d+)')
 /**

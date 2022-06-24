@@ -4,8 +4,8 @@
 # https://marketplace.visualstudio.com/items?itemName=humao.rest-client
 ################################################################################
 
-@endpoint = http://localhost:3000/api
-#@endpoint = https://essencial-api.herokuapp.com/api
+#@endpoint = http://localhost:3000/api
+@endpoint = https://essencial-api.herokuapp.com/api
 
 ### Test d'une route introuvable
 GET {{ endpoint }}/ujnlkcsdcs
@@ -30,9 +30,9 @@ Content-Type:application/json
 Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6InRlc3QiLCJyZWdpb24iOm51bGwsImNyZWF0ZWRfYXQiOiIyMDIyLTA2LTIyVDEwOjQwOjMxLjU1NFoiLCJ1cGRhdGVkX2F0IjpudWxsLCJ0eXBlIjoiZWNvdmlsbGFnZSIsImlhdCI6MTY1NTkwMTgxNywiZXhwIjoxNjU1OTA1NDE3fQ.QJhAyrBOMsy0pEGXl16gQruT1SoDFJB55kw2Cr_XnP4
 
 ### Test de la route pour récupérer un utilisateur et sa photo
-GET {{ endpoint }}/user/235
+GET {{ endpoint }}/user/23
 Content-Type:application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicHNldWRvIjoiQXVyw6hsZTIxIiwiZGVzY3JpcHRpb24iOm51bGwsInJpZ2h0cyI6InVzZXIiLCJjcmVhdGVkX2F0IjoiMjAyMi0wNi0yMlQxODoyMjoyNy41MTRaIiwidXBkYXRlZF9hdCI6bnVsbCwidHlwZSI6InVzZXIiLCJpYXQiOjE2NTU5MjIyMjYsImV4cCI6MTY1NTkyNTgyNn0.J9hQh_ouMNY4TOQo3lPKbciY-Yheo4tUKI0H8nbhYzg
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsIm5hbWUiOiJFY292aWxsYWdlIFNhaW50ZSBDYW1lbGxlIiwicmVnaW9uIjoiT2NjaXRhbmllIiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjRUMDg6MTk6NDYuNzYyWiIsInVwZGF0ZWRfYXQiOiIyMDIyLTA2LTI0VDA4OjI0OjQ2LjA3M1oiLCJ0eXBlIjoiZWNvdmlsbGFnZSIsImlhdCI6MTY1NjA4NDA4OCwiZXhwIjoxNjU2MDg3Njg4fQ.2sch8Her6k4gQU-OAqwlbNJKwhsoLQ1q2PHKeK-I0U0
 
 ### Test de la route pour ajouter un nouvel utilisateur
 POST {{ endpoint }}/user/create

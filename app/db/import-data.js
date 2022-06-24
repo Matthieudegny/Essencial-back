@@ -35,7 +35,7 @@ for(i=0;i<NB_USERS;i++) {
     user.phone_number = faker.phone.phoneNumber('06########');
     user.address = faker.address.streetAddress();
     user.region = faker.address.state();
-    users.description = faker.
+    user.description = faker.lorem.sentence();
     user.city = faker.address.city();
     user.zip_code = faker.address.zipCodeByState(`state: ${user.state}`);
     users.push(user);
