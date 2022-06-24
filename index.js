@@ -23,8 +23,8 @@ const options = {
             scheme: 'basic',
           },
           BearerAuth: {
-            type: 'http',
-            scheme: 'bearer',
+            type: 'https',
+            scheme: 'jwt',
           },
       },
     baseDir: __dirname,
