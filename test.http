@@ -114,9 +114,9 @@ Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwicHNldWRvIjoi
 }
 
 ### Test de la route pour supprimer un post
-DELETE {{ endpoint }}/post/1018
+DELETE {{ endpoint }}/post/1069
 Content-Type:application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzIsIm5hbWUiOiJ0ZXN0IiwicmVnaW9uIjpudWxsLCJjcmVhdGVkX2F0IjoiMjAyMi0wNi0yMVQyMTozMjozMS42MDlaIiwidXBkYXRlZF9hdCI6bnVsbCwidHlwZSI6ImVjb3ZpbGxhZ2UiLCJpYXQiOjE2NTU4NDc0NDgsImV4cCI6MTY1NTg1MTA0OH0.LO0GqTf4JdS2uzy1TD8hvqL7CBA-cHjT1cu4BoItXsU
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwicHNldWRvIjoiQmV1dmU4MCIsImRlc2NyaXB0aW9uIjpudWxsLCJyaWdodHMiOiJ1c2VyIiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjJUMTg6MjI6MjcuNTI1WiIsInVwZGF0ZWRfYXQiOm51bGwsInR5cGUiOiJ1c2VyIiwiaWF0IjoxNjU2MDczMzY0LCJleHAiOjE2NTYwNzY5NjR9.es_eht1mYy-vg-ouySGVnoVOJ-kztc51zg-u0Ek0Zms
 
 ### Test de la route pour afficher un post
 GET {{ endpoint }}/post/1
