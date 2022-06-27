@@ -7,9 +7,9 @@ function checkLog(req,res,next) {
     if(token == null){
         return res.status(401).send("unauthorized");
     }
-    token = token.slice(4,token.length);
+    const [, headerToken] = token.split(' ');
 
-    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err,response) => {
+    jwt.verify(headerToken, process.env.ACCESS_TOKEN_SECRET, (err,response) => {
         if (err) {
             return res.status(403).send('fordbiden');
         }

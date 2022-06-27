@@ -19,7 +19,7 @@ POST {{ endpoint }}/connexion
 Content-Type:application/json
 
 {
-    "email": "Flicit.Roussel76@yahoo.fr",
+    "email": "Apolline1@gmail.com",
     "password": "test"
 }
 
@@ -64,9 +64,9 @@ Content-Type:application/json
 Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwicHNldWRvIjoiQmV1dmU4MCIsImRlc2NyaXB0aW9uIjpudWxsLCJyaWdodHMiOiJ1c2VyIiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjJUMTg6MjI6MjcuNTI1WiIsInVwZGF0ZWRfYXQiOm51bGwsInR5cGUiOiJ1c2VyIiwiaWF0IjoxNjU2MTU5MDAyLCJleHAiOjE2NTYxNjI2MDJ9.v_DyZq0GbbFurvM6f24sy7WmoM2D9mSID9SS0ANKa0k
 
 ### Test de la route pour récupérer tout les amis d'un utilisateur
-GET {{ endpoint }}/user/friends/19
+GET {{ endpoint }}/user/friends/29
 Content-Type:application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksInBzZXVkbyI6IlBpZXJyaWNrMTgiLCJkZXNjcmlwdGlvbiI6bnVsbCwicmlnaHRzIjoidXNlciIsImNyZWF0ZWRfYXQiOiIyMDIyLTA2LTIyVDE4OjIyOjI3LjU1NVoiLCJ1cGRhdGVkX2F0IjpudWxsLCJ0eXBlIjoidXNlciIsImlhdCI6MTY1NjMyMzcyMSwiZXhwIjoxNjU2MzI3MzIxfQ.192ft1Ba83Vwy_yaGkIraE_RBQKcgnGLchcm05KUIyw
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjksInBzZXVkbyI6Ik5vcm1hbmQxNiIsImRlc2NyaXB0aW9uIjpudWxsLCJyaWdodHMiOiJ1c2VyIiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjJUMTQ6MTA6NDcuMjczWiIsInVwZGF0ZWRfYXQiOm51bGwsInR5cGUiOiJ1c2VyIiwiaWF0IjoxNjU2MzMxNTIwLCJleHAiOjE2NTYzMzUxMjB9.xyPg5m5Gi4NyzozDeY0dxAahXZVejaDmS9ud6Hfaen8
 
 ### Test de la route pour récupérer tout les posts d'un utilisateur
 GET {{ endpoint }}/user/posts/37
@@ -74,9 +74,9 @@ Content-Type:application/json
 Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzcsInBzZXVkbyI6IkbDqWxpY2l0w6k5MyIsImRlc2NyaXB0aW9uIjpudWxsLCJyaWdodHMiOiJ1c2VyIiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjJUMTg6MjI6MjcuNTY0WiIsInVwZGF0ZWRfYXQiOm51bGwsInR5cGUiOiJ1c2VyIiwiaWF0IjoxNjU2MzI0NzU4LCJleHAiOjE2NTYzMjgzNTh9.IJylkCgCx3tNOSGlc01gMJGpQhzYh-nQHqgDPmq_arA
 
 ### Test de la route pour afficher tout les posts de tout les amis d'un utilisateur
-GET {{ endpoint }}/user/friends/posts/11
+GET {{ endpoint }}/user/friends/posts/29
 Content-Type:application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksInBzZXVkbyI6IlBpZXJyaWNrMTgiLCJkZXNjcmlwdGlvbiI6bnVsbCwicmlnaHRzIjoidXNlciIsImNyZWF0ZWRfYXQiOiIyMDIyLTA2LTIyVDE4OjIyOjI3LjU1NVoiLCJ1cGRhdGVkX2F0IjpudWxsLCJ0eXBlIjoidXNlciIsImlhdCI6MTY1NjMyMzcyMSwiZXhwIjoxNjU2MzI3MzIxfQ.192ft1Ba83Vwy_yaGkIraE_RBQKcgnGLchcm05KUIyw
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjksInBzZXVkbyI6Ik5vcm1hbmQxNiIsImRlc2NyaXB0aW9uIjpudWxsLCJyaWdodHMiOiJ1c2VyIiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjJUMTQ6MTA6NDcuMjczWiIsInVwZGF0ZWRfYXQiOm51bGwsInR5cGUiOiJ1c2VyIiwiaWF0IjoxNjU2MzMxNTIwLCJleHAiOjE2NTYzMzUxMjB9.xyPg5m5Gi4NyzozDeY0dxAahXZVejaDmS9ud6Hfaen8
 
 ### Test de la route pour update un utilisateur
 PATCH {{ endpoint }}/user
@@ -89,14 +89,20 @@ Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwicHNldWRvIjoi
 }
 
 ### Test de la route pour ajouter un amis
-GET {{ endpoint }}/user/friends/add/14
+GET {{ endpoint }}/user/friends/add/39
 Content-Type:application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjksInBzZXVkbyI6Ik5vcm1hbmQxNiIsImRlc2NyaXB0aW9uIjpudWxsLCJyaWdodHMiOiJ1c2VyIiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjJUMTQ6MTA6NDcuMjczWiIsInVwZGF0ZWRfYXQiOm51bGwsInR5cGUiOiJ1c2VyIiwiaWF0IjoxNjU2MzE5NjI4LCJleHAiOjE2NTYzMjMyMjh9.e0UEHew-AqiWkmyXW_viV8C37ycf_GLbqNmJ092mRxY
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjksInBzZXVkbyI6Ik5vcm1hbmQxNiIsImRlc2NyaXB0aW9uIjpudWxsLCJyaWdodHMiOiJ1c2VyIiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjJUMTQ6MTA6NDcuMjczWiIsInVwZGF0ZWRfYXQiOm51bGwsInR5cGUiOiJ1c2VyIiwiaWF0IjoxNjU2MzMxNDY2LCJleHAiOjE2NTYzMzUwNjZ9.FjtBwB5KqZJPefN-ieT-RL_FEM4pW2dO8VB9Tgl39cQ
 
 ### Test de la route pour supprimer un amis
 DELETE {{ endpoint }}/user/friends/delete/11
 Content-Type:application/json
 Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicHNldWRvIjoiQXVyw6hsZTIxIiwiZGVzY3JpcHRpb24iOm51bGwsInJpZ2h0cyI6InVzZXIiLCJjcmVhdGVkX2F0IjoiMjAyMi0wNi0yMlQxODoyMjoyNy41MTRaIiwidXBkYXRlZF9hdCI6bnVsbCwidHlwZSI6InVzZXIiLCJpYXQiOjE2NTU5ODM2NDQsImV4cCI6MTY1NTk4NzI0NH0.WyrhWA8P54e5fMbwt57BHczKFxINrtj1tiPe5VIwdZQ
+
+### Test de la route pour afficher tout les utilisateurs qui ne sont pas dans la liste d'amis
+
+GET {{ endpoint }}/members/29
+Content-Type:application/json
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjksInBzZXVkbyI6Ik5vcm1hbmQxNiIsImRlc2NyaXB0aW9uIjpudWxsLCJyaWdodHMiOiJ1c2VyIiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjJUMTQ6MTA6NDcuMjczWiIsInVwZGF0ZWRfYXQiOm51bGwsInR5cGUiOiJ1c2VyIiwiaWF0IjoxNjU2MzMyOTI4LCJleHAiOjE2NTYzMzY1Mjh9.gFCUfCPYvwYnuLnOp43sDo9dFVSEom82u8m_VLQHn_U
 
 ////////////////////////////////////////////////
 ///////////////////   POST   //////////////////
@@ -126,7 +132,7 @@ Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwicHNldWRvIjoi
 ### Test de la route pour afficher un post
 GET {{ endpoint }}/post/1013
 Content-Type:application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksIm5hbWUiOiJ0ZXN0IiwicmVnaW9uIjoiRWxzYXNzIiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjdUMDc6MjM6NTAuMjc1WiIsInVwZGF0ZWRfYXQiOm51bGwsInR5cGUiOiJlY292aWxsYWdlIiwiaWF0IjoxNjU2MzE2NTQxLCJleHAiOjE2NTYzMjAxNDF9.NRVH_C4eOEB7Lfc41baCouj2n3cMQ_ko4L_zcZjZ5wU
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjksInBzZXVkbyI6Ik5vcm1hbmQxNiIsImRlc2NyaXB0aW9uIjpudWxsLCJyaWdodHMiOiJ1c2VyIiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjJUMTQ6MTA6NDcuMjczWiIsInVwZGF0ZWRfYXQiOm51bGwsInR5cGUiOiJ1c2VyIiwiaWF0IjoxNjU2MzI2MzMwLCJleHAiOjE2NTYzMjk5MzB9.CmyCXQ2N-9byEmJZ6-7M6gw668_MdI1NOjS5VJowDxY
 
 ### Test de la route pour afficher tout les tuto
 GET {{ endpoint }}/post/tuto

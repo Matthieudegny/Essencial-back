@@ -163,6 +163,29 @@ const userController = {
 
     },
 
+    async getAllNotFriends(req, res) {
+        const userId = req.params.id
+
+        let token = req.headers['authorization']; 
+        token = token.slice(4,token.length);
+        
+        const jwtUserId = jwt.decode(token).id
+        const jwtType = jwt.decode(token).type
+
+        if((userId != jwtUserId) || (jwtType !== "user")){
+            return res.json({"message": "you can't find members that is not yours"})
+        }
+
+        const members = await userDatamapper.findAllNotFriends(userId)
+
+        if(!members){
+            return res.json({"message": "This user have add all members as friend"})
+        }
+
+        return res.json(members)
+
+    },
+
     async getAllPostsWithPhoto(req, res) {
 
         const userId = req.params.id
@@ -178,7 +201,6 @@ const userController = {
         }
 
         const posts = await userDatamapper.findAllPostsWithPhoto(userId)
-        
         return res.json(posts)
     },
 

@@ -203,6 +203,62 @@ class User extends CoreDatamapper {
         return result.rows
     }
 
+    async findAllNotFriends(userId) {
+
+        const preparedQuery = {
+            text: `
+            SELECT 
+            "user".id,
+            "user".email,
+            "user".first_name,
+            "user".last_name,
+            "user".pseudo,
+            "user".description,
+            "user".date_of_birth,
+            "user".phone_number,
+            "user".address,
+            "user".region,
+            "user".zip_code,
+            "user".city,
+            "photo".path
+            FROM "user" 
+            JOIN "photo" ON "user".id = "photo"."user_id"
+            WHERE "user"."id" NOT IN (
+                SELECT friend_id 
+                    FROM friendship
+                    WHERE "user_id" = $1 
+                )
+            UNION
+            SELECT 
+            "user".id,
+            "user".email,
+            "user".first_name,
+            "user".last_name,
+            "user".pseudo,
+            "user".description,
+            "user".date_of_birth,
+            "user".phone_number,
+            "user".address,
+            "user".region,
+            "user".zip_code,
+            "user".city,
+            "photo".path
+             FROM "user" 
+            JOIN "photo" ON "user".id = "photo"."user_id"
+            WHERE "user"."id" NOT IN (
+            SELECT user_id 
+                FROM friendship
+                WHERE "friend_id" = $1 
+                )
+                `,
+            values: [userId]
+        }
+
+        let result = await client.query(preparedQuery)
+
+        return result.rows
+    }
+
     async findAllPostsWithPhoto(userId) {
         const preparedQuery = {
             text:`
