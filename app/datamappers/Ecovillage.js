@@ -175,7 +175,6 @@ class Ecovillage extends CoreDatamapper {
             return result
 
         }else{
-
             const result = await this.update(ecovilId, inputData);
             return result
         }

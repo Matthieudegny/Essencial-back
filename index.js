@@ -23,7 +23,7 @@ const options = {
             scheme: 'basic',
           },
           BearerAuth: {
-            type: 'https',
+            type: 'http',
             scheme: 'bearer',
           },
       },

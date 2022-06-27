@@ -10,18 +10,24 @@
 ### Test d'une route introuvable
 GET {{ endpoint }}/ujnlkcsdcs
 
-/////////////////////////////////////////////////
-///////////////////   USER   ///////////////////
-////////////////////////////////////////////////
+/////////////////////////////////////////////////////
+///////////////////   CONNEXION   ///////////////////
+/////////////////////////////////////////////////////
 
 ### Test de la route connexion globale
 POST {{ endpoint }}/connexion
 Content-Type:application/json
 
 {
-    "email": "Apolline1@gmail.com",
+    "email": "Flicit.Roussel76@yahoo.fr",
     "password": "test"
 }
+
+
+/////////////////////////////////////////////////
+///////////////////   USER   ///////////////////
+////////////////////////////////////////////////
+
 
 
 ### Test de la route pour récupérer tous les utilisateurs (avec leurs photos)
@@ -58,19 +64,19 @@ Content-Type:application/json
 Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwicHNldWRvIjoiQmV1dmU4MCIsImRlc2NyaXB0aW9uIjpudWxsLCJyaWdodHMiOiJ1c2VyIiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjJUMTg6MjI6MjcuNTI1WiIsInVwZGF0ZWRfYXQiOm51bGwsInR5cGUiOiJ1c2VyIiwiaWF0IjoxNjU2MTU5MDAyLCJleHAiOjE2NTYxNjI2MDJ9.v_DyZq0GbbFurvM6f24sy7WmoM2D9mSID9SS0ANKa0k
 
 ### Test de la route pour récupérer tout les amis d'un utilisateur
-GET {{ endpoint }}/user/friends/1
+GET {{ endpoint }}/user/friends/19
 Content-Type:application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicHNldWRvIjoiQXVyw6hsZTIxIiwiZGVzY3JpcHRpb24iOiJib25qb3VyIG1vaSBjJ2VzdCBSb2JlcnQiLCJyaWdodHMiOiJ1c2VyIiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjJUMTg6MjI6MjcuNTE0WiIsInVwZGF0ZWRfYXQiOiIyMDIyLTA2LTIzVDExOjI4OjUzLjMwNloiLCJ0eXBlIjoidXNlciIsImlhdCI6MTY1NTk4NTk2OCwiZXhwIjoxNjU1OTg5NTY4fQ.1FWBwk4uIROirW_dQEFjZ5v7YSYeQ8N2ZBcOljf61x8
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksInBzZXVkbyI6IlBpZXJyaWNrMTgiLCJkZXNjcmlwdGlvbiI6bnVsbCwicmlnaHRzIjoidXNlciIsImNyZWF0ZWRfYXQiOiIyMDIyLTA2LTIyVDE4OjIyOjI3LjU1NVoiLCJ1cGRhdGVkX2F0IjpudWxsLCJ0eXBlIjoidXNlciIsImlhdCI6MTY1NjMyMzcyMSwiZXhwIjoxNjU2MzI3MzIxfQ.192ft1Ba83Vwy_yaGkIraE_RBQKcgnGLchcm05KUIyw
 
 ### Test de la route pour récupérer tout les posts d'un utilisateur
-GET {{ endpoint }}/user/posts/120
+GET {{ endpoint }}/user/posts/37
 Content-Type:application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsInBzZXVkbyI6IkFybWFuY2UyNCIsInJpZ2h0cyI6InVzZXIiLCJjcmVhdGVkX2F0IjoiMjAyMi0wNi0yMFQxOTo0MjowNC43MDhaIiwidXBkYXRlZF9hdCI6bnVsbCwidHlwZSI6InVzZXIiLCJpYXQiOjE2NTU4MDYxNjIsImV4cCI6MTY1NTgwNzk2Mn0.vAtRy0_MmbYULr3T40tLgETcnAhQ-cvFMJsEBDU68sI
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzcsInBzZXVkbyI6IkbDqWxpY2l0w6k5MyIsImRlc2NyaXB0aW9uIjpudWxsLCJyaWdodHMiOiJ1c2VyIiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjJUMTg6MjI6MjcuNTY0WiIsInVwZGF0ZWRfYXQiOm51bGwsInR5cGUiOiJ1c2VyIiwiaWF0IjoxNjU2MzI0NzU4LCJleHAiOjE2NTYzMjgzNTh9.IJylkCgCx3tNOSGlc01gMJGpQhzYh-nQHqgDPmq_arA
 
 ### Test de la route pour afficher tout les posts de tout les amis d'un utilisateur
-GET {{ endpoint }}/user/friends/posts/30
+GET {{ endpoint }}/user/friends/posts/11
 Content-Type:application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzAsInBzZXVkbyI6IkFwb2xsaW5lNDciLCJkZXNjcmlwdGlvbiI6bnVsbCwicmlnaHRzIjoidXNlciIsImNyZWF0ZWRfYXQiOiIyMDIyLTA2LTIyVDE4OjIyOjI3LjU2MFoiLCJ1cGRhdGVkX2F0IjpudWxsLCJ0eXBlIjoidXNlciIsImlhdCI6MTY1NjE2ODMzOSwiZXhwIjoxNjU2MTcxOTM5fQ.Bo6Fl4zyKs2dLKyrSKmkAJGk4xMptlVF34HNzzMeJXE
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksInBzZXVkbyI6IlBpZXJyaWNrMTgiLCJkZXNjcmlwdGlvbiI6bnVsbCwicmlnaHRzIjoidXNlciIsImNyZWF0ZWRfYXQiOiIyMDIyLTA2LTIyVDE4OjIyOjI3LjU1NVoiLCJ1cGRhdGVkX2F0IjpudWxsLCJ0eXBlIjoidXNlciIsImlhdCI6MTY1NjMyMzcyMSwiZXhwIjoxNjU2MzI3MzIxfQ.192ft1Ba83Vwy_yaGkIraE_RBQKcgnGLchcm05KUIyw
 
 ### Test de la route pour update un utilisateur
 PATCH {{ endpoint }}/user
@@ -83,9 +89,9 @@ Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwicHNldWRvIjoi
 }
 
 ### Test de la route pour ajouter un amis
-GET {{ endpoint }}/user/friends/add/4
+GET {{ endpoint }}/user/friends/add/14
 Content-Type:application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzAsInBzZXVkbyI6IkFwb2xsaW5lNDciLCJkZXNjcmlwdGlvbiI6bnVsbCwicmlnaHRzIjoidXNlciIsImNyZWF0ZWRfYXQiOiIyMDIyLTA2LTIyVDE4OjIyOjI3LjU2MFoiLCJ1cGRhdGVkX2F0IjpudWxsLCJ0eXBlIjoidXNlciIsImlhdCI6MTY1NjE2ODMzOSwiZXhwIjoxNjU2MTcxOTM5fQ.Bo6Fl4zyKs2dLKyrSKmkAJGk4xMptlVF34HNzzMeJXE
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjksInBzZXVkbyI6Ik5vcm1hbmQxNiIsImRlc2NyaXB0aW9uIjpudWxsLCJyaWdodHMiOiJ1c2VyIiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjJUMTQ6MTA6NDcuMjczWiIsInVwZGF0ZWRfYXQiOm51bGwsInR5cGUiOiJ1c2VyIiwiaWF0IjoxNjU2MzE5NjI4LCJleHAiOjE2NTYzMjMyMjh9.e0UEHew-AqiWkmyXW_viV8C37ycf_GLbqNmJ092mRxY
 
 ### Test de la route pour supprimer un amis
 DELETE {{ endpoint }}/user/friends/delete/11
@@ -102,7 +108,7 @@ GET {{ endpoint }}/post
 ### Test de la route pour créer un nouveau post
 POST {{ endpoint }}/post/create
 Content-Type:application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzAsInBzZXVkbyI6IkFwb2xsaW5lNDciLCJkZXNjcmlwdGlvbiI6bnVsbCwicmlnaHRzIjoidXNlciIsImNyZWF0ZWRfYXQiOiIyMDIyLTA2LTIyVDE4OjIyOjI3LjU2MFoiLCJ1cGRhdGVkX2F0IjpudWxsLCJ0eXBlIjoidXNlciIsImlhdCI6MTY1NjMxNTM5NywiZXhwIjoxNjU2MzE4OTk3fQ.s2TKUqYiUEMQ8_JoiFglJXuz7PhG46buPY17kGy1EOA
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzcsInBzZXVkbyI6IkbDqWxpY2l0w6k5MyIsImRlc2NyaXB0aW9uIjpudWxsLCJyaWdodHMiOiJ1c2VyIiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjJUMTg6MjI6MjcuNTY0WiIsInVwZGF0ZWRfYXQiOm51bGwsInR5cGUiOiJ1c2VyIiwiaWF0IjoxNjU2MzI0NzU4LCJleHAiOjE2NTYzMjgzNTh9.IJylkCgCx3tNOSGlc01gMJGpQhzYh-nQHqgDPmq_arA
 
 {
    "content": "Le fonctionnement du composteur est assez simple. Le compost se forme par l'action de micro-organismes et par un processus de fermentation. Sans oxygène et sans eau, aucune forme de vie n'est possible. Quand le compost Est-il mûr ? Au bout de 8 à 12 mois en moyenne, lorsque les déchets se sont transformés en une terre grumeleuse, friable, brun foncé, le compost est prêt à être utilisé. C'est le compost mûr, ressemblant au terreau et dégageant une odeur de sous-bois, qui contient un effet amendant et fertilisant.",
@@ -120,20 +126,20 @@ Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwicHNldWRvIjoi
 ### Test de la route pour afficher un post
 GET {{ endpoint }}/post/1013
 Content-Type:application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwicHNldWRvIjoiQmV1dmU4MCIsImRlc2NyaXB0aW9uIjpudWxsLCJyaWdodHMiOiJ1c2VyIiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjJUMTg6MjI6MjcuNTI1WiIsInVwZGF0ZWRfYXQiOm51bGwsInR5cGUiOiJ1c2VyIiwiaWF0IjoxNjU2MDgxMDU2LCJleHAiOjE2NTYwODQ2NTZ9.vRbLIc7c6-T-Zi5LlEKkDv-Lh-sY7EFMGCEpOU7LbIQ
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksIm5hbWUiOiJ0ZXN0IiwicmVnaW9uIjoiRWxzYXNzIiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjdUMDc6MjM6NTAuMjc1WiIsInVwZGF0ZWRfYXQiOm51bGwsInR5cGUiOiJlY292aWxsYWdlIiwiaWF0IjoxNjU2MzE2NTQxLCJleHAiOjE2NTYzMjAxNDF9.NRVH_C4eOEB7Lfc41baCouj2n3cMQ_ko4L_zcZjZ5wU
 
 ### Test de la route pour afficher tout les tuto
 GET {{ endpoint }}/post/tuto
 
-///////////////////////////////////////////////////////
-///////////////////   ECO VILLAGE   ///////////////////
+//////////////////////////////////////////////////////
+///////////////////   ECO VILLAGE   //////////////////
 //////////////////////////////////////////////////////
 
 ### Test de la route pour récupérer tout les eco village
 GET {{ endpoint }}/ecovillage
 
 ### Test de la route pour récupérer un eco village
-GET {{ endpoint }}/ecovillage/3
+GET {{ endpoint }}/ecovillage/19
 Content-Type:application/json
 Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsIm5hbWUiOiJFY292aWxsYWdlIFNhaW50ZSBDYW1lbGxlIiwicmVnaW9uIjoiT2NjaXRhbmllIiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjRUMDg6MTk6NDYuNzYyWiIsInVwZGF0ZWRfYXQiOiIyMDIyLTA2LTI0VDA4OjI0OjQ2LjA3M1oiLCJ0eXBlIjoiZWNvdmlsbGFnZSIsImlhdCI6MTY1NjA4NDA4OCwiZXhwIjoxNjU2MDg3Njg4fQ.2sch8Her6k4gQU-OAqwlbNJKwhsoLQ1q2PHKeK-I0U0
 
@@ -160,7 +166,7 @@ Content-Type:application/json
 ### Test de la route pour supprimer un eco village
 DELETE {{ endpoint }}/ecovillage/1
 Content-Type:application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IkVjb3ZpbCBjaXR5IiwicmVnaW9uIjoiQWJvdSBEYWJpIiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjRUMTQ6NTI6MjcuODI3WiIsInVwZGF0ZWRfYXQiOiIyMDIyLTA2LTI0VDE0OjUzOjAwLjk3MFoiLCJ0eXBlIjoiZWNvdmlsbGFnZSIsImlhdCI6MTY1NjE1OTE4MiwiZXhwIjoxNjU2MTYyNzgyfQ.Aq91re2rQuelhIPyEN45L_1BuQJ_72Ctmn-1h6ryQ80
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksIm5hbWUiOiJ0ZXN0IiwicmVnaW9uIjoiRWxzYXNzIiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjdUMDc6MjM6NTAuMjc1WiIsInVwZGF0ZWRfYXQiOm51bGwsInR5cGUiOiJlY292aWxsYWdlIiwiaWF0IjoxNjU2MzE2NTQxLCJleHAiOjE2NTYzMjAxNDF9.NRVH_C4eOEB7Lfc41baCouj2n3cMQ_ko4L_zcZjZ5wU
 
 ### Test de la route pour modifier un éco village
 PATCH {{ endpoint }}/ecovillage/

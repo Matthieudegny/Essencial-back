@@ -178,7 +178,7 @@ const userController = {
         }
 
         const posts = await userDatamapper.findAllPostsWithPhoto(userId)
-
+        
         return res.json(posts)
     },
 
@@ -195,9 +195,8 @@ const userController = {
         if((userId != jwtUserId) || (jwtType !== "user")){
             return res.json({"message":"you can't find friend's posts that is not yours"})
         }
-
         const allFriends = await userDatamapper.findAllFriends(userId)
-
+        console.log(allFriends);
         if(!allFriends){
             return res.json({"message":`User with id ${userId} don't have any friend`})
         }
@@ -209,7 +208,7 @@ const userController = {
         })
 
         const result = await userDatamapper.findAllFriendsPostWithPhoto(friendsId)
-
+        console.log("result from controller --->" , result);
         return res.json(result)
     },
 

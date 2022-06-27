@@ -151,7 +151,9 @@ class User extends CoreDatamapper {
 
         const preparedQuery = {
             text: `
-            SELECT "user".email,
+            SELECT 
+            "user".id,
+            "user".email,
             "user".first_name,
             "user".last_name,
             "user".pseudo,
@@ -171,7 +173,9 @@ class User extends CoreDatamapper {
                     WHERE "user_id" = $1 
                 )
             UNION
-            SELECT "user".email,
+            SELECT 
+            "user".id,
+            "user".email,
             "user".first_name,
             "user".last_name,
             "user".pseudo,
@@ -196,18 +200,18 @@ class User extends CoreDatamapper {
 
         let result = await client.query(preparedQuery)
 
-        if(result.rowCount > 1){
-            result = result.rows
-        }else{
-            result = result.rows[0]
-        }
-        return result
+        return result.rows
     }
 
     async findAllPostsWithPhoto(userId) {
         const preparedQuery = {
             text:`
-            SELECT post.id, post.user_id, post.title, post.content FROM "post"
+            SELECT "post".id AS post_id,
+                   "post".user_id AS author_id, 
+                   "post".title AS post_title, 
+                   "post".content AS post_content,
+                   "photo".path AS photo_path
+                   FROM "post"
             JOIN "photo" ON photo."user_id" = "post".user_id
             WHERE "post"."user_id" = $1`,
             values: [userId]
@@ -239,13 +243,19 @@ class User extends CoreDatamapper {
         }
 
         const preparedQuery = {
-            text: `SELECT "post".*, photo.path FROM "post"
+            text: `SELECT "post".id AS post_id,
+                    "post".user_id AS author_id, 
+                    "post".title AS post_title, 
+                    "post".content AS post_content,
+                    "photo".path AS photo_path
+                    FROM "post"
                     JOIN "photo" ON "photo"."post_id" = "post"."id"
-                    WHERE "post"."user_id" IN (${indexPlaceholders})`, values: friendsId
+                    WHERE "post"."user_id" IN (${indexPlaceholders})`,
+                    values: friendsId
                 } 
                 
         let result = await this.client.query(preparedQuery)
-
+        console.log("result.rows datamapper --->",result);
 
         if(result.rowCount > 1){
             result = result.rows
