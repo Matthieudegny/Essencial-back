@@ -175,10 +175,17 @@ class Post extends CoreDatamapper {
     async findAllTuto(){
         // l'id 1 dans la table category correspond à tuto
         const preparedQuery = {
-            text: `SELECT * FROM "post" 
-            WHERE "id" IN (
-            SELECT post_id FROM "post_has_category" WHERE category_id = $1
-            )`,
+            text: `SELECT "post".id AS post_id,
+                          "post".user_id AS author_id,
+                          "post".content AS post_content,
+                          "post".title AS post_title,
+                          "photo".id AS photo_id,
+                          "photo".path AS photo_path 
+                          FROM "post" 
+                    JOIN "photo" ON "photo"."post_id" = "post".id
+                    WHERE "post"."id" IN (
+                    SELECT post_id FROM "post_has_category" WHERE category_id = $1
+                    )`,
             values: [1]
         }
         const result = await this.client.query(preparedQuery)

@@ -4,8 +4,8 @@
 # https://marketplace.visualstudio.com/items?itemName=humao.rest-client
 ################################################################################
 
-#@endpoint = http://localhost:3000/api
-@endpoint = https://essencial-api.herokuapp.com/api
+@endpoint = http://localhost:3000/api
+#@endpoint = https://essencial-api.herokuapp.com/api
 
 ### Test d'une route introuvable
 GET {{ endpoint }}/ujnlkcsdcs
@@ -19,7 +19,7 @@ POST {{ endpoint }}/connexion
 Content-Type:application/json
 
 {
-    "email": "accueil@ecolectif.com",
+    "email": "Apolline1@gmail.com",
     "password": "test"
 }
 
@@ -53,9 +53,9 @@ Content-Type:application/json
 }
 
 ### Test de la route pour supprimer un utilisateur
-DELETE {{ endpoint }}/user/1
+DELETE {{ endpoint }}/user/2
 Content-Type:application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsInBzZXVkbyI6IkFybWFuY2UyNCIsInJpZ2h0cyI6InVzZXIiLCJjcmVhdGVkX2F0IjoiMjAyMi0wNi0yMFQxOTo0MjowNC43MDhaIiwidXBkYXRlZF9hdCI6bnVsbCwidHlwZSI6InVzZXIiLCJpYXQiOjE2NTU4MDYwMDAsImV4cCI6MTY1NTgwNzgwMH0.3Jq9CN5s9sNfhSvbdRmGv3v_s44iJxw1JigDfQaySmU
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwicHNldWRvIjoiQmV1dmU4MCIsImRlc2NyaXB0aW9uIjpudWxsLCJyaWdodHMiOiJ1c2VyIiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjJUMTg6MjI6MjcuNTI1WiIsInVwZGF0ZWRfYXQiOm51bGwsInR5cGUiOiJ1c2VyIiwiaWF0IjoxNjU2MTU5MDAyLCJleHAiOjE2NTYxNjI2MDJ9.v_DyZq0GbbFurvM6f24sy7WmoM2D9mSID9SS0ANKa0k
 
 ### Test de la route pour récupérer tout les amis d'un utilisateur
 GET {{ endpoint }}/user/friends/1
@@ -67,10 +67,10 @@ GET {{ endpoint }}/user/posts/120
 Content-Type:application/json
 Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsInBzZXVkbyI6IkFybWFuY2UyNCIsInJpZ2h0cyI6InVzZXIiLCJjcmVhdGVkX2F0IjoiMjAyMi0wNi0yMFQxOTo0MjowNC43MDhaIiwidXBkYXRlZF9hdCI6bnVsbCwidHlwZSI6InVzZXIiLCJpYXQiOjE2NTU4MDYxNjIsImV4cCI6MTY1NTgwNzk2Mn0.vAtRy0_MmbYULr3T40tLgETcnAhQ-cvFMJsEBDU68sI
 
-### Test de la route pour afficher tout les posts de tout les amis d'un utilisateurs
-GET {{ endpoint }}/user/friends/posts/120
+### Test de la route pour afficher tout les posts de tout les amis d'un utilisateur
+GET {{ endpoint }}/user/friends/posts/30
 Content-Type:application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsInBzZXVkbyI6IkFybWFuY2UyNCIsInJpZ2h0cyI6InVzZXIiLCJjcmVhdGVkX2F0IjoiMjAyMi0wNi0yMFQxOTo0MjowNC43MDhaIiwidXBkYXRlZF9hdCI6bnVsbCwidHlwZSI6InVzZXIiLCJpYXQiOjE2NTU4MDYxNjIsImV4cCI6MTY1NTgwNzk2Mn0.vAtRy0_MmbYULr3T40tLgETcnAhQ-cvFMJsEBDU68sI
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzAsInBzZXVkbyI6IkFwb2xsaW5lNDciLCJkZXNjcmlwdGlvbiI6bnVsbCwicmlnaHRzIjoidXNlciIsImNyZWF0ZWRfYXQiOiIyMDIyLTA2LTIyVDE4OjIyOjI3LjU2MFoiLCJ1cGRhdGVkX2F0IjpudWxsLCJ0eXBlIjoidXNlciIsImlhdCI6MTY1NjE2ODMzOSwiZXhwIjoxNjU2MTcxOTM5fQ.Bo6Fl4zyKs2dLKyrSKmkAJGk4xMptlVF34HNzzMeJXE
 
 ### Test de la route pour update un utilisateur
 PATCH {{ endpoint }}/user
@@ -83,9 +83,9 @@ Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwicHNldWRvIjoi
 }
 
 ### Test de la route pour ajouter un amis
-GET {{ endpoint }}/user/friends/add/14
+GET {{ endpoint }}/user/friends/add/4
 Content-Type:application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicHNldWRvIjoiQXVyw6hsZTIxIiwiZGVzY3JpcHRpb24iOiJib25qb3VyIG1vaSBjJ2VzdCBSb2JlcnQiLCJyaWdodHMiOiJ1c2VyIiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjJUMTg6MjI6MjcuNTE0WiIsInVwZGF0ZWRfYXQiOiIyMDIyLTA2LTIzVDExOjI4OjUzLjMwNloiLCJ0eXBlIjoidXNlciIsImlhdCI6MTY1NTk4NTk2OCwiZXhwIjoxNjU1OTg5NTY4fQ.1FWBwk4uIROirW_dQEFjZ5v7YSYeQ8N2ZBcOljf61x8
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzAsInBzZXVkbyI6IkFwb2xsaW5lNDciLCJkZXNjcmlwdGlvbiI6bnVsbCwicmlnaHRzIjoidXNlciIsImNyZWF0ZWRfYXQiOiIyMDIyLTA2LTIyVDE4OjIyOjI3LjU2MFoiLCJ1cGRhdGVkX2F0IjpudWxsLCJ0eXBlIjoidXNlciIsImlhdCI6MTY1NjE2ODMzOSwiZXhwIjoxNjU2MTcxOTM5fQ.Bo6Fl4zyKs2dLKyrSKmkAJGk4xMptlVF34HNzzMeJXE
 
 ### Test de la route pour supprimer un amis
 DELETE {{ endpoint }}/user/friends/delete/11
@@ -102,14 +102,14 @@ GET {{ endpoint }}/post
 ### Test de la route pour créer un nouveau post
 POST {{ endpoint }}/post/create
 Content-Type:application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwicHNldWRvIjoiQmV1dmU4MCIsImRlc2NyaXB0aW9uIjpudWxsLCJyaWdodHMiOiJ1c2VyIiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjJUMTg6MjI6MjcuNTI1WiIsInVwZGF0ZWRfYXQiOm51bGwsInR5cGUiOiJ1c2VyIiwiaWF0IjoxNjU2MDczMzY0LCJleHAiOjE2NTYwNzY5NjR9.es_eht1mYy-vg-ouySGVnoVOJ-kztc51zg-u0Ek0Zms
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzAsInBzZXVkbyI6IkFwb2xsaW5lNDciLCJkZXNjcmlwdGlvbiI6bnVsbCwicmlnaHRzIjoidXNlciIsImNyZWF0ZWRfYXQiOiIyMDIyLTA2LTIyVDE4OjIyOjI3LjU2MFoiLCJ1cGRhdGVkX2F0IjpudWxsLCJ0eXBlIjoidXNlciIsImlhdCI6MTY1NjMxNTM5NywiZXhwIjoxNjU2MzE4OTk3fQ.s2TKUqYiUEMQ8_JoiFglJXuz7PhG46buPY17kGy1EOA
 
 {
    "content": "Le fonctionnement du composteur est assez simple. Le compost se forme par l'action de micro-organismes et par un processus de fermentation. Sans oxygène et sans eau, aucune forme de vie n'est possible. Quand le compost Est-il mûr ? Au bout de 8 à 12 mois en moyenne, lorsque les déchets se sont transformés en une terre grumeleuse, friable, brun foncé, le compost est prêt à être utilisé. C'est le compost mûr, ressemblant au terreau et dégageant une odeur de sous-bois, qui contient un effet amendant et fertilisant.",
    "title": "Comment fonctionne un bac à compost ?" ,
    "path": "https://trucmania.ouest-france.fr/wp-content/uploads/2020/09/bac-a-compost-en-palettes-%C2%A9-Nature-et-construction.jpg",
    "category_1": "Potager",
-   "category_2": "Gestion des déchêts"
+   "category_2": "Tutoriel"
 }
 
 ### Test de la route pour supprimer un post
@@ -158,9 +158,9 @@ Content-Type:application/json
 }
 
 ### Test de la route pour supprimer un eco village
-DELETE {{ endpoint }}/ecovillage/7
+DELETE {{ endpoint }}/ecovillage/1
 Content-Type:application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywibmFtZSI6InRlc3QiLCJyZWdpb24iOm51bGwsImNyZWF0ZWRfYXQiOiIyMDIyLTA2LTIxVDE4OjEzOjUyLjc1MloiLCJ1cGRhdGVkX2F0IjpudWxsLCJ0eXBlIjoiZWNvdmlsbGFnZSIsImlhdCI6MTY1NTgzNTI3OSwiZXhwIjoxNjU1ODM3MDc5fQ.k0vwodk1NImuVNUeCsoDEc6TYGVNPLwezGDr1sxL2KE
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IkVjb3ZpbCBjaXR5IiwicmVnaW9uIjoiQWJvdSBEYWJpIiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjRUMTQ6NTI6MjcuODI3WiIsInVwZGF0ZWRfYXQiOiIyMDIyLTA2LTI0VDE0OjUzOjAwLjk3MFoiLCJ0eXBlIjoiZWNvdmlsbGFnZSIsImlhdCI6MTY1NjE1OTE4MiwiZXhwIjoxNjU2MTYyNzgyfQ.Aq91re2rQuelhIPyEN45L_1BuQJ_72Ctmn-1h6ryQ80
 
 ### Test de la route pour modifier un éco village
 PATCH {{ endpoint }}/ecovillage/
