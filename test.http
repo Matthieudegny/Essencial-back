@@ -4,8 +4,8 @@
 # https://marketplace.visualstudio.com/items?itemName=humao.rest-client
 ################################################################################
 
-@endpoint = http://localhost:3000/api
-#@endpoint = https://essencial-api.herokuapp.com/api
+#@endpoint = http://localhost:3000/api
+@endpoint = https://essencial-api.herokuapp.com/api
 
 ### Test d'une route introuvable
 GET {{ endpoint }}/ujnlkcsdcs
@@ -19,7 +19,7 @@ POST {{ endpoint }}/connexion
 Content-Type:application/json
 
 {
-    "email": "Apolline1@gmail.com",
+    "email": "Tiphaine_Fontaine3@hotmail.fr",
     "password": "test"
 }
 
@@ -99,10 +99,9 @@ Content-Type:application/json
 Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicHNldWRvIjoiQXVyw6hsZTIxIiwiZGVzY3JpcHRpb24iOm51bGwsInJpZ2h0cyI6InVzZXIiLCJjcmVhdGVkX2F0IjoiMjAyMi0wNi0yMlQxODoyMjoyNy41MTRaIiwidXBkYXRlZF9hdCI6bnVsbCwidHlwZSI6InVzZXIiLCJpYXQiOjE2NTU5ODM2NDQsImV4cCI6MTY1NTk4NzI0NH0.WyrhWA8P54e5fMbwt57BHczKFxINrtj1tiPe5VIwdZQ
 
 ### Test de la route pour afficher tout les utilisateurs qui ne sont pas dans la liste d'amis
-
-GET {{ endpoint }}/members/29
+GET {{ endpoint }}/user/members/36
 Content-Type:application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjksInBzZXVkbyI6Ik5vcm1hbmQxNiIsImRlc2NyaXB0aW9uIjpudWxsLCJyaWdodHMiOiJ1c2VyIiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjJUMTQ6MTA6NDcuMjczWiIsInVwZGF0ZWRfYXQiOm51bGwsInR5cGUiOiJ1c2VyIiwiaWF0IjoxNjU2MzMyOTI4LCJleHAiOjE2NTYzMzY1Mjh9.gFCUfCPYvwYnuLnOp43sDo9dFVSEom82u8m_VLQHn_U
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzYsInBzZXVkbyI6IlRpcGhhaW5lNzkiLCJkZXNjcmlwdGlvbiI6bnVsbCwicmlnaHRzIjoidXNlciIsImNyZWF0ZWRfYXQiOiIyMDIyLTA2LTIyVDE0OjEwOjQ3LjQ1OVoiLCJ1cGRhdGVkX2F0IjoiMjAyMi0wNi0yN1QxMjo0MzowOS4xMjVaIiwidHlwZSI6InVzZXIiLCJpYXQiOjE2NTYzMzQ2ODksImV4cCI6MTY1NjMzODI4OX0.p-OYyPgvPByJhQiY1C1_TJA8V7ZvNiRuq2O5xfjvrt8
 
 ////////////////////////////////////////////////
 ///////////////////   POST   //////////////////

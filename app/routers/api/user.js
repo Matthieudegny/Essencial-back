@@ -90,11 +90,22 @@ router.route('/friends/:id(\\d+)')
 * GET /api/user/friends/{id}
 * @summary To get all user's friends
 * @tags User
-* @param {number} id.path.required - user's id
+* @param {number} id.path.required - user id
 * @return {object} 200 - success response
 * @return {object} 400 - input data invalid
 */
 .get(checkAuth,userController.getAllFriends) 
+
+router.route('/members/:id(\\d+)') 
+/**
+* GET /api/user/members/{id}
+* @summary To get all user's that is not friend
+* @tags User
+* @param {number} id.path.required - user id
+* @return {object} 200 - success response
+* @return {object} 400 - input data invalid
+*/
+.get(checkAuth,userController.getAllNotFriends) 
 
 router.route('/friends/posts/:id(\\d+)') 
 /**

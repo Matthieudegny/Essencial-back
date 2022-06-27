@@ -165,7 +165,6 @@ const userController = {
 
     async getAllNotFriends(req, res) {
         const userId = req.params.id
-
         let token = req.headers['authorization']; 
         token = token.slice(4,token.length);
         
