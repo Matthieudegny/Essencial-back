@@ -256,6 +256,11 @@ class User extends CoreDatamapper {
 
         let result = await client.query(preparedQuery)
 
+        const indexOfUser = result.rows.findIndex(object => {
+            return object.id == userId;
+          });
+
+        result.rows.splice(indexOfUser, 1);
         return result.rows
     }
 

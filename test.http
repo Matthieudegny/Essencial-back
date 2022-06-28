@@ -19,7 +19,7 @@ POST {{ endpoint }}/connexion
 Content-Type:application/json
 
 {
-    "email": "ginette@laposte.net",
+    "email": "Apolline1@gmail.com",
     "password": "test"
 }
 
@@ -85,8 +85,7 @@ Content-Type:application/json
 Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NjcsInBzZXVkbyI6Ilppem91NzUiLCJkZXNjcmlwdGlvbiI6bnVsbCwicmlnaHRzIjoidXNlciIsImNyZWF0ZWRfYXQiOiIyMDIyLTA2LTI3VDEzOjM0OjM1LjI1MFoiLCJ1cGRhdGVkX2F0IjpudWxsLCJ0eXBlIjoidXNlciIsImlhdCI6MTY1NjMzODA5NSwiZXhwIjoxNjU2MzQxNjk1fQ.uxQcRd28V3nzTPLH2U8BjAedXqb-CtC9jGc6lDhsjYQ
 
 {
-    "path": "https://lh3.googleusercontent.com/DB1gfa7O6oCkJdUXMpP9JG7Py4DzowE5LNQv2VW-0zOaDnFwqB6i1XTXIPG6MwJx36t2ORdTyUtSsVJbCYHu3Ks=w750-h500-p-e365",
-    "first_name": "Zinédine"
+    "pseudo": "chetDu94"
 }
 
 ### Test de la route pour ajouter un amis
@@ -100,9 +99,9 @@ Content-Type:application/json
 Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicHNldWRvIjoiQXVyw6hsZTIxIiwiZGVzY3JpcHRpb24iOm51bGwsInJpZ2h0cyI6InVzZXIiLCJjcmVhdGVkX2F0IjoiMjAyMi0wNi0yMlQxODoyMjoyNy41MTRaIiwidXBkYXRlZF9hdCI6bnVsbCwidHlwZSI6InVzZXIiLCJpYXQiOjE2NTU5ODM2NDQsImV4cCI6MTY1NTk4NzI0NH0.WyrhWA8P54e5fMbwt57BHczKFxINrtj1tiPe5VIwdZQ
 
 ### Test de la route pour afficher tout les utilisateurs qui ne sont pas dans la liste d'amis
-GET {{ endpoint }}/user/members/36
+GET {{ endpoint }}/user/members/30
 Content-Type:application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzYsInBzZXVkbyI6IlRpcGhhaW5lNzkiLCJkZXNjcmlwdGlvbiI6bnVsbCwicmlnaHRzIjoidXNlciIsImNyZWF0ZWRfYXQiOiIyMDIyLTA2LTIyVDE0OjEwOjQ3LjQ1OVoiLCJ1cGRhdGVkX2F0IjoiMjAyMi0wNi0yN1QxMjo0MzowOS4xMjVaIiwidHlwZSI6InVzZXIiLCJpYXQiOjE2NTYzMzQ2ODksImV4cCI6MTY1NjMzODI4OX0.p-OYyPgvPByJhQiY1C1_TJA8V7ZvNiRuq2O5xfjvrt8
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzAsInBzZXVkbyI6IkFwb2xsaW5lNDciLCJkZXNjcmlwdGlvbiI6bnVsbCwicmlnaHRzIjoidXNlciIsImNyZWF0ZWRfYXQiOiIyMDIyLTA2LTIyVDE4OjIyOjI3LjU2MFoiLCJ1cGRhdGVkX2F0IjpudWxsLCJ0eXBlIjoidXNlciIsImlhdCI6MTY1NjQ0OTYxOSwiZXhwIjoxNjU2NDUzMjE5fQ.Ubpw6yxygyMwvfPFE_JexcWwYGCInIdNTb9XEyTCIhw
 
 ////////////////////////////////////////////////
 ///////////////////   POST   //////////////////
