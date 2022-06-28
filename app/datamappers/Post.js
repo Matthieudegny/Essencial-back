@@ -182,9 +182,11 @@ class Post extends CoreDatamapper {
                           "post".content AS post_content,
                           "post".title AS post_title,
                           "photo".id AS photo_id,
-                          "photo".path AS photo_path 
+                          "photo".path AS photo_path,
+                          "user"."pseudo" AS author_pseudo 
                           FROM "post" 
                     JOIN "photo" ON "photo"."post_id" = "post".id
+                    JOIN "user" ON "post"."user_id" = "user".id
                     WHERE "post"."id" IN (
                     SELECT post_id FROM "post_has_category" WHERE category_id = $1
                     )`,
