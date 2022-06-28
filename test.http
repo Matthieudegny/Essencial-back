@@ -4,8 +4,8 @@
 # https://marketplace.visualstudio.com/items?itemName=humao.rest-client
 ################################################################################
 
-#@endpoint = http://localhost:3000/api
-@endpoint = https://essencial-api.herokuapp.com/api
+@endpoint = http://localhost:3000/api
+#@endpoint = https://essencial-api.herokuapp.com/api
 
 ### Test d'une route introuvable
 GET {{ endpoint }}/ujnlkcsdcs
@@ -19,7 +19,7 @@ POST {{ endpoint }}/connexion
 Content-Type:application/json
 
 {
-    "email": "Tiphaine_Fontaine3@hotmail.fr",
+    "email": "ginette@laposte.net",
     "password": "test"
 }
 
@@ -33,29 +33,30 @@ Content-Type:application/json
 ### Test de la route pour récupérer tous les utilisateurs (avec leurs photos)
 GET {{ endpoint }}/user
 Content-Type:application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6InRlc3QiLCJyZWdpb24iOm51bGwsImNyZWF0ZWRfYXQiOiIyMDIyLTA2LTIyVDEwOjQwOjMxLjU1NFoiLCJ1cGRhdGVkX2F0IjpudWxsLCJ0eXBlIjoiZWNvdmlsbGFnZSIsImlhdCI6MTY1NTkwMTgxNywiZXhwIjoxNjU1OTA1NDE3fQ.QJhAyrBOMsy0pEGXl16gQruT1SoDFJB55kw2Cr_XnP4
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDAsInBzZXVkbyI6IkjDqWzDqG5lMTgiLCJkZXNjcmlwdGlvbiI6bnVsbCwicmlnaHRzIjoidXNlciIsImNyZWF0ZWRfYXQiOiIyMDIyLTA2LTIyVDE0OjEwOjQ3LjU3M1oiLCJ1cGRhdGVkX2F0IjpudWxsLCJ0eXBlIjoidXNlciIsImlhdCI6MTY1NjQwMzk3MiwiZXhwIjoxNjU2NDA3NTcyfQ.K5_KRBrsBDzioNi7m0IMwA0-Qe41g_zEw8BJ4h15buA
 
 ### Test de la route pour récupérer un utilisateur et sa photo
-GET {{ endpoint }}/user/966
+GET {{ endpoint }}/user/40
 Content-Type:application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsIm5hbWUiOiJFY292aWxsYWdlIFNhaW50ZSBDYW1lbGxlIiwicmVnaW9uIjoiT2NjaXRhbmllIiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjRUMDg6MTk6NDYuNzYyWiIsInVwZGF0ZWRfYXQiOiIyMDIyLTA2LTI0VDA4OjI0OjQ2LjA3M1oiLCJ0eXBlIjoiZWNvdmlsbGFnZSIsImlhdCI6MTY1NjA4ODM4NiwiZXhwIjoxNjU2MDkxOTg2fQ.duHyfPKcIhcGdEMpHKshGAXe21iGkqBfpgPR2mdKp1k
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjksInBzZXVkbyI6Ik5vcm1hbmQxNiIsImRlc2NyaXB0aW9uIjpudWxsLCJyaWdodHMiOiJ1c2VyIiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjJUMTQ6MTA6NDcuMjczWiIsInVwZGF0ZWRfYXQiOm51bGwsInR5cGUiOiJ1c2VyIiwiaWF0IjoxNjU2MzM4NDM1LCJleHAiOjE2NTYzNDIwMzV9.HZf4xxkUzBg2TRMbRkQuINWCIvHUDgucTLWZKspGeWE
 
 ### Test de la route pour ajouter un nouvel utilisateur
 POST {{ endpoint }}/user/create
 Content-Type:application/json
 
 {
-    "email": "tni@yahoo.org",
-    "first_name": "Tony",
-    "last_name": "Williams",
-    "pseudo": "drum1",
+    "email": "jc76@gmail.com",
+    "first_name": "Jesus",
+    "last_name": "Christ",
+    "pseudo": "JCdu77",
     "date_of_birth": "2021-10-29T02:58:12.923Z",
     "password": "test",
-    "phone_number": "0677777777",
-    "address": "77 rue du test",
-    "zip_code": "75829",
-    "city": "Paris",
-    "path": "https://images.sk-static.com/images/media/profile_images/artists/517366/huge_avatar"
+    "phone_number": "0688739170",
+    "region": "Haut de france",
+    "address": "29 impasse de l'envolé",
+    "zip_code": "59760",
+    "city": "Roubaix",
+    "path": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Christ%2C_by_Heinrich_Hofmann.jpg/200px-Christ%2C_by_Heinrich_Hofmann.jpg"
 }
 
 ### Test de la route pour supprimer un utilisateur
@@ -64,9 +65,9 @@ Content-Type:application/json
 Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwicHNldWRvIjoiQmV1dmU4MCIsImRlc2NyaXB0aW9uIjpudWxsLCJyaWdodHMiOiJ1c2VyIiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjJUMTg6MjI6MjcuNTI1WiIsInVwZGF0ZWRfYXQiOm51bGwsInR5cGUiOiJ1c2VyIiwiaWF0IjoxNjU2MTU5MDAyLCJleHAiOjE2NTYxNjI2MDJ9.v_DyZq0GbbFurvM6f24sy7WmoM2D9mSID9SS0ANKa0k
 
 ### Test de la route pour récupérer tout les amis d'un utilisateur
-GET {{ endpoint }}/user/friends/29
+GET {{ endpoint }}/user/friends/40
 Content-Type:application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjksInBzZXVkbyI6Ik5vcm1hbmQxNiIsImRlc2NyaXB0aW9uIjpudWxsLCJyaWdodHMiOiJ1c2VyIiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjJUMTQ6MTA6NDcuMjczWiIsInVwZGF0ZWRfYXQiOm51bGwsInR5cGUiOiJ1c2VyIiwiaWF0IjoxNjU2MzMxNTIwLCJleHAiOjE2NTYzMzUxMjB9.xyPg5m5Gi4NyzozDeY0dxAahXZVejaDmS9ud6Hfaen8
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDAsInBzZXVkbyI6IkjDqWzDqG5lMTgiLCJkZXNjcmlwdGlvbiI6bnVsbCwicmlnaHRzIjoidXNlciIsImNyZWF0ZWRfYXQiOiIyMDIyLTA2LTIyVDE0OjEwOjQ3LjU3M1oiLCJ1cGRhdGVkX2F0IjpudWxsLCJ0eXBlIjoidXNlciIsImlhdCI6MTY1NjMzODQ2NSwiZXhwIjoxNjU2MzQyMDY1fQ.Yt_gXm_BWirROqxedZeRDQ5X-xlvyCLpszwd4OV1_X4
 
 ### Test de la route pour récupérer tout les posts d'un utilisateur
 GET {{ endpoint }}/user/posts/37
@@ -81,11 +82,11 @@ Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjksInBzZXVkbyI6
 ### Test de la route pour update un utilisateur
 PATCH {{ endpoint }}/user
 Content-Type:application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwicHNldWRvIjoiTWF0dGhpYXM2OSIsImRlc2NyaXB0aW9uIjpudWxsLCJyaWdodHMiOiJ1c2VyIiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjJUMTQ6MTA6NDYuNzI4WiIsInVwZGF0ZWRfYXQiOm51bGwsInR5cGUiOiJ1c2VyIiwiaWF0IjoxNjU1OTk2NDc5LCJleHAiOjE2NTYwMDAwNzl9.P3rLCAOyio2Hs9Cbc43EzMhw0KZi4RCZJZpxpxHt4jQ
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NjcsInBzZXVkbyI6Ilppem91NzUiLCJkZXNjcmlwdGlvbiI6bnVsbCwicmlnaHRzIjoidXNlciIsImNyZWF0ZWRfYXQiOiIyMDIyLTA2LTI3VDEzOjM0OjM1LjI1MFoiLCJ1cGRhdGVkX2F0IjpudWxsLCJ0eXBlIjoidXNlciIsImlhdCI6MTY1NjMzODA5NSwiZXhwIjoxNjU2MzQxNjk1fQ.uxQcRd28V3nzTPLH2U8BjAedXqb-CtC9jGc6lDhsjYQ
 
 {
-    "first_name": "Robert",
-    "region": "Tatooine"
+    "path": "https://lh3.googleusercontent.com/DB1gfa7O6oCkJdUXMpP9JG7Py4DzowE5LNQv2VW-0zOaDnFwqB6i1XTXIPG6MwJx36t2ORdTyUtSsVJbCYHu3Ks=w750-h500-p-e365",
+    "first_name": "Zinédine"
 }
 
 ### Test de la route pour ajouter un amis
@@ -169,9 +170,9 @@ Content-Type:application/json
 }
 
 ### Test de la route pour supprimer un eco village
-DELETE {{ endpoint }}/ecovillage/1
+DELETE {{ endpoint }}/ecovillage/19
 Content-Type:application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksIm5hbWUiOiJ0ZXN0IiwicmVnaW9uIjoiRWxzYXNzIiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjdUMDc6MjM6NTAuMjc1WiIsInVwZGF0ZWRfYXQiOm51bGwsInR5cGUiOiJlY292aWxsYWdlIiwiaWF0IjoxNjU2MzE2NTQxLCJleHAiOjE2NTYzMjAxNDF9.NRVH_C4eOEB7Lfc41baCouj2n3cMQ_ko4L_zcZjZ5wU
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksIm5hbWUiOiJ0ZXN0IiwicmVnaW9uIjoiRWxzYXNzIiwiY3JlYXRlZF9hdCI6IjIwMjItMDYtMjdUMDc6MjM6NTAuMjc1WiIsInVwZGF0ZWRfYXQiOm51bGwsInR5cGUiOiJlY292aWxsYWdlIiwiaWF0IjoxNjU2NDA1MDc2LCJleHAiOjE2NTY0MDg2NzZ9.sAC9LF3MKSxu37Y_eEKa8AB_Z_SaVgGTjsoc_3QJOjs
 
 ### Test de la route pour modifier un éco village
 PATCH {{ endpoint }}/ecovillage/

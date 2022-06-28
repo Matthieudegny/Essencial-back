@@ -26,12 +26,14 @@ class Post extends CoreDatamapper {
                            "post".title AS post_title,
                            "photo".id AS photo_id,
                            "photo".path AS photo_path,
+                           "user"."pseudo" AS author_pseudo,
                            array_agg(category."name") AS categories_name
                     FROM "post"
                     JOIN "photo" ON "photo"."post_id" = "post".id
                     JOIN "post_has_category" ON "post_has_category"."post_id" = "post".id
                     JOIN "category" ON  post_has_category.category_id = category."id"
-                    GROUP BY post.id , photo.id`
+                    JOIN "user" ON "post"."user_id" = "user".id
+                    GROUP BY post.id , photo.id, "user"."pseudo"`
         }
         const result = await this.client.query(preparedQuery)
         if (!result.rows[0]) {
