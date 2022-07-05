@@ -1,18 +1,20 @@
 # Essencial
 
-<p align="center">
-  <kbd>
-    <img src="./Essencial/src/media/brancheok.jpg"></img>
-  </kbd>
-</p>
-
 &nbsp;
 
-## Technologies Used
+## Technologies used for the back
 
-✔️ REACT\
-✔️ REDUX\
-✔️ SASS\
-✔️ AXIOS\
-✔️ REACT-ROUTER-DOM\
-✔️ JSON WEB TOKEN
+✔️ PG\
+✔️ dotenv\
+✔️ cors\
+✔️ debug\
+✔️ express\
+✔️ express-jsdoc-swagger\
+✔️ joy\
+✔️ JSON WEB TOKEN\
+✔️ swagger\
+✔️ faker-js/faker
+
+## documentation swagger
+
+https://essencial-api.herokuapp.com/
